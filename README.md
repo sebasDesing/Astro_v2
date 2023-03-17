@@ -1,6 +1,6 @@
 # Astro_v2 dosc
 
-#### Para poder que puedas ejecutar la aplicacion deberas tener la API instalada en tu sistem, si aun no la tienes puedes consultar este repositiorio
+#### Para poder que puedas ejecutar la aplicacion deberas tener la API instalada en tu sistem, si aún no la tienes puedes consultar este repositiorio
      https://github.com/Sebastian9751/API_APPSTRO.git
      
 #### Teniendo la API instalada unicamnete deberas cambiar la ip local del tu computadora en la siguiente ruta
