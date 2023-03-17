@@ -13,9 +13,9 @@
 #### Con esto podras ejecutar la aplicacion en tu dispositivo movil sin tener que usar el emulador
 
 ##### Nota:
-      Si tienes problemas con el firewal, desactivalo la primera vez que intentes consumi la API, y actuvali de nuevo, 
-      asi tu dispositivo quedara registrado, al igual asegurate que el dispositivo se encuentra en la misma red local 
-      en la que esta el servidor
+      Si tienes problemas con el firewal, desactivalo la primera vez que intentes consumi la API, y activalo
+      de nuevo, asi tu dispositivo quedara registrado, al igual asegurate que el dispositivo se encuentra en 
+      la misma red local en la que esta el servidor local
 
 ##### En caso de que desees usar el emulador, deberas cambiar la base_url por localhost:3000, con tu puerto asignado al API
 
