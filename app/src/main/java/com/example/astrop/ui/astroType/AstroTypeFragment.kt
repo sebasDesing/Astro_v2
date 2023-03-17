@@ -9,17 +9,18 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.astrop.data.model.AstroTypeModel
 import com.example.astrop.databinding.FragmentAstroTypeBinding
+import com.example.astrop.domain.model.AstroType
 import com.example.astrop.ui.astroType.adapter.AstroTypeAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class AstroTypeFragment : Fragment() {
 
     private var _binding: FragmentAstroTypeBinding? = null
     private val binding get() = _binding!!
     private val viewModel: AstroTypeViewModel by viewModels()
-    private val astroList = mutableListOf<AstroTypeModel>()
+    private val astroList = mutableListOf<AstroType>()
     private lateinit var adapter: AstroTypeAdapter
 
     override fun onCreateView(
@@ -45,7 +46,7 @@ class AstroTypeFragment : Fragment() {
         viewModel.setRecyclerView(astroList, adapter, binding)
     }
 
-    private fun onItemSelect(astro: AstroTypeModel) {
+    private fun onItemSelect(astro: AstroType) {
         Log.i("HiAstro", "$astro")
     }
 }

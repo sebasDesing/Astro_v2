@@ -4,11 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.astrop.R
-import com.example.astrop.data.model.AstroTypeModel
+import com.example.astrop.domain.model.AstroType
 
 class AstroTypeAdapter(
-    private val astroList: List<AstroTypeModel>,
-    private val onClickListener: (AstroTypeModel) -> Unit
+    private val astroList: List<AstroType>,
+    private val onClickListener: (AstroType) -> Unit
 ) : RecyclerView.Adapter<AstroTypeViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AstroTypeViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)

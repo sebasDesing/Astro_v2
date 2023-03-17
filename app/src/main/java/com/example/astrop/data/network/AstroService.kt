@@ -1,13 +1,15 @@
 package com.example.astrop.data.network
 
-import com.example.astrop.core.RetrofitHelper
 import com.example.astrop.data.model.AstroTypeModel
+import javax.inject.Inject
 
-class AstroService {
+class AstroService @Inject constructor(private val apiClient: AstroApiClient) {
 
-    private val rtf = RetrofitHelper.getRetrofit()
-    suspend fun getTypeAstro(): List<AstroTypeModel>? {
-        val res = rtf.create(AstroApiClient::class.java).getAstroTypes()
-        return res.body()
+
+    suspend fun getTypeAstro(): List<AstroTypeModel> {
+        val res = apiClient.getAstroTypes()
+        return res.body() ?: emptyList()
     }
+
+
 }
