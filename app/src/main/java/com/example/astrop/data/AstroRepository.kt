@@ -6,5 +6,5 @@ import com.example.astrop.data.network.AstroService
 
 class AstroRepository {
     private val api = AstroService()
-    suspend fun getTypeAstro(): AstroTypeModel? = api.getTypeAstro()
+    suspend fun getTypeAstro(): List<AstroTypeModel>? = api.getTypeAstro()
 }

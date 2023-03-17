@@ -8,5 +8,5 @@ interface AstroApiClient
 {
 
     @GET("/api/astros/types")
-    suspend fun getAstroTypes(): Response<AstroTypeModel>
+    suspend fun getAstroTypes(): Response <List<AstroTypeModel>>
 }

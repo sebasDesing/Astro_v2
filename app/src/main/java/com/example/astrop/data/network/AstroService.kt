@@ -6,7 +6,7 @@ import com.example.astrop.data.model.AstroTypeModel
 class AstroService {
 
     private val rtf = RetrofitHelper.getRetrofit()
-    suspend fun getTypeAstro(): AstroTypeModel? {
+    suspend fun getTypeAstro(): List<AstroTypeModel>? {
         val res = rtf.create(AstroApiClient::class.java).getAstroTypes()
         return res.body()
     }
