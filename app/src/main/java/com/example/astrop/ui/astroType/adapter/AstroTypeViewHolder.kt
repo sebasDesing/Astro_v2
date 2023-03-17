@@ -13,6 +13,10 @@ private val binding = ItemTypeAstroBinding.bind(view)
         binding.nameAstro.text = astros.typeAstro
         binding.imgAstro.text = astros.imageUrl
 
+        itemView.setOnClickListener {
+            onClickListener(astros)
+        }
+
     }
 
 }
