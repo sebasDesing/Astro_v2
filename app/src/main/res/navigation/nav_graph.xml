@@ -3,11 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/astroTypeFragment">
+    app:startDestination="@id/onboardingFragment">
 
     <fragment
         android:id="@+id/astroTypeFragment"
         android:name="com.example.astrop.ui.astroType.AstroTypeFragment"
         android:label="fragment_astro_type"
         tools:layout="@layout/fragment_astro_type" />
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="com.example.astrop.ui.onboarding.OnboardingFragment"
+        android:label="fragment_onboarding"
+        tools:layout="@layout/fragment_onboarding" />
 </navigation>
