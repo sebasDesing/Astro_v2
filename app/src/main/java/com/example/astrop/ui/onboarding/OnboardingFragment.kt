@@ -1,12 +1,10 @@
 package com.example.astrop.ui.onboarding
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.astrop.R
 import com.example.astrop.databinding.FragmentOnboardingBinding
@@ -42,10 +40,6 @@ class OnboardingFragment : Fragment() {
         val indicator = view.findViewById<DotsIndicator>(R.id.dots_indicator)
         indicator.attachTo(viewPager)
         return view
-    }
-    private fun onboardingEnd():Boolean{
-        val sharedPreferences = requireActivity().getSharedPreferences("onboarding", Context.MODE_PRIVATE)
-        return  sharedPreferences.getBoolean("finished", true)
     }
 
 }

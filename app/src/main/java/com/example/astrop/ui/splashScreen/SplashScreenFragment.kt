@@ -1,6 +1,7 @@
 package com.example.astrop.ui.splashScreen
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -27,7 +28,13 @@ class SplashScreenFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         Handler(Looper.getMainLooper()).postDelayed({
-            findNavController().navigate(R.id.action_splashScreenFragment_to_onboardingFragment)
+
+            if(onboardingEnd()){
+                findNavController().navigate(R.id.action_splashScreenFragment_to_homeFragment2)
+            }else{
+                findNavController().navigate(R.id.action_splashScreenFragment_to_onboardingFragment)
+            }
+
         }, 3000)
         val viw = inflater.inflate(R.layout.fragment_splash_screen, container, false)
 
@@ -46,5 +53,11 @@ class SplashScreenFragment : Fragment() {
         binding.textSplash.animation =
             AnimationUtils.loadAnimation(requireContext(), R.anim.from_bottom)
     }
+
+    private fun onboardingEnd():Boolean{
+        val sharedPreferences = requireActivity().getSharedPreferences("onboarding", Context.MODE_PRIVATE)
+        return  sharedPreferences.getBoolean("finished", false)
+    }
+
 
 }
