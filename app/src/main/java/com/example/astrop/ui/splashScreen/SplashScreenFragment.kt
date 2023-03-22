@@ -4,19 +4,21 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.astrop.R
-
+import com.example.astrop.databinding.FragmentSplashScreenBinding
 
 
 @SuppressLint("CustomSplashScreen")
 class SplashScreenFragment : Fragment() {
 
-
+    private var _binding: FragmentSplashScreenBinding? = null
+    private val binding get() = _binding!!
 
 
     override fun onCreateView(
@@ -29,9 +31,20 @@ class SplashScreenFragment : Fragment() {
         }, 3000)
         val viw = inflater.inflate(R.layout.fragment_splash_screen, container, false)
 
+        _binding = FragmentSplashScreenBinding.inflate(inflater, container, false)
+        return binding.root
 
-        return view
+
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.imgSplash.setImageResource(R.drawable.ic_launcher_2)
+        binding.textSplash.text = getString(R.string.app_name)
+        binding.imgSplash.animation =
+            AnimationUtils.loadAnimation(requireContext(), R.anim.from_top)
+        binding.textSplash.animation =
+            AnimationUtils.loadAnimation(requireContext(), R.anim.from_bottom)
+    }
 
 }
