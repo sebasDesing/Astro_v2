@@ -32,7 +32,7 @@ class HomeFragment : Fragment() {
             .into(binding.homeAstros)
 
         Glide.with(requireContext())
-            .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhgWGnuE_0Qr-Oncl-3o4CgxGlkmJVgZF5Yw&usqp=CAU")
+            .load("http://s2.dmcdn.net/u/8bnbj1a04YnFjoMYk/200x200")
             .into(binding.homeDailyImg)
 
         binding.homeAstros.setOnClickListener{

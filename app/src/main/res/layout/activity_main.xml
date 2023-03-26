@@ -7,7 +7,6 @@
     tools:context=".ui.MainActivity">
 
 
-
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
         android:name="com.example.astrop.ui.mainFragment.MainFragment"

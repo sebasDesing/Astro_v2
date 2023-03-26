@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias=".5"
         app:layout_constraintVertical_chainStyle="packed"
-        tools:src="@drawable/ic_launcher" />
+        tools:src="@drawable/ic_launcher_f" />
 
     <TextView
         android:id="@+id/text_splash"
