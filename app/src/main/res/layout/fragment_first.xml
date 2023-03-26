@@ -13,9 +13,9 @@
         android:id="@+id/bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="40dp"
-        android:alpha="0.70"
+        android:layout_marginTop="@dimen/background_marginTop_onb"
+        android:layout_marginBottom="@dimen/background_marginBottom_onb"
+        android:alpha="@dimen/bg_opacity"
         android:background="@drawable/bg_f1"
         android:scaleType="center"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -25,11 +25,11 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img_f1"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginBottom="24dp"
+        android:layout_width="@dimen/xy"
+        android:layout_height="@dimen/xy"
+        android:layout_marginBottom="@dimen/marginBottom"
         android:src="@drawable/img_f1_onb"
-        app:civ_border_color="#FFFFFF"
+        app:civ_border_color="@color/white"
         app:civ_border_width="1dp"
         app:layout_constraintBottom_toTopOf="@id/title_f1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,31 +41,23 @@
 
     <TextView
         android:id="@+id/title_f1"
-        android:textColor="@color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/app_name"
-        android:textSize="25sp"
+        style="@style/Title_onb"
+        android:text="@string/title_f1"
         app:layout_constraintBottom_toTopOf="@id/text_f1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/img_f1" />
 
+
     <TextView
         android:id="@+id/text_f1"
-        android:layout_width="321dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="32dp"
-        android:textColor="@color/white"
+        style="@style/Body_onb"
         android:text="@string/lorem"
-        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_f1" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
