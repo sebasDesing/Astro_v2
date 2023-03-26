@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="card_view_corner_radius">18</dimen>
+
+    <!-- Margin, alpha para la imagen de fondo en el onboarding -->
+    <dimen name="background_marginTop_onb">30dp</dimen>
+    <dimen name="background_marginBottom_onb">40dp</dimen>
+    <item name="bg_opacity" format="float" type="dimen">0.70</item>
+
+    <!-- CircleImageView -->
+    <dimen name="xy">300dp</dimen>
+    <dimen name="marginBottom">24dp</dimen>
+
 </resources>

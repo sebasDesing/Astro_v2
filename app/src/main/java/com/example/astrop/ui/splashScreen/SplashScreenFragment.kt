@@ -46,7 +46,7 @@ class SplashScreenFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.imgSplash.setImageResource(R.drawable.ic_launcher_2)
+        binding.imgSplash.setImageResource(R.drawable.ic_launcher_f)
         binding.textSplash.text = getString(R.string.app_name)
         binding.imgSplash.animation =
             AnimationUtils.loadAnimation(requireContext(), R.anim.from_top)

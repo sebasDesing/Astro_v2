@@ -26,7 +26,7 @@
         app:dotsSize="16dp"
         app:dotsSpacing="4dp"
         app:dotsWidthFactor="2.5"
-        app:selectedDotColor="@color/purple_200"
+        app:selectedDotColor="@color/red_teal"
         app:progressMode="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
