@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.onboarding.screens.FirstFragment"
-
+    android:id="@+id/F1"
     >
 
 
@@ -25,11 +25,11 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img_f1"
-        android:layout_width="320dp"
-        android:layout_height="320dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:layout_marginBottom="24dp"
         android:src="@drawable/img_f1_onb"
-        app:civ_border_color="#000000"
+        app:civ_border_color="#FFFFFF"
         app:civ_border_width="1dp"
         app:layout_constraintBottom_toTopOf="@id/title_f1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,6 +41,7 @@
 
     <TextView
         android:id="@+id/title_f1"
+        android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -57,6 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginBottom="32dp"
+        android:textColor="@color/white"
         android:text="@string/lorem"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
