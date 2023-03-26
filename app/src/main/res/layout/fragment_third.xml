@@ -16,7 +16,7 @@
         android:layout_marginTop="@dimen/background_marginTop_onb"
         android:layout_marginBottom="@dimen/background_marginBottom_onb"
         android:alpha="@dimen/bg_opacity"
-        android:background="@drawable/bg_f1"
+        android:background="@drawable/bg_f3"
         android:scaleType="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
