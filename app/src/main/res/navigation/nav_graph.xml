@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/splashScreenFragment">
+    app:startDestination="@id/sigInFragment">
 
     <fragment
         android:id="@+id/onboardingFragment"
@@ -40,4 +40,9 @@
         android:name="com.example.astrop.ui.astroType.AstroTypeFragment"
         tools:layout="@layout/fragment_astro_type"
         />
+    <fragment
+        android:id="@+id/sigInFragment"
+        android:name="com.example.astrop.ui.sigIn.SigInFragment"
+        android:label="fragment_sig_in"
+        tools:layout="@layout/fragment_sig_in" />
 </navigation>
