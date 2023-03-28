@@ -28,7 +28,7 @@ class ThirdFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.end.setOnClickListener {
-            findNavController().navigate(R.id.action_onboardingFragment_to_homeFragment2)
+            findNavController().navigate(R.id.action_onboardingFragment_to_sigInFragment)
             onboardingEnd()
         }
     }

@@ -30,7 +30,7 @@ class SplashScreenFragment : Fragment() {
         Handler(Looper.getMainLooper()).postDelayed({
 
             if(onboardingEnd()){
-                findNavController().navigate(R.id.action_splashScreenFragment_to_homeFragment2)
+                findNavController().navigate(R.id.sigInFragment)
             }else{
                 findNavController().navigate(R.id.action_splashScreenFragment_to_onboardingFragment)
             }
