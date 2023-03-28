@@ -34,11 +34,21 @@ class SigInFragment : Fragment() {
     }
 
     private fun fakeSigIn() {
-        firebaseAuth.signInWithEmailAndPassword("stevewsa97@gmail.com","123456789a")
+        firebaseAuth.signInWithEmailAndPassword("santosilvano97@gmail.com","123456789a")
             .addOnCompleteListener(requireActivity()) { task->
                 if (task.isSuccessful){
                     val user =firebaseAuth.currentUser
                     Log.i("fakesing",user?.uid.toString() )
+                }
+            }
+
+        firebaseAuth.createUserWithEmailAndPassword("santosilvano97@gmail.com","123456789a")
+            .addOnCompleteListener (requireActivity()){task->
+                if(task.isSuccessful){
+
+                    Log.i("fakesiup", "CREADA CHAVO" )
+                }else{
+                    Log.i("fakesiup", "NOO CHAVO" )
                 }
             }
     }
