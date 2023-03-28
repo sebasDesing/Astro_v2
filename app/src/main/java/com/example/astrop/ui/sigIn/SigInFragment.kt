@@ -1,6 +1,7 @@
 package com.example.astrop.ui.sigIn
 
 import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -23,7 +24,7 @@ class SigInFragment : Fragment() {
 
     private var _binding: FragmentSigInBinding? = null
     private val binding get() = _binding!!
-    private val GOOGLE_SIGN_IN = 100
+
 
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var authState: FirebaseAuth.AuthStateListener
@@ -40,12 +41,11 @@ class SigInFragment : Fragment() {
                     firebaseAuth.signInWithCredential(credential).addOnCompleteListener {
                         if (it.isSuccessful) {
                             Log.i("acountGG", "${account.email}")
-                            val navigation =
-                                SigInFragmentDirections.actionSigInFragmentToHomeFragment(
-                                    account.displayName.toString(),
-                                    account.photoUrl.toString(), account.email.toString()
-                                )
-                            findNavController().navigate(navigation)
+                            goHome(
+                                account.displayName.toString(),
+                                account.photoUrl.toString(),
+                                account.email.toString()
+                            )
                         }
                     }
                 }
@@ -54,6 +54,7 @@ class SigInFragment : Fragment() {
             }
         }
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -77,6 +78,32 @@ class SigInFragment : Fragment() {
             googleClient.signOut()
             googleSignInLauncher.launch(googleClient.signInIntent)
         }
+
+        session()
+    }
+
+    private fun session() {
+        val prefs = requireActivity().getSharedPreferences(
+            getString(R.string.prefs_file),
+            Context.MODE_PRIVATE
+        )
+        val email = prefs.getString("email", null)
+        val user = prefs.getString("nameU", null)
+        val photo = prefs.getString("imgU", null)
+        if (email != null) {
+            goHome(user.toString(), photo.toString(), email.toString())
+        }
+
+
+    }
+
+    private fun goHome(nameUser: String, email: String, photoUrl: String) {
+        Log.i("ses", "$nameUser , $email ,$photoUrl")
+        val navigation =
+            SigInFragmentDirections.actionSigInFragmentToHomeFragment(
+                nameUser, email, photoUrl
+            )
+        findNavController().navigate(navigation)
     }
 
     override fun onDestroyView() {

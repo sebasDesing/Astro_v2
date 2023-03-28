@@ -1,5 +1,6 @@
 package com.example.astrop.ui.home
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -37,12 +38,30 @@ class HomeFragment : Fragment() {
             .load("http://s2.dmcdn.net/u/8bnbj1a04YnFjoMYk/200x200")
             .into(binding.homeDailyImg)
 
-        binding.homeAstros.setOnClickListener{
+        binding.homeAstros.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment2_to_astroTypeFragment)
         }
 
         binding.textAstros.text = args.nameUser
         binding.textDaily.text = args.email
+
+        // Sesion
+
+        val prefs = requireActivity().getSharedPreferences(
+            getString(R.string.prefs_file),
+            Context.MODE_PRIVATE
+        )
+            .edit()
+        prefs.putString("email", args.email)
+        prefs.putString("nameU", args.nameUser)
+        prefs.putString("imgU", args.photoUrl)
+            .apply()
+
+        binding.homeDailyImg.setOnClickListener{
+            prefs.clear()  // SIGOUT
+            prefs.apply()
+        }
+
     }
 
 
