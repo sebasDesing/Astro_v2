@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.astrop.R
 import com.example.astrop.databinding.FragmentHomeBinding
@@ -15,6 +16,7 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private val args: HomeFragmentArgs by navArgs()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,7 +30,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         Glide.with(requireContext())
-            .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhgWGnuE_0Qr-Oncl-3o4CgxGlkmJVgZF5Yw&usqp=CAU")
+            .load(args.photoUrl)
             .into(binding.homeAstros)
 
         Glide.with(requireContext())
@@ -38,6 +40,9 @@ class HomeFragment : Fragment() {
         binding.homeAstros.setOnClickListener{
             findNavController().navigate(R.id.action_homeFragment2_to_astroTypeFragment)
         }
+
+        binding.textAstros.text = args.nameUser
+        binding.textDaily.text = args.email
     }
 
 
