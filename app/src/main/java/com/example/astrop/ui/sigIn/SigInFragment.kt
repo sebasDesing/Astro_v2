@@ -1,7 +1,6 @@
 package com.example.astrop.ui.sigIn
 
 import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.astrop.R
 import com.example.astrop.databinding.FragmentSigInBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -40,6 +40,12 @@ class SigInFragment : Fragment() {
                     firebaseAuth.signInWithCredential(credential).addOnCompleteListener {
                         if (it.isSuccessful) {
                             Log.i("acountGG", "${account.email}")
+                            val navigation =
+                                SigInFragmentDirections.actionSigInFragmentToHomeFragment(
+                                    account.displayName.toString(),
+                                    account.photoUrl.toString(), account.email.toString()
+                                )
+                            findNavController().navigate(navigation)
                         }
                     }
                 }

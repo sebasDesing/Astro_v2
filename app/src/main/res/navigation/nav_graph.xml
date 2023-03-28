@@ -34,6 +34,14 @@
         <action
             android:id="@+id/action_homeFragment2_to_astroTypeFragment"
             app:destination="@id/astroTypeFragment" />
+        <argument
+            android:name="name_user"
+            app:argType="string" />
+        <argument android:name="photo_url"
+            app:argType="string" />
+        <argument
+            android:name="email"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/astroTypeFragment"
@@ -44,5 +52,9 @@
         android:id="@+id/sigInFragment"
         android:name="com.example.astrop.ui.sigIn.SigInFragment"
         android:label="fragment_sig_in"
-        tools:layout="@layout/fragment_sig_in" />
+        tools:layout="@layout/fragment_sig_in" >
+        <action
+            android:id="@+id/action_sigInFragment_to_homeFragment"
+            app:destination="@id/homeFragment2" />
+    </fragment>
 </navigation>
