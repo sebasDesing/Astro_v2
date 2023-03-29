@@ -10,5 +10,6 @@
     <!-- CircleImageView -->
     <dimen name="xy">300dp</dimen>
     <dimen name="marginBottom">24dp</dimen>
+    <dimen name="huge_spacing">48dp</dimen>
 
 </resources>
