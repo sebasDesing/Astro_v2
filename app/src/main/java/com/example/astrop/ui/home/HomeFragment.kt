@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -32,34 +33,31 @@ class HomeFragment : Fragment() {
 
         Glide.with(requireContext())
             .load(args.photoUrl)
-            .into(binding.homeAstros)
+            .into(binding.userImg)
 
-        Glide.with(requireContext())
-            .load("http://s2.dmcdn.net/u/8bnbj1a04YnFjoMYk/200x200")
-            .into(binding.homeDailyImg)
-
-        binding.homeAstros.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment2_to_astroTypeFragment)
-        }
-
-        binding.textAstros.text = args.nameUser
-        binding.textDaily.text = args.email
+        binding.textAstros.text= args.nameUser
 
         // Sesion
 
         val prefs = requireActivity().getSharedPreferences(
             getString(R.string.prefs_file),
             Context.MODE_PRIVATE
-        )
-            .edit()
+        ).edit()
         prefs.putString("email", args.email)
         prefs.putString("nameU", args.nameUser)
         prefs.putString("imgU", args.photoUrl)
             .apply()
-
-        binding.homeDailyImg.setOnClickListener{
-            prefs.clear()  // SIGOUT
+        binding.sigout.setOnClickListener {
+            prefs.clear()
             prefs.apply()
+            findNavController().navigate(R.id.sigInFragment)
+        }
+        binding.astroTypes.setOnClickListener {
+            Toast.makeText(requireContext(), "Astro types",Toast.LENGTH_SHORT).show()
+        }
+
+        binding.dailyImg.setOnClickListener {
+            Toast.makeText(requireContext(), "Daily image",Toast.LENGTH_SHORT).show()
         }
 
     }

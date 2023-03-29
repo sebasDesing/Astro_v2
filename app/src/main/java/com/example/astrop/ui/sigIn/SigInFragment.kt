@@ -42,7 +42,7 @@ class SigInFragment : Fragment() {
                         if (it.isSuccessful) {
                             Log.i("acountGG", "${account.email}")
                             goHome(
-                                account.displayName.toString(),
+                                account.givenName.toString(),
                                 account.photoUrl.toString(),
                                 account.email.toString()
                             )
@@ -73,10 +73,11 @@ class SigInFragment : Fragment() {
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build()
-
+            binding.prg.visibility = View.VISIBLE
             val googleClient = GoogleSignIn.getClient(requireActivity(), googleConf)
             googleClient.signOut()
             googleSignInLauncher.launch(googleClient.signInIntent)
+
         }
 
         session()
@@ -103,6 +104,7 @@ class SigInFragment : Fragment() {
             SigInFragmentDirections.actionSigInFragmentToHomeFragment(
                 nameUser, email, photoUrl
             )
+        binding.prg.visibility =View.GONE
         findNavController().navigate(navigation)
     }
 
