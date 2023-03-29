@@ -13,7 +13,7 @@
 #### Con esto podras ejecutar la aplicacion en tu dispositivo movil sin tener que usar el emulador
 
 ##### Nota:
-      Si tienes problemas con el firewal, desactivalo la primera vez que intentes consumi la API, y activalo
+      Si tienes problemas con el firewall, desactivalo la primera vez que intentes consumi la API, y activalo
       de nuevo, asi tu dispositivo quedara registrado, al igual asegurate que el dispositivo se encuentra en 
       la misma red local en la que esta el servidor local
 
