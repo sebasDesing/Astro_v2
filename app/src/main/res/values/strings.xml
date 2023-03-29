@@ -8,4 +8,7 @@
     <string name="title_f3">Title 3</string>
     <string name="prefs_file">idk1</string>
     <string name="sig_in_title">Bienvenido a Astrop!</string>
+    <string name="second_op_home">Daily image BY NASA</string>
+    <string name="sign_out_home">Sign out</string>
+    <string name="icon_help_home">📖 ❔</string>
 </resources>

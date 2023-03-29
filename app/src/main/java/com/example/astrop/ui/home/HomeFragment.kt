@@ -31,12 +31,14 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.homeFg.animation= AnimationUtils.loadAnimation(requireContext(),R.anim.from_bottom)
+        binding.imgBg.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.bg_home)
+        binding.homeFg.animation =
+            AnimationUtils.loadAnimation(requireContext(), R.anim.from_bottom)
         binding.homeOptions.animation =AnimationUtils.loadAnimation(requireContext(),R.anim.from_home)
         Glide.with(requireContext())
             .load(args.photoUrl)
             .into(binding.userImg)
+
 
         binding.textAstros.text= args.nameUser
 
