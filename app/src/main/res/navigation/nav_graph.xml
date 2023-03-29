@@ -47,7 +47,7 @@
         />
     <fragment
         android:id="@+id/sigInFragment"
-        android:name="com.example.astrop.ui.sigIn.SigInFragment"
+        android:name="com.example.astrop.ui.sigIn.SignInFragment"
         android:label="fragment_sig_in"
         tools:layout="@layout/fragment_sig_in" >
         <action

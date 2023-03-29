@@ -5,11 +5,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.astrop.R
 import com.example.astrop.databinding.FragmentAstroTypeBinding
 import com.example.astrop.domain.model.AstroType
 import com.example.astrop.ui.astroType.adapter.AstroTypeAdapter
@@ -35,6 +37,7 @@ class AstroTypeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.astroTypesFg.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.from_ast)
         binding.swipe.isEnabled = false
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.addItemDecoration(
