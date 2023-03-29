@@ -1,4 +1,4 @@
-# Astro_v2 dosc
+# Astro_v2 docs
 
 #### Para poder que puedas ejecutar la aplicacion deberas tener la API instalada en tu sistem, si aún no la tienes puedes consultar este repositiorio
      https://github.com/Sebastian9751/API_APPSTRO.git
@@ -17,5 +17,5 @@
       de nuevo, asi tu dispositivo quedara registrado, al igual asegurate que el dispositivo se encuentra en 
       la misma red local en la que esta el servidor local
 
-##### En caso de que desees usar el emulador, deberas cambiar la base_url por localhost:3000, con tu puerto asignado al API
+##### En caso de que desees usar el emulador puedes omitir el dato sobre el firewall
 
