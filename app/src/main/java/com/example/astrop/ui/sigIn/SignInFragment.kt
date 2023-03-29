@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -20,7 +21,7 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class SigInFragment : Fragment() {
+class SignInFragment : Fragment() {
 
     private var _binding: FragmentSigInBinding? = null
     private val binding get() = _binding!!
@@ -66,7 +67,7 @@ class SigInFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.sigInFg.animation= AnimationUtils.loadAnimation(requireContext(),R.anim.from_bottom)
         firebaseAuth = Firebase.auth
         binding.googleBtn.setOnClickListener {
             val googleConf = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -101,7 +102,7 @@ class SigInFragment : Fragment() {
     private fun goHome(nameUser: String, email: String, photoUrl: String) {
         Log.i("ses", "$nameUser , $email ,$photoUrl")
         val navigation =
-            SigInFragmentDirections.actionSigInFragmentToHomeFragment(
+            SignInFragmentDirections.actionSigInFragmentToHomeFragment(
                 nameUser, email, photoUrl
             )
         binding.prg.visibility =View.GONE
