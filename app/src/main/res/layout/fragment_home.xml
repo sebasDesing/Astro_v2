@@ -9,17 +9,16 @@
     android:clipChildren="false"
     >
 
-
-    <de.hdodenhof.circleimageview.CircleImageView
+    <ImageView
         android:id="@+id/img_bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.5"
-        android:animation="@anim/bg_home"
-        android:background="@drawable/bg_home"
+        android:src="@drawable/bg_home"
+
         android:scaleType="centerCrop"
 
-         />
+        />
     <Button
         android:id="@+id/sigout"
         android:layout_width="match_parent"
