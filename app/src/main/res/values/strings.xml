@@ -2,12 +2,9 @@
     <string name="app_name">Astrop</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="lorem">Nuestra app móvil está diseñada para poder disfrutarla en cualquier momento y lugar. </string>
-    <string name="lorem2">Con nuestro modo offline ya sea que estés en casa, en el trabajo o en un viaje, tendrás
-acceso a una gran cantidad de información y recursos sobre el universo.</string>
-    <string name="lorem3">
-Y lo mejor de todo, podrás hacerlo de manera interactiva y amigable.
-</string>
+    <string name="body_f1">Nuestra app móvil está diseñada para poder disfrutarla en cualquier momento y lugar. </string>
+    <string name="body_f2">Con nuestro modo offline ya sea que estés en casa, en el trabajo o en un viaje, tendrás acceso a una gran cantidad de información y recursos sobre el universo.</string>
+    <string name="body_f3">Y lo mejor de todo, podrás hacerlo de manera interactiva y amigable.</string>
     <string name="title_f1">¡Bienvenido a Appstro!</string>
     <string name="title_f2"> Descubre los secretos del universo desde la comodidad de tu móvil</string>
     <string name="title_f3">Nuestra app te llevará en un viaje fascinante a través del cosmos</string>
