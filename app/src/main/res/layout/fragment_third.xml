@@ -20,8 +20,10 @@
         android:scaleType="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img_f1"
@@ -42,21 +44,25 @@
     <TextView
         android:id="@+id/title_f1"
         style="@style/Title_onb"
-        android:text= "@string/title_f3"
-        app:layout_constraintBottom_toTopOf="@id/text_f1"
+        android:gravity="center"
+        android:text="@string/title_f3"
+        app:layout_constraintBottom_toBottomOf="@+id/bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/img_f1" />
-
 
     <TextView
         android:id="@+id/text_f1"
         style="@style/Body_onb"
-        android:text="@string/lorem3"
+        android:justificationMode="inter_word"
+        android:text="@string/body_f3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.388"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_f1" />
+        app:layout_constraintTop_toBottomOf="@id/title_f1"
+        app:layout_constraintVertical_bias="0.168" />
 
     <TextView
         android:id="@+id/end"
