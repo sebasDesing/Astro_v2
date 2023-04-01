@@ -72,7 +72,7 @@
     <TextView
         android:id="@+id/body"
         style="@style/Body_onb"
-        android:text="@string/lorem"
+        android:text="@string/body_f2"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
