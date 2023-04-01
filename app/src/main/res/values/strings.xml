@@ -2,10 +2,12 @@
     <string name="app_name">Astrop</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="lorem"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus nihil dolorum laboriosam autem. Itaque dolorum provident quam fugit vero esse totam facilis ratione distinctio .</string>
-    <string name="title_f1">Title 1</string>
-    <string name="title_f2">Title 2</string>
-    <string name="title_f3">Title 3</string>
+    <string name="body_f1">Nuestra app móvil está diseñada para poder disfrutarla en cualquier momento y lugar. </string>
+    <string name="body_f2">Con nuestro modo offline ya sea que estés en casa, en el trabajo o en un viaje, tendrás acceso a una gran cantidad de información y recursos sobre el universo.</string>
+    <string name="body_f3">Y lo mejor de todo, podrás hacerlo de manera interactiva y amigable.</string>
+    <string name="title_f1">¡Bienvenido a Appstro!</string>
+    <string name="title_f2"> Descubre los secretos del universo desde la comodidad de tu móvil</string>
+    <string name="title_f3"> Nuestra app te llevará en un viaje fascinante a través del cosmos</string>
     <string name="prefs_file">idk1</string>
     <string name="sig_in_title">Bienvenido a Astrop!</string>
     <string name="second_op_home">Daily image BY NASA</string>
@@ -16,4 +18,5 @@
     <string name="title_user_profile">Profile</string>
     <string name="alert_message">¿Está seguro que desea salir de la aplicación?</string>
     <string name="alert_title">¿Salir?</string>
-</resources>
+<resources>
+

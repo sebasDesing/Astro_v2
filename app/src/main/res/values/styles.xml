@@ -6,16 +6,16 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">24dp</item>
+        <item name="android:layout_marginStart">16dp</item>
         <item name="android:layout_marginBottom">16dp</item>
-        <item name="android:textSize">25sp</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
     <style name="Body_onb">
         <item name="android:textStyle">italic</item>
         <item name="android:layout_width">321dp</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">24dp</item>
+        <item name="android:layout_marginStart">16dp</item>
         <item name="android:layout_marginBottom">32dp</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">14sp</item>
