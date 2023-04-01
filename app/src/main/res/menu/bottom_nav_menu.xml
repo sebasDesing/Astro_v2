@@ -7,12 +7,12 @@
         android:title="@string/title_home" />
 
     <item
-        android:id="@+id/astroTypeFragment"
+        android:id="@+id/favoritesFragment"
         android:icon="@drawable/heart_solid_color"
         android:title="@string/title_fav" />
 
     <item
-        android:id="@+id/dailyImageFragment"
+        android:id="@+id/userProfileFragment"
         android:icon="@drawable/profile_user"
         android:title="@string/title_user_profile" />
 

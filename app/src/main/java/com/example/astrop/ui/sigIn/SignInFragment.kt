@@ -16,6 +16,8 @@ import com.example.astrop.databinding.FragmentSigInBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
@@ -68,7 +70,14 @@ class SignInFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.sigInFg.animation= AnimationUtils.loadAnimation(requireContext(),R.anim.from_bottom)
+        val bottomNavigation = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNav)
+        val toolbar = requireActivity().findViewById<AppBarLayout>(R.id.appBarLayout)
+        bottomNavigation.visibility = View.GONE
+        toolbar.visibility = View.GONE
+
+
+        binding.sigInFg.animation =
+            AnimationUtils.loadAnimation(requireContext(), R.anim.from_bottom)
         firebaseAuth = Firebase.auth
         binding.googleBtn.setOnClickListener {
             val googleConf = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)

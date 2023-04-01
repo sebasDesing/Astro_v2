@@ -1,6 +1,7 @@
 package com.example.astrop.ui
 
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -31,4 +32,16 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
+
+     override fun onBackPressed() {
+        AlertDialog.Builder(this)
+            .setTitle("¿Salir?")
+            .setMessage("¿Está seguro que desea salir de la aplicación?")
+            .setPositiveButton("Sí") { _, _ ->
+                finish()
+            }
+            .setNegativeButton("No", null)
+            .show()
+    }
+
 }

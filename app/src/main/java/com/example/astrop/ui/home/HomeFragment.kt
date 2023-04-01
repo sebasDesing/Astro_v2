@@ -36,7 +36,7 @@ class HomeFragment : Fragment() {
         val bottomNavigation = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNav)
         val toolbar = requireActivity().findViewById<AppBarLayout>(R.id.appBarLayout)
         val activity = requireActivity() as AppCompatActivity
-
+        activity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
         bottomNavigation.visibility = View.VISIBLE
         toolbar.visibility = View.VISIBLE
 
@@ -51,7 +51,6 @@ class HomeFragment : Fragment() {
         val nameUser = prefs.getString("nameU", null)
         val photo = prefs.getString("imgU", null)
 
-        activity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
         binding.imgBg.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.bg_home)
         binding.homeFg.animation =
             AnimationUtils.loadAnimation(requireContext(), R.anim.from_bottom)
@@ -80,6 +79,7 @@ class HomeFragment : Fragment() {
         }
 
     }
+
 
 
 }

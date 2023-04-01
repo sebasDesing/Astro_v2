@@ -62,4 +62,14 @@
         android:name="com.example.astrop.ui.dailyImage.DailyImageFragment"
         android:label="fragment_daily_image"
         tools:layout="@layout/fragment_daily_image" />
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="com.example.astrop.ui.userProfile.UserProfileFragment"
+        android:label="fragment_user_profile"
+        tools:layout="@layout/fragment_user_profile" />
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.example.astrop.ui.favorites.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" />
 </navigation>
