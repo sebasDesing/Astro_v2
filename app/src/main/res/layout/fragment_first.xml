@@ -51,7 +51,6 @@
     <TextView
         android:id="@+id/text_f1"
         style="@style/Body_onb"
-        android:justificationMode="inter_word"
         android:text="@string/body_f1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
