@@ -11,4 +11,7 @@
     <string name="second_op_home">Daily image BY NASA</string>
     <string name="sign_out_home">Sign out</string>
     <string name="icon_help_home">📖 ❔</string>
+    <string name="title_home">home</string>
+    <string name="title_fav">Favoritos</string>
+    <string name="title_user_profile">Profile</string>
 </resources>
