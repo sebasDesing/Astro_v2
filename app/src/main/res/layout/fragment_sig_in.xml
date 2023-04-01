@@ -24,6 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/huge_spacing"
+        android:textColor="@color/white"
         android:text="@string/sig_in_title"
         android:textStyle="italic"
         android:textAlignment="center"

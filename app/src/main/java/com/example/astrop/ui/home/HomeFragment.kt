@@ -64,6 +64,7 @@ class HomeFragment : Fragment() {
 
         binding.dailyImg.setOnClickListener {
             Toast.makeText(requireContext(), "Daily image",Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_homeFragment2_to_dailyImageFragment)
         }
 
     }

@@ -39,6 +39,9 @@
         <argument
             android:name="email"
             app:argType="string" />
+        <action
+            android:id="@+id/action_homeFragment2_to_dailyImageFragment"
+            app:destination="@id/dailyImageFragment" />
     </fragment>
     <fragment
         android:id="@+id/astroTypeFragment"
@@ -54,4 +57,9 @@
             android:id="@+id/action_sigInFragment_to_homeFragment"
             app:destination="@id/homeFragment2" />
     </fragment>
+    <fragment
+        android:id="@+id/dailyImageFragment"
+        android:name="com.example.astrop.ui.dailyImage.DailyImageFragment"
+        android:label="fragment_daily_image"
+        tools:layout="@layout/fragment_daily_image" />
 </navigation>
