@@ -16,6 +16,8 @@ import com.example.astrop.databinding.FragmentSigInBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
@@ -44,9 +46,10 @@ class SignInFragment : Fragment() {
                             Log.i("acountGG", "${account.email}")
                             goHome(
                                 account.givenName.toString(),
-                                account.photoUrl.toString(),
-                                account.email.toString()
+                                account.email.toString(),
+                                account.photoUrl.toString()
                             )
+
                         }
                     }
                 }
@@ -67,7 +70,14 @@ class SignInFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.sigInFg.animation= AnimationUtils.loadAnimation(requireContext(),R.anim.from_bottom)
+        val bottomNavigation = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNav)
+        val toolbar = requireActivity().findViewById<AppBarLayout>(R.id.appBarLayout)
+        bottomNavigation.visibility = View.GONE
+        toolbar.visibility = View.GONE
+
+
+        binding.sigInFg.animation =
+            AnimationUtils.loadAnimation(requireContext(), R.anim.from_bottom)
         firebaseAuth = Firebase.auth
         binding.googleBtn.setOnClickListener {
             val googleConf = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -93,20 +103,24 @@ class SignInFragment : Fragment() {
         val user = prefs.getString("nameU", null)
         val photo = prefs.getString("imgU", null)
         if (email != null) {
-            goHome(user.toString(), photo.toString(), email.toString())
+            goHome(user.toString(), email.toString(),photo.toString() )
         }
 
 
     }
 
     private fun goHome(nameUser: String, email: String, photoUrl: String) {
-        Log.i("ses", "$nameUser , $email ,$photoUrl")
-        val navigation =
-            SignInFragmentDirections.actionSigInFragmentToHomeFragment(
-                nameUser, email, photoUrl
-            )
-        binding.prg.visibility =View.GONE
-        findNavController().navigate(navigation)
+        Log.i("sesionn", "$nameUser , $email ,$photoUrl")
+        val prefs = requireActivity().getSharedPreferences(
+            getString(R.string.prefs_file),
+            Context.MODE_PRIVATE
+        ).edit()
+        prefs.putString("email", email)
+        prefs.putString("nameU", nameUser)
+        prefs.putString("imgU", photoUrl)
+            .apply()
+        binding.prg.visibility = View.GONE
+        findNavController().navigate(R.id.homeFragment2)
     }
 
     override fun onDestroyView() {

@@ -36,7 +36,6 @@ class SplashScreenFragment : Fragment() {
             }
 
         }, 3000)
-        val viw = inflater.inflate(R.layout.fragment_splash_screen, container, false)
 
         _binding = FragmentSplashScreenBinding.inflate(inflater, container, false)
         return binding.root
