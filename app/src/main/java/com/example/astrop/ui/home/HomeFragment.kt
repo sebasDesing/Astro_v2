@@ -7,19 +7,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.astrop.R
 import com.example.astrop.databinding.FragmentHomeBinding
+import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private val args: HomeFragmentArgs by navArgs()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,30 +33,40 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.imgBg.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.bg_home)
-        binding.homeFg.animation =
-            AnimationUtils.loadAnimation(requireContext(), R.anim.from_bottom)
-        binding.homeOptions.animation =AnimationUtils.loadAnimation(requireContext(),R.anim.from_home)
-        Glide.with(requireContext())
-            .load(args.photoUrl)
-            .into(binding.userImg)
+        val bottomNavigation = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNav)
+        val toolbar = requireActivity().findViewById<AppBarLayout>(R.id.appBarLayout)
+        val activity = requireActivity() as AppCompatActivity
 
-
-        binding.textAstros.text= args.nameUser
+        bottomNavigation.visibility = View.VISIBLE
+        toolbar.visibility = View.VISIBLE
 
         // Sesion
 
         val prefs = requireActivity().getSharedPreferences(
             getString(R.string.prefs_file),
             Context.MODE_PRIVATE
-        ).edit()
-        prefs.putString("email", args.email)
-        prefs.putString("nameU", args.nameUser)
-        prefs.putString("imgU", args.photoUrl)
-            .apply()
+        )
+
+        val email = prefs.getString("email", null)
+        val nameUser = prefs.getString("nameU", null)
+        val photo = prefs.getString("imgU", null)
+
+        activity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        binding.imgBg.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.bg_home)
+        binding.homeFg.animation =
+            AnimationUtils.loadAnimation(requireContext(), R.anim.from_bottom)
+        binding.homeOptions.animation =
+            AnimationUtils.loadAnimation(requireContext(), R.anim.from_home)
+        Glide.with(requireContext())
+            .load(photo)
+            .into(binding.userImg)
+
+        binding.textAstros.text = nameUser
+
         binding.sigout.setOnClickListener {
-            prefs.clear()
-            prefs.apply()
+            val p = prefs.edit()
+            p.clear()
+            p.apply()
             findNavController().navigate(R.id.sigInFragment)
         }
         binding.astroTypes.setOnClickListener {
