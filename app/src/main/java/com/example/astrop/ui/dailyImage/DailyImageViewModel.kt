@@ -19,16 +19,21 @@ class DailyImageViewModel @Inject constructor(private val result: GetDailyImageU
 
         viewModelScope.launch {
             val response = result.invoke()
-            response?.let { res ->
-                val data = res[0]
-                Log.i("Dailyyyy", "${data.date}")
-                binding.dateImage.text = data.date
-                binding.body.text = data.explanation
-                //binding.title.text = data.title
-                Glide.with(context).load(data.hdurl).into(binding.dailyImage)
+            if (!response.isNullOrEmpty()) {
+                response.let { res ->
+                    val data = res[0]
+                    binding.dateImage.text = "date ${data.date}"
+                    binding.body.text = data.explanation
+                    //binding.title.text = data.title
+                    Glide.with(context).load(data.hdurl).into(binding.dailyImage)
 
 
+                }
+            }else{
+
+                binding.body.text = "parece que ha ocurrido un error : 500"
             }
+
 
         }
 

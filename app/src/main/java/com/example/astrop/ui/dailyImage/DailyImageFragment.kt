@@ -41,5 +41,8 @@ class DailyImageFragment : Fragment() {
             binding.body.maxLines = 100
             binding.seeMore.visibility = View.GONE
         }
+        binding.dailyImage.setOnClickListener {
+
+        }
     }
 }
