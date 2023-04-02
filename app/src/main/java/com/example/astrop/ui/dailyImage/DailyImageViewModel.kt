@@ -20,8 +20,12 @@ class DailyImageViewModel @Inject constructor(private val result: GetDailyImageU
         viewModelScope.launch {
             val response = result.invoke()
             response?.let { res ->
-
-                Log.i("Dailyyyy", "${res}")
+                val data = res[0]
+                Log.i("Dailyyyy", "${data.date}")
+                binding.dateImage.text = data.date
+                binding.body.text = data.explanation
+                //binding.title.text = data.title
+                Glide.with(context).load(data.hdurl).into(binding.dailyImage)
 
 
             }
