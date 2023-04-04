@@ -19,5 +19,8 @@
     <string name="alert_message">¿Está seguro que desea salir de la aplicación?</string>
     <string name="alert_title">¿Salir?</string>
     <string name="ver_mas">Ver mas</string>
+    <string name="key_email">email</string>
+    <string name="key_nameU">nameU</string>
+    <string name="key_photo_url">imgU</string>
 </resources>
 

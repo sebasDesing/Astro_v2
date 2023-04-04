@@ -115,9 +115,9 @@ class SignInFragment : Fragment() {
             getString(R.string.prefs_file),
             Context.MODE_PRIVATE
         ).edit()
-        prefs.putString("email", email)
-        prefs.putString("nameU", nameUser)
-        prefs.putString("imgU", photoUrl)
+        prefs.putString( getString(R.string.key_email), email)
+        prefs.putString(getString(R.string.key_nameU), nameUser)
+        prefs.putString(getString(R.string.key_photo_url), photoUrl)
             .apply()
         binding.prg.visibility = View.GONE
         findNavController().navigate(R.id.homeFragment2)
