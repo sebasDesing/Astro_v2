@@ -67,7 +67,7 @@
                     android:id="@+id/body"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:lineSpacingExtra="4.45dp"
+                    android:lineSpacingExtra="12dp"
                     android:maxLines="10"
                     android:textColor="@color/white"
                     android:textSize="15sp"

@@ -1,7 +1,9 @@
 package com.example.astrop.ui.dailyImage
 
+import android.annotation.SuppressLint
 import android.content.Context
-import android.view.View
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bumptech.glide.Glide
@@ -15,7 +17,9 @@ import javax.inject.Inject
 class DailyImageViewModel @Inject constructor(private val result: GetDailyImageUseCase) :
     ViewModel() {
 
-    fun getDailyImage( binding: FragmentDailyImageBinding, context: Context)  {
+    @RequiresApi(Build.VERSION_CODES.O)
+    @SuppressLint("SetTextI18n")
+    fun getDailyImage(binding: FragmentDailyImageBinding, context: Context)  {
         viewModelScope.launch {
             binding.swipeDaily.isRefreshing =true
             try {
@@ -29,7 +33,7 @@ class DailyImageViewModel @Inject constructor(private val result: GetDailyImageU
                     }
                 }
             } catch (e: Exception) {
-                binding.body.text = "Error al obtener la imagen diaria: ${e.message}"
+                "Error al obtener la imagen diaria: ${e.message}".also { binding.body.text = it }
             }
             finally {
                binding.swipeDaily.isRefreshing = false
@@ -38,11 +42,5 @@ class DailyImageViewModel @Inject constructor(private val result: GetDailyImageU
 
     }
 
-    fun onReload(binding: FragmentDailyImageBinding, context: Context){
-        binding.swipeDaily.setOnRefreshListener{
-            getDailyImage(binding, context)
-            binding.swipeDaily.isRefreshing= false
-        }
-    }
 
 }
