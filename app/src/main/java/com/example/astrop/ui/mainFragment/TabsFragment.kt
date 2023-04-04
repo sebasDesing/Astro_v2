@@ -9,17 +9,17 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.astrop.databinding.FragmentMainBinding
 import com.example.astrop.ui.astroType.AstroTypeFragment
 import com.example.astrop.ui.dailyImage.DailyImageFragment
-import com.example.astrop.ui.home.HomeFragment
 import com.google.android.material.tabs.TabLayout
 
 
-class MainFragment : Fragment() {
+class TabsFragment : Fragment() {
 
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
     private lateinit var tabLayout: TabLayout
     private lateinit var viewPager2: ViewPager2
-    private lateinit var adapter: MainFragmentAdapter
+    private lateinit var adapter: TabsFragmentAdapter
+    private val lista = arrayListOf<Fragment>(AstroTypeFragment(),DailyImageFragment())
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,13 +31,11 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val lista = arrayListOf<Fragment>(HomeFragment(), AstroTypeFragment(),DailyImageFragment())
         tabLayout = binding.tabLayout
         viewPager2 = binding.viwPager
-        adapter = MainFragmentAdapter(requireActivity().supportFragmentManager, lifecycle, lista)
-        tabLayout.addTab(tabLayout.newTab().setText("hola"))
-        tabLayout.addTab(tabLayout.newTab().setText("hola tu como tas"))
-        tabLayout.addTab(tabLayout.newTab().setText("hola 3"))
+        adapter = TabsFragmentAdapter(requireActivity().supportFragmentManager, lifecycle, lista)
+        tabLayout.addTab(tabLayout.newTab().setText("Home"))
+        tabLayout.addTab(tabLayout.newTab().setText("DailyImage"))
 
         viewPager2.adapter = adapter
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {

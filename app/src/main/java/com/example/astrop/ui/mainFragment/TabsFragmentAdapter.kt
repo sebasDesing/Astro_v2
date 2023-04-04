@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class MainFragmentAdapter(
+class TabsFragmentAdapter(
     fragmentManager: FragmentManager,
     lifecycle: Lifecycle,
     list: ArrayList<Fragment>
