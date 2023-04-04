@@ -40,25 +40,20 @@ class HomeFragment : Fragment() {
         bottomNavigation.visibility = View.VISIBLE
         toolbar.visibility = View.VISIBLE
 
-        // Sesion
-
         val prefs = requireActivity().getSharedPreferences(
             getString(R.string.prefs_file),
             Context.MODE_PRIVATE
         )
 
-        val email = prefs.getString("email", null)
         val nameUser = prefs.getString("nameU", null)
-        val photo = prefs.getString("imgU", null)
+
 
         binding.imgBg.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.bg_home)
         binding.homeFg.animation =
             AnimationUtils.loadAnimation(requireContext(), R.anim.from_bottom)
         binding.homeOptions.animation =
             AnimationUtils.loadAnimation(requireContext(), R.anim.from_home)
-        Glide.with(requireContext())
-            .load(photo)
-            .into(binding.userImg)
+
 
         binding.textAstros.text = nameUser
 
@@ -69,14 +64,10 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.sigInFragment)
         }
         binding.astroTypes.setOnClickListener {
-            Toast.makeText(requireContext(), "Astro types",Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.astroTypeFragment)
+            findNavController().navigate(R.id.action_homeFragment2_to_mainFragment)
         }
 
-        binding.dailyImg.setOnClickListener {
-            Toast.makeText(requireContext(), "Daily image",Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_homeFragment2_to_dailyImageFragment)
-        }
+
 
     }
 
