@@ -1,7 +1,7 @@
 package com.example.astrop.ui.dailyImage
 
 import android.content.Context
-import android.util.Log
+import android.view.View
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bumptech.glide.Glide
@@ -16,27 +16,33 @@ class DailyImageViewModel @Inject constructor(private val result: GetDailyImageU
     ViewModel() {
 
     fun getDailyImage( binding: FragmentDailyImageBinding, context: Context)  {
-
         viewModelScope.launch {
-            val response = result.invoke()
-            if (!response.isNullOrEmpty()) {
-                response.let { res ->
-                    val data = res[0]
-                    binding.dateImage.text = "date ${data.date}"
-                    binding.body.text = data.explanation
-                    //binding.title.text = data.title
-                    Glide.with(context).load(data.hdurl).into(binding.dailyImage)
-
-
+            binding.swipeDaily.isRefreshing =true
+            try {
+                val response = result.invoke()
+                if (!response.isNullOrEmpty()) {
+                    response.let { res ->
+                        val data = res[0]
+                        binding.dateImage.text = "date ${data.date}"
+                        binding.body.text = data.explanation
+                        Glide.with(context).load(data.hdurl).into(binding.dailyImage)
+                    }
                 }
-            }else{
-
-                binding.body.text = "parece que ha ocurrido un error : 500"
+            } catch (e: Exception) {
+                binding.body.text = "Error al obtener la imagen diaria: ${e.message}"
             }
-
-
+            finally {
+               binding.swipeDaily.isRefreshing = false
+            }
         }
 
+    }
+
+    fun onReload(binding: FragmentDailyImageBinding, context: Context){
+        binding.swipeDaily.setOnRefreshListener{
+            getDailyImage(binding, context)
+            binding.swipeDaily.isRefreshing= false
+        }
     }
 
 }

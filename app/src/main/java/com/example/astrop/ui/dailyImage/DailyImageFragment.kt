@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.astrop.R
 import com.example.astrop.databinding.FragmentDailyImageBinding
-import com.example.astrop.domain.model.DailyImage
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,7 +19,7 @@ class DailyImageFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: DailyImageViewModel by viewModels()
-    private val modelList = mutableListOf<DailyImage>()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,10 +38,12 @@ class DailyImageFragment : Fragment() {
 
         binding.seeMore.setOnClickListener{
             binding.body.maxLines = 100
+            binding.bodyContainer.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
             binding.seeMore.visibility = View.GONE
         }
-        binding.dailyImage.setOnClickListener {
-
+        binding.swipeDaily.setOnRefreshListener {
+            viewModel.getDailyImage(binding, requireContext())
+            Log.i("hehehehe", "ola")
         }
     }
 }
