@@ -55,14 +55,8 @@ class HomeFragment : Fragment() {
             AnimationUtils.loadAnimation(requireContext(), R.anim.from_home)
 
 
-        binding.textAstros.text = nameUser
 
-        binding.sigout.setOnClickListener {
-            val p = prefs.edit()
-            p.clear()
-            p.apply()
-            findNavController().navigate(R.id.sigInFragment)
-        }
+
         binding.astroTypes.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment2_to_mainFragment)
         }
