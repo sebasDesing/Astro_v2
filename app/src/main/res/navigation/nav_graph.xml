@@ -28,9 +28,6 @@
         android:name="com.example.astrop.ui.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment2_to_astroTypeFragment"
-            app:destination="@id/astroTypeFragment" />
         <argument
             android:name="name_user"
             app:argType="string" />
@@ -42,6 +39,9 @@
         <action
             android:id="@+id/action_homeFragment2_to_dailyImageFragment"
             app:destination="@id/dailyImageFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/astroTypeFragment"
@@ -54,7 +54,7 @@
         android:label="fragment_sig_in"
         tools:layout="@layout/fragment_sig_in" >
         <action
-            android:id="@+id/action_sigInFragment_to_homeFragment"
+            android:id="@+id/action_sigInFragment_to_homeFragment2"
             app:destination="@id/homeFragment2" />
     </fragment>
     <fragment
@@ -72,4 +72,9 @@
         android:name="com.example.astrop.ui.favorites.FavoritesFragment"
         android:label="fragment_favorites"
         tools:layout="@layout/fragment_favorites" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.astrop.ui.mainFragment.TabsFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
 </navigation>
