@@ -16,6 +16,6 @@ interface AstroDetailDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllDetailAstros(astros: List<AstroDetailEntity>)
 
-    @Query("DELETE FROM astroType_table")
+    @Query("DELETE FROM astro_table")
     suspend fun deleteAllDetailAstros()
 }

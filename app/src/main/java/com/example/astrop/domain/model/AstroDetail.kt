@@ -10,7 +10,7 @@ data class AstroDetail(
     val description: String,
     val name_com: String,
     val composition_description: String,
-    val distance: Int,
+    val distance: Float,
     val image_url: String
 )
 

@@ -2,26 +2,29 @@ package com.example.astrop.ui.home
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.bumptech.glide.Glide
 import com.example.astrop.R
 import com.example.astrop.databinding.FragmentHomeBinding
+import com.example.astrop.domain.model.AstroDetail
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-
+    private val viewModel: HomeViewModel by viewModels()
+    private val astroDetailList = mutableListOf<AstroDetail>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,6 +42,10 @@ class HomeFragment : Fragment() {
         activity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
         bottomNavigation.visibility = View.VISIBLE
         toolbar.visibility = View.VISIBLE
+
+      viewModel.setData(astroDetailList)
+
+
 
         val prefs = requireActivity().getSharedPreferences(
             getString(R.string.prefs_file),
