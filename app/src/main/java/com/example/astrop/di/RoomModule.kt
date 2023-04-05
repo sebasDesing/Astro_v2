@@ -32,5 +32,9 @@ object RoomModule {
     @Provides
     fun provideDailyImage(bds: Astrodb) = bds.getDailyImageDao()
 
+    @Singleton
+    @Provides
+    fun provideAllDetailAstros(bds: Astrodb)= bds.getDetailAstros()
+
 
 }

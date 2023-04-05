@@ -2,6 +2,7 @@ package com.example.astrop.data.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import com.example.astrop.data.database.dao.AstroDetailDao
 import com.example.astrop.data.database.dao.AstroTypeDao
 import com.example.astrop.data.database.dao.DailyImageDao
 import com.example.astrop.data.database.entities.AstroTypeEntity
@@ -12,5 +13,6 @@ abstract class Astrodb : RoomDatabase() {
     abstract fun getAstroTypeDao(): AstroTypeDao
 
     abstract fun getDailyImageDao(): DailyImageDao
+    abstract fun getDetailAstros(): AstroDetailDao
 
 }
