@@ -1,19 +1,24 @@
 package com.example.astrop.ui.home
 
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.astrop.R
 import com.example.astrop.databinding.FragmentHomeBinding
 import com.example.astrop.domain.model.AstroDetail
+import com.example.astrop.domain.model.AstroType
+import com.example.astrop.ui.home.adapter.HomeAdapter
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,6 +30,7 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: HomeViewModel by viewModels()
     private val astroDetailList = mutableListOf<AstroDetail>()
+    private lateinit var adapter: HomeAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,24 +49,23 @@ class HomeFragment : Fragment() {
         bottomNavigation.visibility = View.VISIBLE
         toolbar.visibility = View.VISIBLE
 
-      viewModel.setData(astroDetailList)
-
-
-
-        val prefs = requireActivity().getSharedPreferences(
-            getString(R.string.prefs_file),
-            Context.MODE_PRIVATE
+        binding.rvHome.layoutManager = GridLayoutManager(requireContext(), 2)
+        binding.rvHome.addItemDecoration(
+            DividerItemDecoration(
+                requireContext(), LinearLayoutManager.VERTICAL
+            )
         )
+        adapter = HomeAdapter(astroDetailList){ch->onItemSelect(ch)}
+        binding.rvHome.adapter =adapter
+        viewModel.setData(astroDetailList, adapter, binding)
 
-        val nameUser = prefs.getString("nameU", null)
+
+
 
 
         binding.imgBg.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.bg_home)
         binding.homeFg.animation =
             AnimationUtils.loadAnimation(requireContext(), R.anim.from_bottom)
-        binding.homeOptions.animation =
-            AnimationUtils.loadAnimation(requireContext(), R.anim.from_home)
-
 
 
 
@@ -71,7 +76,10 @@ class HomeFragment : Fragment() {
 
 
     }
-
+    private fun onItemSelect(astro: AstroDetail) {
+        Log.i("HiAstro", "$astro")
+        Toast.makeText(requireContext(), "Hello ${astro.id_astro}", Toast.LENGTH_SHORT).show()
+    }
 
 
 }

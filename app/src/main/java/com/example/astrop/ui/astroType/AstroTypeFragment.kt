@@ -42,6 +42,7 @@ class AstroTypeFragment : Fragment() {
         bottomNavigation.visibility = View.GONE
         binding.astroTypesFg.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.from_ast)
         binding.swipe.isEnabled = false
+
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.addItemDecoration(
             DividerItemDecoration(
