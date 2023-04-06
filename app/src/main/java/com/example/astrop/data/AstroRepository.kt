@@ -77,6 +77,13 @@ class AstroRepository @Inject constructor(
         }
     }
 
+    suspend fun insertAstroDetail(detailA : List<AstroDetailEntity>){
+        AstroDetailDao.insertAllDetailAstros(detailA)
+    }
+    suspend fun clearAstroDetail(){
+        AstroDetailDao.deleteAllDetailAstros()
+    }
+
 
 
 }
