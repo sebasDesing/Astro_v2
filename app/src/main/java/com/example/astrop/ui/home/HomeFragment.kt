@@ -77,6 +77,8 @@ class HomeFragment : Fragment() {
     private fun onItemSelect(astro: AstroDetail) {
         Log.i("HiAstro", "$astro")
         Toast.makeText(requireContext(), "Hello ${astro.id_astro}", Toast.LENGTH_SHORT).show()
+        val nav = HomeFragmentDirections.actionHomeFragment2ToDetailFragment(astro)
+        findNavController().navigate(nav)
     }
 
 

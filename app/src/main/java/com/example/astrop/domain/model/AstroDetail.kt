@@ -1,8 +1,11 @@
 package com.example.astrop.domain.model
 
+import android.os.Parcelable
 import com.example.astrop.data.database.entities.AstroDetailEntity
 import com.example.astrop.data.model.AstroDetailModel
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class AstroDetail(
     val id_astro: Int,
     val name_astro: String,
@@ -12,7 +15,7 @@ data class AstroDetail(
     val composition_description: String,
     val distance: Float,
     val image_url: String
-)
+) : Parcelable
 
 fun AstroDetailModel.toDomain() = AstroDetail(
     id_astro,

@@ -84,6 +84,6 @@
         tools:layout="@layout/fragment_detail" >
         <argument
             android:name="Detail"
-            app:argType="com.example.astrop.data.model.AstroDetailModel" />
+            app:argType="com.example.astrop.domain.model.AstroDetail" />
     </fragment>
 </navigation>
