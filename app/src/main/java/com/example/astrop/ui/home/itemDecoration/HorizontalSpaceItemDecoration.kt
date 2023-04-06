@@ -15,10 +15,5 @@ class HorizontalSpaceItemDecoration(private val horizontalSpaceWidth: Int) :
     ) {
         outRect.right = horizontalSpaceWidth
         outRect.left = horizontalSpaceWidth
-
-        // Si es el primer elemento, no agregamos el espacio a la izquierda
-        if (parent.getChildAdapterPosition(view) == 0) {
-            outRect.left = 0
-        }
     }
 }

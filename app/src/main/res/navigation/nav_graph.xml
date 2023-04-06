@@ -37,11 +37,11 @@
             android:name="email"
             app:argType="string" />
         <action
-            android:id="@+id/action_homeFragment2_to_dailyImageFragment"
-            app:destination="@id/dailyImageFragment" />
-        <action
             android:id="@+id/action_homeFragment2_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_detailFragment"
+            app:destination="@id/detailFragment" />
     </fragment>
     <fragment
         android:id="@+id/astroTypeFragment"
@@ -77,4 +77,13 @@
         android:name="com.example.astrop.ui.mainFragment.TabsFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.astrop.ui.astroDetail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="Detail"
+            app:argType="com.example.astrop.data.model.AstroDetailModel" />
+    </fragment>
 </navigation>
