@@ -19,7 +19,6 @@ class DailyImageFragment : Fragment() {
     private var _binding: FragmentDailyImageBinding? = null
     private val binding get() = _binding!!
     private val viewModel: DailyImageViewModel by viewModels()
-    private val HEIGHT_TEXT = 550
     private val MAX_LINES = 100
 
     override fun onCreateView(
@@ -41,7 +40,6 @@ class DailyImageFragment : Fragment() {
 
         binding.seeMore.setOnClickListener {
             binding.body.maxLines = MAX_LINES
-            binding.bodyContainer.layoutParams.height = HEIGHT_TEXT
             binding.seeMore.visibility = View.GONE
             binding.swipeDaily.isEnabled =false
         }

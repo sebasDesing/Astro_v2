@@ -12,12 +12,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.astrop.R
 import com.example.astrop.databinding.FragmentHomeBinding
 import com.example.astrop.domain.model.AstroDetail
-import com.example.astrop.domain.model.AstroType
 import com.example.astrop.ui.home.adapter.HomeAdapter
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -49,14 +47,15 @@ class HomeFragment : Fragment() {
         bottomNavigation.visibility = View.VISIBLE
         toolbar.visibility = View.VISIBLE
 
-        binding.rvHome.layoutManager = GridLayoutManager(requireContext(), 2)
-        binding.rvHome.addItemDecoration(
-            DividerItemDecoration(
-                requireContext(), LinearLayoutManager.VERTICAL
-            )
-        )
-        adapter = HomeAdapter(astroDetailList){ch->onItemSelect(ch)}
-        binding.rvHome.adapter =adapter
+        binding.rvHome.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvHome.apply {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            setHasFixedSize(true)
+            adapter = adapter
+        }
+
+        adapter = HomeAdapter(astroDetailList) { ch -> onItemSelect(ch) }
+        binding.rvHome.adapter = adapter
         viewModel.setData(astroDetailList, adapter, binding)
 
 
