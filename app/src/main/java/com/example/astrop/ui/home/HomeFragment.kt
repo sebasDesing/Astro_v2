@@ -1,5 +1,6 @@
 package com.example.astrop.ui.home
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.astrop.R
 import com.example.astrop.databinding.FragmentHomeBinding
 import com.example.astrop.domain.model.AstroDetail
@@ -52,19 +54,13 @@ class HomeFragment : Fragment() {
             setHasFixedSize(true)
             adapter = adapter
         }
-
         adapter = HomeAdapter(astroDetailList) { ch -> onItemSelect(ch) }
         binding.rvHome.adapter = adapter
         viewModel.setData(astroDetailList, adapter, binding)
 
 
-
-
-
-        binding.imgBg.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.bg_home)
-        binding.homeFg.animation =
-            AnimationUtils.loadAnimation(requireContext(), R.anim.from_bottom)
-
+        setAnimation()
+        greeting()
 
 
         binding.astroTypes.setOnClickListener {
@@ -72,13 +68,34 @@ class HomeFragment : Fragment() {
         }
 
 
-
     }
+
+    private fun greeting() {
+        val prefs = requireActivity().getSharedPreferences(
+            getString(R.string.prefs_file),
+            Context.MODE_PRIVATE
+        )
+        val name = prefs.getString(getString(R.string.key_nameU), null)
+        binding.hello.text = getString(R.string.hello, name)
+    }
+
+    private fun setAnimation() {
+        binding.imgBg.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.bg_home)
+        binding.homeFg.animation =
+            AnimationUtils.loadAnimation(requireContext(), R.anim.from_bottom)
+        binding.imageView.animation =
+            AnimationUtils.loadAnimation(requireContext(), R.anim.from_help)
+    }
+
     private fun onItemSelect(astro: AstroDetail) {
         Log.i("HiAstro", "$astro")
         Toast.makeText(requireContext(), "Hello ${astro.id_astro}", Toast.LENGTH_SHORT).show()
-        val nav = HomeFragmentDirections.actionHomeFragment2ToDetailFragment(astro)
-        findNavController().navigate(nav)
+        //val nav = HomeFragmentDirections.actionHomeFragment2ToDetailFragment(astro)
+        //findNavController().navigate(nav)
+
+        Glide.with(requireContext()).load(astro.image_url).into(binding.imageView)
+        binding.titleTextView.text = astro.name_astro
+        binding.descriptionTextView.text = astro.type_astro
     }
 
 

@@ -9,28 +9,29 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imgViewUrl"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:src="@drawable/bg_home"
         android:foregroundGravity="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/nameAstro"
+        app:layout_constraintTop_toBottomOf="@id/nameAstro"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
 
     <TextView
         android:id="@+id/nameAstro"
+        android:textStyle="italic"
         android:layout_width="0dp"
-        android:gravity="center"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:gravity="center"
         android:textAppearance="?attr/textAppearanceListItem"
         android:textColor="?android:textColorPrimary"
-        android:textSize="16sp"
+        android:textSize="10sp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imgViewUrl"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:text="@string/body_f2"/>
+        tools:ignore="SmallSp"
+        tools:layout_editor_absoluteX="48dp"
+        tools:text="@string/body_f2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
