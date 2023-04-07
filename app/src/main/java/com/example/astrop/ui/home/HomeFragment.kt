@@ -3,13 +3,11 @@ package com.example.astrop.ui.home
 import android.animation.ObjectAnimator
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.AnimationUtils
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -49,6 +47,7 @@ class HomeFragment : Fragment() {
         activity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
         bottomNavigation.visibility = View.VISIBLE
         toolbar.visibility = View.VISIBLE
+        binding.swipe.isEnabled = false
 
         binding.rvHome.layoutManager = LinearLayoutManager(requireContext())
         binding.rvHome.apply {
@@ -59,8 +58,6 @@ class HomeFragment : Fragment() {
         adapter = HomeAdapter(astroDetailList) { ch -> onItemSelect(ch) }
         binding.rvHome.adapter = adapter
         viewModel.setData(astroDetailList, adapter, binding)
-
-
         setAnimation()
         greeting()
 
@@ -99,8 +96,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun onItemSelect(astro: AstroDetail) {
-        Log.i("HiAstro", "$astro")
-        Toast.makeText(requireContext(), "Hello ${astro.id_astro}", Toast.LENGTH_SHORT).show()
         Glide.with(requireContext()).load(astro.image_url).into(binding.imageView)
         binding.titleTextView.text = astro.name_astro
         binding.descriptionTextView.text = astro.type_astro
