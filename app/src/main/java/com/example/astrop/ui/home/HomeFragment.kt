@@ -1,11 +1,13 @@
 package com.example.astrop.ui.home
 
+import android.animation.ObjectAnimator
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -85,14 +87,20 @@ class HomeFragment : Fragment() {
             AnimationUtils.loadAnimation(requireContext(), R.anim.from_bottom)
         binding.imageView.animation =
             AnimationUtils.loadAnimation(requireContext(), R.anim.from_help)
+
+        val alphaAnimator = ObjectAnimator.ofFloat(binding.astroTypes, "alpha", 0.2f, 1f).apply {
+            duration = 1000 // duración de la animación en milisegundos
+            repeatCount = ObjectAnimator.INFINITE // número de veces que se repetirá la animación
+            repeatMode = ObjectAnimator.REVERSE // la animación se repite en reversa
+            interpolator = AccelerateDecelerateInterpolator() // suaviza el cambio
+        }
+
+        alphaAnimator.start()
     }
 
     private fun onItemSelect(astro: AstroDetail) {
         Log.i("HiAstro", "$astro")
         Toast.makeText(requireContext(), "Hello ${astro.id_astro}", Toast.LENGTH_SHORT).show()
-        //val nav = HomeFragmentDirections.actionHomeFragment2ToDetailFragment(astro)
-        //findNavController().navigate(nav)
-
         Glide.with(requireContext()).load(astro.image_url).into(binding.imageView)
         binding.titleTextView.text = astro.name_astro
         binding.descriptionTextView.text = astro.type_astro

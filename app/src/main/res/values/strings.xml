@@ -26,5 +26,6 @@
     <string name="date">Date</string>
     <string name="hello">Hola tu  %s !!</string>
     <string name="home_help">Selecciona un astro!</string>
+    <string name="home_curiosities">Curiosidades</string>
 </resources>
 
