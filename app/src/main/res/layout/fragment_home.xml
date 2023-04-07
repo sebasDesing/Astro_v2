@@ -15,130 +15,100 @@
         android:layout_height="match_parent"
         android:alpha="0.5"
         android:src="@drawable/bg_home"
-
         android:scaleType="centerCrop"
-
         />
-    <Button
-        android:id="@+id/sigout"
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:background="#46000000"
+        android:id="@+id/rv_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:text="@string/sign_out_home"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/user_img"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@id/user_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13"
-        app:layout_constraintVertical_chainStyle="packed"
-        tools:background="@color/black" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/user_name"
+        android:id="@+id/hello"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:text="@string/app_name"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toTopOf="@id/home_options"
+        android:text="@string/hello"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_home" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/user_img" />
+        app:layout_constraintTop_toBottomOf="@id/hello" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/home_options"
+    <FrameLayout
+        android:id="@+id/frameLy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="30dp"
-        app:cardBackgroundColor="@color/black"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/user_name">
+        app:layout_constraintTop_toBottomOf="@id/rv_home"
+        tools:visibility="visible">
 
-        <LinearLayout
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_home"
+            app:civ_border_width="8dp" />
+
+        <TextView
+            android:id="@+id/titleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginTop="200dp"
+            android:gravity="center"
+            android:text="@string/home_help"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="italic" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="75dp">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:background="@drawable/img_f1_onb" />
-
-                <TextView
-                    android:id="@+id/astro_types"
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:background="#AD000000"
-                    android:gravity="center_horizontal"
-                    android:padding="16dp"
-                    android:text="@string/app_name"
-                    android:textColor="@android:color/white"
-                    android:textSize="24sp"
-                    android:textStyle="italic" />
-
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="95dp"
-                android:paddingTop="20dp">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:background="@drawable/img_f2_onb" />
-
-
-                <TextView
-                    android:id="@+id/daily_img"
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:background="#AD000000"
-                    android:gravity="center_horizontal"
-                    android:padding="16dp"
-                    android:text="@string/second_op_home"
-                    android:textColor="@android:color/white"
-                    android:textSize="24sp"
-                    android:textStyle="italic" />
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-
-    </androidx.cardview.widget.CardView>
+        <TextView
+            android:id="@+id/descriptionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="240dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            tools:text="Description" />
+    </FrameLayout>
 
     <TextView
-        android:id="@+id/icon_help"
+        android:id="@+id/astro_types"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/rounded_background"
+        android:gravity="center_horizontal"
+        android:padding="16dp"
+        android:text="@string/home_curiosities"
+        android:textColor="@color/white"
+        android:textSize="21sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/icon_help_home"
-        app:layout_constraintBottom_toTopOf="@id/sigout"
-        android:layout_marginBottom="20dp"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

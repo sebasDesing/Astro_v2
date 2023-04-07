@@ -68,8 +68,8 @@
     <ImageView
         android:id="@+id/end"
         style="@style/End"
-        android:layout_width="78dp"
-        android:layout_height="67dp"
+        android:layout_width="68dp"
+        android:layout_height="47dp"
         android:background="@drawable/arrow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

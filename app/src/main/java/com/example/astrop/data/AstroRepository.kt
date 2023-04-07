@@ -1,12 +1,16 @@
 package com.example.astrop.data
 
+import com.example.astrop.data.database.dao.AstroDetailDao
 import com.example.astrop.data.database.dao.AstroTypeDao
 import com.example.astrop.data.database.dao.DailyImageDao
+import com.example.astrop.data.database.entities.AstroDetailEntity
 import com.example.astrop.data.database.entities.AstroTypeEntity
 import com.example.astrop.data.database.entities.DailyImageEntity
+import com.example.astrop.data.model.AstroDetailModel
 import com.example.astrop.data.model.AstroTypeModel
 import com.example.astrop.data.model.DailyImageModel
 import com.example.astrop.data.network.AstroService
+import com.example.astrop.domain.model.AstroDetail
 import com.example.astrop.domain.model.AstroType
 import com.example.astrop.domain.model.DailyImage
 import com.example.astrop.domain.model.toDomain
@@ -16,7 +20,8 @@ import javax.inject.Inject
 class AstroRepository @Inject constructor(
     private val api: AstroService,
     private val AstroTypeDao: AstroTypeDao,
-    private val DailyImageDao: DailyImageDao
+    private val DailyImageDao: DailyImageDao,
+    private val AstroDetailDao : AstroDetailDao
 ) {
 
     suspend fun getTypeAstroFromApi(): List<AstroType> {
@@ -58,6 +63,27 @@ class AstroRepository @Inject constructor(
     suspend fun clearDailyImage() {
         DailyImageDao.deleteDailyImage()
     }
+
+    suspend fun getAllAstrosDetailFromApi(): List<AstroDetail> {
+        val response : List<AstroDetailModel> = api.getAllAstros()
+        return  response.map {
+            it.toDomain()
+        }
+    }
+    suspend fun getAllAstrosDetailFromBD(): List<AstroDetail> {
+        val response : List<AstroDetailEntity> = AstroDetailDao.getAstrosDetail()
+        return  response.map {
+            it.toDomain()
+        }
+    }
+
+    suspend fun insertAstroDetail(detailA : List<AstroDetailEntity>){
+        AstroDetailDao.insertAllDetailAstros(detailA)
+    }
+    suspend fun clearAstroDetail(){
+        AstroDetailDao.deleteAllDetailAstros()
+    }
+
 
 
 }
