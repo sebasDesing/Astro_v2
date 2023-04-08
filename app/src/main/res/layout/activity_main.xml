@@ -15,13 +15,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:visibility="gone"
+        tools:visibility="visible"
         >
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?android:attr/windowBackground" />
+            android:layout_height="38dp"
+            android:background="?attr/colorPrimary"
+            />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -43,7 +45,9 @@
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
         app:defaultNavHost="true"
-        android:layout_height="wrap_content"
+        app:itemBackground="@color/black"
+        app:itemIconTint="@color/white"
+        android:layout_height="38dp"
         android:background="?android:attr/windowBackground"
         app:itemRippleColor="@color/teal_200"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -51,6 +55,8 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nav_host_fragment"
         android:visibility="gone"
+        tools:visibility="visible"
+        app:labelVisibilityMode="unlabeled"
         app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

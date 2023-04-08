@@ -99,9 +99,9 @@ class SignInFragment : Fragment() {
             getString(R.string.prefs_file),
             Context.MODE_PRIVATE
         )
-        val email = prefs.getString("email", null)
-        val user = prefs.getString("nameU", null)
-        val photo = prefs.getString("imgU", null)
+        val email = prefs.getString(getString(R.string.key_email), null)
+        val user = prefs.getString(getString(R.string.key_nameU), null)
+        val photo = prefs.getString(getString(R.string.key_nameU), null)
         if (email != null) {
             goHome(user.toString(), email.toString(),photo.toString() )
         }
