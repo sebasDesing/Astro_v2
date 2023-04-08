@@ -1,55 +1,56 @@
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8" ?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_margin="15dp"
-    app:cardCornerRadius="18dp"
-    app:cardBackgroundColor="#FF0050"
-    >
+    app:cardElevation="10dp"
+    android:layout_margin="20dp"
+    app:cardCornerRadius="5dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/black">
+        android:layout_height="118dp"
+        android:orientation="horizontal"
+        android:padding="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="118dp"
+        android:orientation="horizontal"
+        android:padding="10dp">
 
         <ImageView
-            android:id="@+id/imgViewUrl"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
+            android:id="@+id/type_item"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/bg_type"
             android:scaleType="centerCrop"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginRight="10dp"/>
 
-        <TextView
-            android:id="@+id/nameAstro"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="16dp"
-            android:textAlignment="center"
-            app:layout_constraintBottom_toTopOf="@id/IconText"
-            app:layout_constraintStart_toEndOf="@id/imgViewUrl"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed"
-            tools:text="hola"
-            tools:textColor="@color/white"
-            tools:textSize="20sp" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/IconText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/imgViewUrl"
-            app:layout_constraintTop_toBottomOf="@id/nameAstro"
-            tools:text="icon"
-            tools:textColor="@color/white"
-            tools:textSize="20sp" />
+            <TextView
+                android:id="@+id/type_title"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="@string/title_type"
+                android:textSize="20sp"/>
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/type_resum"
+                android:text="@string/title_f3"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                android:layout_width="230dp"
+                android:layout_height="60dp"
+                android:textSize="14sp"
+                android:textAlignment="textStart"/>
+        </LinearLayout>
+    </LinearLayout>
 </androidx.cardview.widget.CardView>
