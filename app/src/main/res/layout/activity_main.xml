@@ -44,9 +44,8 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
-        app:defaultNavHost="true"
-        app:itemBackground="@color/black"
-        app:itemIconTint="@color/white"
+        app:itemBackground="?attr/colorPrimary"
+        app:itemIconTint="?attr/colorSecondary"
         android:layout_height="38dp"
         android:background="?android:attr/windowBackground"
         app:itemRippleColor="@color/teal_200"
