@@ -102,6 +102,7 @@ class SignInFragment : Fragment() {
         val email = prefs.getString(getString(R.string.key_email), null)
         val user = prefs.getString(getString(R.string.key_nameU), null)
         val photo = prefs.getString(getString(R.string.key_photo_url), null)
+
         if (email != null) {
             goHome(user.toString(), email.toString(),photo.toString() )
         }
