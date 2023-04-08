@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/splashScreenFragment">
+    app:startDestination="@id/splashScreenFragment"
+
+    >
 
     <fragment
         android:id="@+id/onboardingFragment"
@@ -26,7 +28,7 @@
     <fragment
         android:id="@+id/homeFragment2"
         android:name="com.example.astrop.ui.home.HomeFragment"
-        android:label="fragment_home"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_home" >
         <argument
             android:name="name_user"
@@ -65,17 +67,17 @@
     <fragment
         android:id="@+id/userProfileFragment"
         android:name="com.example.astrop.ui.userProfile.UserProfileFragment"
-        android:label="fragment_user_profile"
+        android:label="@string/user_profile"
         tools:layout="@layout/fragment_user_profile" />
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="com.example.astrop.ui.favorites.FavoritesFragment"
-        android:label="fragment_favorites"
+        android:label="@string/favorites"
         tools:layout="@layout/fragment_favorites" />
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.astrop.ui.mainFragment.TabsFragment"
-        android:label="fragment_main"
+        android:label="@string/curiosities"
         tools:layout="@layout/fragment_main" />
     <fragment
         android:id="@+id/detailFragment"

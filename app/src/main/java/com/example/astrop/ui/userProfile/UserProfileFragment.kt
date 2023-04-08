@@ -1,6 +1,5 @@
 package com.example.astrop.ui.userProfile
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +7,7 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.astrop.R
@@ -17,6 +17,7 @@ class UserProfileFragment : Fragment() {
 
     private var _binding: FragmentUserProfileBinding? = null
     private val binding get() = _binding!!
+    private val viewModel: UserProfileViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,21 +44,27 @@ class UserProfileFragment : Fragment() {
     }
 
     private fun getCurretUSer() {
-        val prefs = requireActivity().getSharedPreferences(
+
+        //getString(getString(R.string.key_nameU), null)
+        //binding.sigout.setOnClickListener { val p = prefs.edit()p.clear()p.apply() }
+        val iolo = viewModel.getUserData(
             getString(R.string.prefs_file),
-            Context.MODE_PRIVATE
+            getString(R.string.key_nameU),
+            getString(R.string.key_email),
+            getString(R.string.key_photo_url),
+            requireContext()
         )
-        val phtoUrl = prefs.getString(getString(R.string.key_photo_url), null)
-        binding.userName.text = prefs.getString(getString(R.string.key_nameU), null)
-        binding.email.text = prefs.getString(getString(R.string.key_email), null)
-        Glide.with(requireContext()).load(phtoUrl).into(binding.userImg)
+        Glide.with(requireContext()).load(iolo.photo_url).into(binding.userImg)
+        binding.userName.text = iolo.name
+        binding.email.text = iolo.email
+
 
         binding.sigout.setOnClickListener {
-            val p = prefs.edit()
-            p.clear()
-            p.apply()
+            viewModel.singout(getString(R.string.prefs_file),requireContext() )
             findNavController().navigate(R.id.sigInFragment)
         }
+
+
     }
 
 
