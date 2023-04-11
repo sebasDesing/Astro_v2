@@ -8,7 +8,7 @@
 
     <item
         android:id="@+id/favoritesFragment"
-        android:icon="@drawable/heart_solid_color"
+        android:icon="@drawable/baseline_favorite_border_24"
         android:title="@string/title_fav" />
     <item
         android:id="@+id/astroTypeFragment"
