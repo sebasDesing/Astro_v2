@@ -8,6 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.AnimationUtils
+import android.widget.Toast
+import android.widget.Toolbar
+import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -17,7 +20,10 @@ import com.bumptech.glide.Glide
 import com.example.astrop.R
 import com.example.astrop.databinding.FragmentHomeBinding
 import com.example.astrop.domain.model.AstroDetail
+import com.example.astrop.ui.MainActivity
 import com.example.astrop.ui.home.adapter.HomeAdapter
+import com.example.astrop.utils.FUtils
+import com.example.astrop.utils.FUtils.setBackPressedCallback
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,19 +42,17 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        setBackPressedCallback{
+            Toast.makeText(requireContext(), "Hola", Toast.LENGTH_SHORT).show()
+        }
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val bottomNavigation = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNav)
-        val toolbar = requireActivity().findViewById<AppBarLayout>(R.id.appBarLayout)
-        val activity = requireActivity() as AppCompatActivity
-        activity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
-        bottomNavigation.visibility = View.VISIBLE
-        toolbar.visibility = View.VISIBLE
-        binding.swipe.isEnabled = false
 
+        setNavConfig()
+        binding.swipe.isEnabled = false
         binding.rvHome.layoutManager = LinearLayoutManager(requireContext())
         binding.rvHome.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -68,6 +72,18 @@ class HomeFragment : Fragment() {
 
 
     }
+
+    private fun setNavConfig() {
+
+        val bottomNavigation = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNav)
+        val toolbar = requireActivity().findViewById<AppBarLayout>(R.id.appBarLayout)
+        val activity = requireActivity() as AppCompatActivity
+        activity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        bottomNavigation.visibility = View.VISIBLE
+        toolbar.visibility = View.VISIBLE
+
+    }
+
 
     private fun greeting() {
         val prefs = requireActivity().getSharedPreferences(
@@ -100,6 +116,8 @@ class HomeFragment : Fragment() {
         binding.titleTextView.text = astro.name_astro
         binding.descriptionTextView.text = astro.type_astro
     }
+
+
 
 
 }

@@ -2,6 +2,7 @@ package com.example.astrop.ui.home
 
 import android.annotation.SuppressLint
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bumptech.glide.Glide
@@ -19,19 +20,20 @@ class HomeViewModel @Inject constructor(private val result : GetAstrosDetailUseC
     @SuppressLint("NotifyDataSetChanged")
     fun  setData(astroDetailList: MutableList<AstroDetail>, adapter: HomeAdapter, binding: FragmentHomeBinding ) {
         viewModelScope.launch {
-            binding.swipe.isEnabled = true
+            binding.swipe.visibility = View.VISIBLE
             try {
                 val response = result.invoke()
-                response?.let { res ->
+                response.let { res ->
                     astroDetailList.addAll(res)
                     adapter.notifyDataSetChanged()
                     Log.i("astrodetaill", "${res.size} ")
                 }
             } catch (e: Exception) {
+
                 "Error al obtener los datos : ${e.message}".also { binding.titleTextView.text = it }
             }
             finally {
-                binding.swipe.isEnabled=false
+                binding.swipe.visibility = View.GONE
             }
         }
     }

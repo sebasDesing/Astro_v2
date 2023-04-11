@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.astrop.R
 import com.example.astrop.databinding.FragmentUserProfileBinding
+import com.example.astrop.utils.FUtils.setBackPressedCallback
 
 class UserProfileFragment : Fragment() {
 
@@ -24,6 +25,8 @@ class UserProfileFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentUserProfileBinding.inflate(inflater, container, false)
+        setBackPressedCallback {
+        }
         return binding.root
     }
 

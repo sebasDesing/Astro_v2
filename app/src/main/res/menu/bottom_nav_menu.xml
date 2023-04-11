@@ -10,6 +10,11 @@
         android:id="@+id/favoritesFragment"
         android:icon="@drawable/heart_solid_color"
         android:title="@string/title_fav" />
+    <item
+        android:id="@+id/astroTypeFragment"
+        android:icon="@drawable/saturno"
+        android:title="@string/title_astro_type"
+        />
 
     <item
         android:id="@+id/userProfileFragment"

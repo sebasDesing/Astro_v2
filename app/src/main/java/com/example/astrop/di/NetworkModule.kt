@@ -13,7 +13,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
-    const val BASE_URL = "http://192.168.124.33:3000"  // AQUI VA TU IP LOCAL
+    const val BASE_URL = "http://192.168.213.33:3000"  // AQUI VA TU IP LOCAL
     @Singleton
     @Provides
 

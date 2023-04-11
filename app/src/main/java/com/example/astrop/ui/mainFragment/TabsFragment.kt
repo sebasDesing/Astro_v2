@@ -19,7 +19,7 @@ class TabsFragment : Fragment() {
     private lateinit var tabLayout: TabLayout
     private lateinit var viewPager2: ViewPager2
     private lateinit var adapter: TabsFragmentAdapter
-    private val lista = arrayListOf<Fragment>(AstroTypeFragment(),DailyImageFragment())
+    private val lista = arrayListOf<Fragment>(DailyImageFragment())
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

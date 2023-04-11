@@ -23,15 +23,24 @@ class AstroTypeViewModel @Inject constructor(private val result: GetAstroTypeUse
     ) {
         viewModelScope.launch {
             binding.swipe.isRefreshing = true
-            val response = result.invoke()
-            response?.let { res ->
-                astroList.addAll(res)
-                adapter.notifyDataSetChanged()
+            try {
+                val response = result.invoke()
+                response.let { res ->
+                    astroList.addAll(res)
+                    adapter.notifyDataSetChanged()
+                }
+            }catch (e :Exception){
+                "Error al obtener los datos : ${e.message}".also { binding.textdata.text = it }
             }
+
             binding.swipe.isRefreshing = false
 
         }
     }
 
+
+}
+
+sealed class ten(){
 
 }

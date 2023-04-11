@@ -7,14 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.astrop.R
 import com.example.astrop.databinding.FragmentAstroTypeBinding
+import com.example.astrop.domain.model.AstroDetail
 import com.example.astrop.domain.model.AstroType
 import com.example.astrop.ui.astroType.adapter.AstroTypeAdapter
+import com.example.astrop.utils.FUtils.setBackPressedCallback
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -33,17 +38,20 @@ class AstroTypeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentAstroTypeBinding.inflate(inflater, container, false)
+        setBackPressedCallback {
+
+        }
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val bottomNavigation = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNav)
-        bottomNavigation.visibility = View.GONE
+        val activity = requireActivity() as AppCompatActivity
+        activity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
         binding.astroTypesFg.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.from_ast)
         binding.swipe.isEnabled = false
 
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.recyclerView.addItemDecoration(
             DividerItemDecoration(
                 requireContext(), LinearLayoutManager.VERTICAL
@@ -56,6 +64,16 @@ class AstroTypeFragment : Fragment() {
 
     private fun onItemSelect(astro: AstroType) {
         Log.i("HiAstro", "$astro")
-        Toast.makeText(requireContext(), "Hello ${astro.typeAstro}",Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), "Hello ${astro.typeAstro}", Toast.LENGTH_SHORT).show()
+        val nav =  AstroTypeFragmentDirections.actionAstroTypeFragmentToDetailFragment(
+            AstroDetail(
+                1,
+                "${astro.typeAstro}",
+                "",
+                "",
+                "","", 1F,"${astro.imgUrl}"
+            )
+        )
+        findNavController().navigate(nav)
     }
 }

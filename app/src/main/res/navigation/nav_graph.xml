@@ -48,8 +48,13 @@
     <fragment
         android:id="@+id/astroTypeFragment"
         android:name="com.example.astrop.ui.astroType.AstroTypeFragment"
+        android:label="@string/title_astro_type"
         tools:layout="@layout/fragment_astro_type"
-        />
+        >
+        <action
+            android:id="@+id/action_astroTypeFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/sigInFragment"
         android:name="com.example.astrop.ui.sigIn.SignInFragment"

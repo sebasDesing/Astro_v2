@@ -27,8 +27,6 @@ class SignInFragment : Fragment() {
 
     private var _binding: FragmentSigInBinding? = null
     private val binding get() = _binding!!
-
-
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var authState: FirebaseAuth.AuthStateListener
 
@@ -122,6 +120,7 @@ class SignInFragment : Fragment() {
             .apply()
         binding.prg.visibility = View.GONE
         findNavController().navigate(R.id.homeFragment2)
+
     }
 
     override fun onDestroyView() {
