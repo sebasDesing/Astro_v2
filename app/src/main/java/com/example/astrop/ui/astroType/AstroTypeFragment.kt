@@ -51,13 +51,7 @@ class AstroTypeFragment : Fragment() {
         activity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
         binding.astroTypesFg.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.from_ast)
         binding.swipe.isEnabled = false
-
         binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
-        binding.recyclerView.addItemDecoration(
-            DividerItemDecoration(
-                requireContext(), LinearLayoutManager.VERTICAL
-            )
-        )
         adapter = AstroTypeAdapter(astroList) { ch -> onItemSelect(ch) }
         binding.recyclerView.adapter = adapter
         viewModel.setRecyclerView(astroList, adapter, binding)
@@ -66,11 +60,19 @@ class AstroTypeFragment : Fragment() {
 
     private fun setAnimation() {
         val alphaAnimator = ObjectAnimator.ofFloat(binding.textdata, "alpha", 0.2f, 1f).apply {
-            duration = 1000 // duración de la animación en milisegundos
-            repeatCount = ObjectAnimator.INFINITE // número de veces que se repetirá la animación
-            repeatMode = ObjectAnimator.REVERSE // la animación se repite en reversa
-            interpolator = AccelerateDecelerateInterpolator() // suaviza el cambio
+            duration = 1000
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+            interpolator = AccelerateDecelerateInterpolator()
         }
+        val alphaAnimator2 = ObjectAnimator.ofFloat(binding.imgBg, "alpha", 0.2f, 1f).apply {
+            duration = 4000
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+            interpolator = AccelerateDecelerateInterpolator()
+        }
+
+        alphaAnimator2.start()
 
         alphaAnimator.start()
     }

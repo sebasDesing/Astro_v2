@@ -5,13 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="15dp"
     app:cardCornerRadius="18dp"
-    android:layout_gravity="center">
+    app:cardBackgroundColor="?colorAccent"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/item_frid_detail"
-        >
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?colorPrimary">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgViewUrl"
@@ -22,18 +22,16 @@
             app:civ_border_color="?colorSecondary"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nameAstro"
-
-            android:src="@drawable/bg_daily"/>
+            app:layout_constraintTop_toBottomOf="@+id/nameAstro" />
 
         <TextView
             android:id="@+id/nameAstro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textStyle="italic"
             android:layout_marginStart="8dp"
             android:layout_marginBottom="16dp"
             android:textAlignment="center"
-            android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/imgViewUrl"
             app:layout_constraintStart_toStartOf="parent"

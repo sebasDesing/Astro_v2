@@ -44,6 +44,3 @@ class AstroTypeViewModel @Inject constructor(private val result: GetAstroTypeUse
 
 }
 
-sealed class ten(){
-
-}

@@ -5,46 +5,48 @@
     android:id="@+id/astro_types_fg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home."
-    android:background="?colorPrimary">
+    android:background="?colorPrimary"
+    tools:context=".ui.home.">
 
+    <ImageView
+        android:id="@+id/img_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.5"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_home" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView_contain"
+        android:layout_marginTop="32dp"
+        app:layout_constraintBottom_toTopOf="@id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32"
-        app:layout_constraintVertical_chainStyle="packed">
+        app:layout_constraintVertical_chainStyle="spread">
 
         <TextView
             android:id="@+id/textdata"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:gravity="center"
-
             android:text="@string/title_astro_type_grid"
             android:textColor="#DCF69B7F" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-<ScrollView
-    android:id="@+id/recyclerView_contain"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/swipe">
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?colorOnSecondary" />
-</ScrollView>
+        android:layout_height="650dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/swipe" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
