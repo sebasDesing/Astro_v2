@@ -41,9 +41,6 @@
         <action
             android:id="@+id/action_homeFragment2_to_mainFragment"
             app:destination="@id/mainFragment" />
-        <action
-            android:id="@+id/action_homeFragment2_to_detailFragment"
-            app:destination="@id/detailFragment" />
     </fragment>
     <fragment
         android:id="@+id/astroTypeFragment"
@@ -53,6 +50,9 @@
         >
         <action
             android:id="@+id/action_astroTypeFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_astroTypeFragment_to_detailFragment2"
             app:destination="@id/detailFragment" />
     </fragment>
     <fragment
@@ -90,7 +90,7 @@
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
         <argument
-            android:name="Detail"
-            app:argType="com.example.astrop.domain.model.AstroDetail" />
+            android:name="id_type"
+            app:argType="integer" />
     </fragment>
 </navigation>

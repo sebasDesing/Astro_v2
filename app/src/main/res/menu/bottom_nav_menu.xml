@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
 
     <item
         android:id="@+id/homeFragment2"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_home" />
 
-    <item
-        android:id="@+id/favoritesFragment"
-        android:icon="@drawable/baseline_favorite_border_24"
-        android:title="@string/title_fav" />
     <item
         android:id="@+id/astroTypeFragment"
         android:icon="@drawable/saturno"

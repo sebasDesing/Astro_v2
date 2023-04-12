@@ -5,14 +5,15 @@
     android:id="@+id/astro_types_fg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.">
+    tools:context=".ui.home."
+    android:background="?colorPrimary">
 
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:layout_constraintBottom_toTopOf="@id/recyclerView"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView_contain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,20 +24,27 @@
             android:id="@+id/textdata"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:text="@string/app_name"
-            android:textColor="@color/red_teal" />
+            android:gravity="center"
+
+            android:text="@string/title_astro_type_grid"
+            android:textColor="#DCF69B7F" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+<ScrollView
+    android:id="@+id/recyclerView_contain"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/swipe">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/swipe" />
+        android:background="?colorOnSecondary" />
+</ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

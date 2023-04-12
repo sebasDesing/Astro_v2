@@ -1,10 +1,12 @@
 package com.example.astrop.ui.astroType
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -20,7 +22,6 @@ import com.example.astrop.domain.model.AstroDetail
 import com.example.astrop.domain.model.AstroType
 import com.example.astrop.ui.astroType.adapter.AstroTypeAdapter
 import com.example.astrop.utils.FUtils.setBackPressedCallback
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -60,12 +61,24 @@ class AstroTypeFragment : Fragment() {
         adapter = AstroTypeAdapter(astroList) { ch -> onItemSelect(ch) }
         binding.recyclerView.adapter = adapter
         viewModel.setRecyclerView(astroList, adapter, binding)
+        setAnimation()
+    }
+
+    private fun setAnimation() {
+        val alphaAnimator = ObjectAnimator.ofFloat(binding.textdata, "alpha", 0.2f, 1f).apply {
+            duration = 1000 // duración de la animación en milisegundos
+            repeatCount = ObjectAnimator.INFINITE // número de veces que se repetirá la animación
+            repeatMode = ObjectAnimator.REVERSE // la animación se repite en reversa
+            interpolator = AccelerateDecelerateInterpolator() // suaviza el cambio
+        }
+
+        alphaAnimator.start()
     }
 
     private fun onItemSelect(astro: AstroType) {
         Log.i("HiAstro", "$astro")
         Toast.makeText(requireContext(), "Hello ${astro.typeAstro}", Toast.LENGTH_SHORT).show()
-        val nav =  AstroTypeFragmentDirections.actionAstroTypeFragmentToDetailFragment(
+        val nav = AstroTypeFragmentDirections.actionAstroTypeFragmentToDetailFragment(
             AstroDetail(
                 1,
                 "${astro.typeAstro}",

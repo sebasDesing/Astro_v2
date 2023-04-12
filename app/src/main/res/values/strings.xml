@@ -31,5 +31,6 @@
     <string name="user_profile">Perfil</string>
     <string name="favorites">Favoritos</string>
     <string name="title_astro_type">Tipos de astro</string>
+    <string name="title_astro_type_grid">Selecciona un tipo de astro !</string>
 </resources>
 
