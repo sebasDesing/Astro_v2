@@ -48,7 +48,7 @@
         android:layout_width="0dp"
         app:itemBackground="?attr/colorPrimary"
         app:itemIconTint="?attr/colorSecondary"
-        android:layout_height="38dp"
+        android:layout_height="wrap_content"
         android:background="?android:attr/windowBackground"
         app:itemRippleColor="@color/teal_200"
         app:layout_constraintBottom_toBottomOf="parent"
