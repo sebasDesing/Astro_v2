@@ -26,8 +26,11 @@ class AstroTypeViewModel @Inject constructor(private val result: GetAstroTypeUse
             try {
                 val response = result.invoke()
                 response.let { res ->
-                    astroList.addAll(res)
-                    adapter.notifyDataSetChanged()
+                    if (astroList.size==0){
+                        astroList.addAll(res)
+                        adapter.notifyDataSetChanged()
+                    }
+
                 }
             }catch (e :Exception){
                 "Error al obtener los datos : ${e.message}".also { binding.textdata.text = it }

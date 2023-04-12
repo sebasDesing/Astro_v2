@@ -15,7 +15,8 @@ data class AstroDetailEntity(
     @ColumnInfo(name = "name_com") val name_com: String,
     @ColumnInfo(name = "composition_description") val composition_description: String,
     @ColumnInfo(name = "distance") val distance: Float,
-    @ColumnInfo(name = "image_url") val image_url: String
+    @ColumnInfo(name = "image_url") val image_url: String,
+    @ColumnInfo(name="id_type_astro") val idType:Int
 )
 
 fun AstroDetail.toDB() = AstroDetailEntity(
@@ -26,5 +27,6 @@ fun AstroDetail.toDB() = AstroDetailEntity(
     name_com=name_com,
     composition_description=composition_description,
     distance=distance,
-    image_url=image_url
+    image_url=image_url,
+    idType = id_type_astro
 )

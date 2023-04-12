@@ -79,13 +79,7 @@ class AstroTypeFragment : Fragment() {
         Log.i("HiAstro", "$astro")
         Toast.makeText(requireContext(), "Hello ${astro.typeAstro}", Toast.LENGTH_SHORT).show()
         val nav = AstroTypeFragmentDirections.actionAstroTypeFragmentToDetailFragment(
-            AstroDetail(
-                1,
-                "${astro.typeAstro}",
-                "",
-                "",
-                "","", 1F,"${astro.imgUrl}"
-            )
+            astro.id_type_astro
         )
         findNavController().navigate(nav)
     }

@@ -77,6 +77,15 @@ class AstroRepository @Inject constructor(
         }
     }
 
+    suspend fun getAllAstrosDetailBytypeFromBD(id:Int): List<AstroDetail> {
+        val response : List<AstroDetailEntity> = AstroDetailDao.getAstrosDetailByType(id)
+        return  response.map {
+            it.toDomain()
+        }
+    }
+
+
+
     suspend fun insertAstroDetail(detailA : List<AstroDetailEntity>){
         AstroDetailDao.insertAllDetailAstros(detailA)
     }
