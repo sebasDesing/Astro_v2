@@ -25,12 +25,15 @@
     <string name="pictute_of_the_day">Pictute of the day</string>
     <string name="date">Date</string>
     <string name="hello">Hola tu  %s !!</string>
+    <string name="helptext_astro"> Seelecciona un :  %s !!</string>
+    <string name="helptext_galaxi"> Seelecciona una :  %s !!</string>
     <string name="home_help">Selecciona un astro!</string>
     <string name="home_curiosities">Curiosidades</string>
     <string name="curiosities">Curiosidades…</string>
     <string name="user_profile">Perfil</string>
-    <string name="favorites">Favoritos</string>
+    <string name="favorites">Favoritosssssssssssssssssssssssssssssssssssssssssssssss</string>
     <string name="title_astro_type">Tipos de astro</string>
     <string name="title_astro_type_grid">Selecciona un tipo de astro !</string>
+    <string name="astroTypeList">"Astros "</string>
 </resources>
 

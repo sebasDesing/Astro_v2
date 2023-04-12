@@ -8,9 +8,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.astrop.R
 import com.example.astrop.databinding.FragmentDetailBinding
 import com.example.astrop.domain.model.AstroDetail
 import com.example.astrop.ui.astroDetail.adapter.DetailAdapter
@@ -37,7 +36,7 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.text.text = args.toString()
+        //binding.text.text = args.toString()
 
         binding.rvDetail.layoutManager = LinearLayoutManager(requireContext())
         binding.rvDetail.apply {
@@ -46,9 +45,16 @@ class DetailFragment : Fragment() {
             adapter = adapter
         }
         adapter = DetailAdapter(astroList) { ch -> onItemSelect(ch) }
-       binding.rvDetail.adapter = adapter
-        viewModel.setRecyclerView(astroList, adapter, binding, args.idType)
-        viewModel.hola(args.idType)
+        binding.rvDetail.adapter = adapter
+        viewModel.setRecyclerView(astroList, adapter, binding, args.astroType.idType)
+        val helptext = if (args.astroType.idType == 5|| args.astroType.idType == 2) {
+            getString(R.string.helptext_galaxi, args.astroType.typeAstro)
+        } else {
+            getString(R.string.helptext_astro, args.astroType.typeAstro)
+        }
+        binding.text.text = helptext
+
+
     }
 
     private fun onItemSelect(astro: AstroDetail) {

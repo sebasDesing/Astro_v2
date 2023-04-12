@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.astrop.R
+import com.example.astrop.data.model.AstroTypeModel
 import com.example.astrop.databinding.FragmentAstroTypeBinding
 import com.example.astrop.domain.model.AstroDetail
 import com.example.astrop.domain.model.AstroType
@@ -81,7 +82,7 @@ class AstroTypeFragment : Fragment() {
         Log.i("HiAstro", "$astro")
         Toast.makeText(requireContext(), "Hello ${astro.typeAstro}", Toast.LENGTH_SHORT).show()
         val nav = AstroTypeFragmentDirections.actionAstroTypeFragmentToDetailFragment(
-            astro.id_type_astro
+            AstroTypeModel(astro.typeAstro,astro.imgUrl,astro.id_type_astro)
         )
         findNavController().navigate(nav)
     }

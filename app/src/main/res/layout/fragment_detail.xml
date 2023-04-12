@@ -16,7 +16,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.060000002"
         app:layout_constraintVertical_chainStyle="packed" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_detail"

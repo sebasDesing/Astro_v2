@@ -87,10 +87,10 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.astrop.ui.astroDetail.DetailFragment"
-        android:label="fragment_detail"
+        android:label="@string/astroTypeList"
         tools:layout="@layout/fragment_detail" >
         <argument
-            android:name="id_type"
-            app:argType="integer" />
+            android:name="astroType"
+            app:argType="com.example.astrop.data.model.AstroTypeModel" />
     </fragment>
 </navigation>
