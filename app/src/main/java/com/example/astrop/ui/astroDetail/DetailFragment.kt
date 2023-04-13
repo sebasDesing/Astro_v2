@@ -9,10 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.astrop.R
 import com.example.astrop.databinding.FragmentDetailBinding
 import com.example.astrop.domain.model.AstroDetail
 import com.example.astrop.ui.astroDetail.adapter.DetailAdapter
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -35,8 +37,8 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        //binding.text.text = args.toString()
+        val bottomNavigation = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNav)
+        bottomNavigation.visibility = View.GONE
 
         binding.rvDetail.layoutManager = LinearLayoutManager(requireContext())
         binding.rvDetail.apply {
@@ -60,7 +62,9 @@ class DetailFragment : Fragment() {
     private fun onItemSelect(astro: AstroDetail) {
 
         Toast.makeText(requireContext(), "Hello ${astro.id_astro}", Toast.LENGTH_SHORT).show()
-
+        binding.nameAstroB.text = astro.name_astro
+        Glide.with(requireContext()).load(astro.image_url).into(binding.imageViewB)
+        binding.descriptionB.text = astro.description
 
     }
 

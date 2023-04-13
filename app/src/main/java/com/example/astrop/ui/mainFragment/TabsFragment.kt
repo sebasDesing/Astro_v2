@@ -34,7 +34,6 @@ class TabsFragment : Fragment() {
         tabLayout = binding.tabLayout
         viewPager2 = binding.viwPager
         adapter = TabsFragmentAdapter(requireActivity().supportFragmentManager, lifecycle, lista)
-        tabLayout.addTab(tabLayout.newTab().setText("Home"))
         tabLayout.addTab(tabLayout.newTab().setText("DailyImage"))
 
         viewPager2.adapter = adapter
