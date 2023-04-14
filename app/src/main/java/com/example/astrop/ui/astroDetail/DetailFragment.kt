@@ -65,6 +65,12 @@ class DetailFragment : Fragment() {
         binding.nameAstroB.text = astro.name_astro
         Glide.with(requireContext()).load(astro.image_url).into(binding.imageViewB)
         binding.descriptionB.text = astro.description
+        binding.compositionTitle.text = getString(R.string.title_composition, astro.name_com)
+        binding.compositionBody.text = astro.composition_description
+        binding.distanceAstro.text = getString(R.string.distance_astro, astro.distance)
+
+
+        binding.imageViewB.visibility = View.VISIBLE
 
     }
 

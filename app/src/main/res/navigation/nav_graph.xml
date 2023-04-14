@@ -67,7 +67,7 @@
     <fragment
         android:id="@+id/dailyImageFragment"
         android:name="com.example.astrop.ui.dailyImage.DailyImageFragment"
-        android:label="fragment_daily_image"
+        android:label="Picture of the day"
         tools:layout="@layout/fragment_daily_image" />
     <fragment
         android:id="@+id/userProfileFragment"

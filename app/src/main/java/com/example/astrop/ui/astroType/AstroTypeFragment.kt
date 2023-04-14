@@ -23,6 +23,7 @@ import com.example.astrop.domain.model.AstroDetail
 import com.example.astrop.domain.model.AstroType
 import com.example.astrop.ui.astroType.adapter.AstroTypeAdapter
 import com.example.astrop.utils.FUtils.setBackPressedCallback
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -85,5 +86,11 @@ class AstroTypeFragment : Fragment() {
             AstroTypeModel(astro.typeAstro,astro.imgUrl,astro.id_type_astro)
         )
         findNavController().navigate(nav)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val bottomNavigation = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNav)
+        bottomNavigation.visibility = View.VISIBLE
     }
 }

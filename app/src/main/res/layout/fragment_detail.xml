@@ -4,8 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient_detail"
     tools:context=".ui.astroDetail.DetailFragment">
 
+    <ImageView
+        android:id="@+id/img_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.5"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_home" />
 
     <TextView
         android:id="@+id/text"
@@ -24,23 +32,44 @@
         android:id="@+id/rv_detail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/body"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@id/imageView_b"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text" />
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageView_b"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:scaleType="centerCrop"
+        app:civ_border_color="?attr/colorPrimary"
+        app:civ_border_width="8dp"
+        app:layout_constraintBottom_toTopOf="@id/body"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_detail"
+        android:visibility="gone"
+        tools:visibility="visible"
+        tools:src="@drawable/bg_home" />
+
     <ScrollView
         android:id="@+id/body"
-        android:layout_width="wrap_content"
-        android:layout_height="480dp"
+        android:layout_width="326dp"
+        android:layout_height="240dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginBottom="8dp"
         android:background="#34000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rv_detail">
-        <FrameLayout
+        app:layout_constraintTop_toBottomOf="@id/imageView_b">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/frameLy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -50,38 +79,97 @@
             app:layout_constraintTop_toBottomOf="@id/rv_home"
             tools:visibility="visible">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/imageView_b"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/bg_home"
-                app:civ_border_color="?attr/colorPrimary"
-                app:civ_border_width="8dp" />
-
             <TextView
                 android:id="@+id/name_astro_b"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="200dp"
+                android:layout_marginTop="2dp"
                 android:gravity="center"
                 android:text="@string/home_help"
                 android:textColor="@color/white"
                 android:textSize="24sp"
-                android:textStyle="italic" />
+                android:textStyle="italic"
+                app:layout_constraintBottom_toTopOf="@id/description_b"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="spread_inside" />
 
             <TextView
                 android:id="@+id/description_b"
+                style="@style/Body_onb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:layout_marginTop="240dp"
+                android:layout_marginTop="20dp"
                 android:gravity="center"
+                android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="italic"
+                app:layout_constraintBottom_toTopOf="@id/composition_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/name_astro_b"
                 tools:text="Description" />
-        </FrameLayout>
+
+            <TextView
+                android:id="@+id/composition_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@id/composition_body"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/description_b"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="hola"
+
+                />
+
+            <TextView
+                android:id="@+id/composition_body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@id/distance_astro"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/composition_title"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                tools:text="body"
+
+                />
+
+            <TextView
+                android:id="@+id/distance_astro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/composition_body"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="hola"
+
+                />
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 

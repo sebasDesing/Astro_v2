@@ -35,5 +35,7 @@
     <string name="title_astro_type">Tipos de astro</string>
     <string name="title_astro_type_grid">Selecciona un tipo de astro !</string>
     <string name="astroTypeList">"Astros "</string>
+    <string name="title_composition">"Composicion principal :  %s "</string>
+    <string name="distance_astro">Distancia : %f  km</string>
 </resources>
 

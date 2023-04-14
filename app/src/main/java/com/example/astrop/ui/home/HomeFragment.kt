@@ -67,7 +67,7 @@ class HomeFragment : Fragment() {
 
 
         binding.astroTypes.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment2_to_mainFragment)
+            findNavController().navigate(R.id.dailyImageFragment)
         }
 
 
