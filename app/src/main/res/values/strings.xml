@@ -28,5 +28,7 @@
     <string name="home_help">Selecciona un astro!</string>
     <string name="home_curiosities">Curiosidades</string>
     <string name="title_type">ASTRO</string>
+    <string name="type_estrella">Estrellas</string>
+    <string name="bt_type">Ver todos</string>
 </resources>
 

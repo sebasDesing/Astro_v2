@@ -2,55 +2,37 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_width="180dp"
+    android:layout_height="185dp"
     app:cardElevation="10dp"
     android:layout_margin="20dp"
     app:cardCornerRadius="5dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="118dp"
-        android:orientation="horizontal"
-        android:padding="10dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="118dp"
-        android:orientation="horizontal"
-        android:padding="10dp">
-
         <ImageView
             android:id="@+id/type_item"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/bg_type"
+            android:layout_width="180dp"
+            android:layout_height="110dp"
+            android:src="@drawable/im_type"
             android:scaleType="centerCrop"
             android:layout_marginRight="10dp"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/type_estrella"
+        android:layout_marginTop="120dp"
+        android:layout_marginStart="8dp"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:textColor="@color/black"/>
 
-            <TextView
-                android:id="@+id/type_title"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:text="@string/title_type"
-                android:textSize="20sp"/>
 
-            <TextView
-                android:id="@+id/type_resum"
-                android:text="@string/title_f3"
-                android:textColor="@color/black"
-                android:layout_marginTop="10dp"
-                android:layout_width="230dp"
-                android:layout_height="60dp"
-                android:textSize="14sp"
-                android:textAlignment="textStart"/>
-        </LinearLayout>
-    </LinearLayout>
+            <Button
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="145dp"
+            android:textSize="9sp"
+            android:layout_marginStart="50dp"
+            android:text="@string/bt_type"
+            android:elevation="10dp"/>
 </androidx.cardview.widget.CardView>
