@@ -12,7 +12,7 @@ private val binding = ItemTypeAstroBinding.bind(view)
     fun render(astros: AstroType, onClickListener: (AstroType) -> Unit) {
 
         binding.nameAstro.text = astros.typeAstro
-        Glide.with(itemView.context).load(astros.imgUrl).into(binding.imgViewUrl)
+        Glide.with(itemView.context).load(astros.imgUrl).into(binding.typeImg)
 
         itemView.setOnClickListener {
             onClickListener(astros)
