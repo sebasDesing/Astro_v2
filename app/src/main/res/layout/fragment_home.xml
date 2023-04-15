@@ -16,7 +16,11 @@
         android:scaleType="centerCrop"
         android:src="@drawable/bg_home" />
 
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
+</ScrollView>
     <TextView
         android:id="@+id/hello"
         style="@style/Title_onb"
@@ -129,19 +133,20 @@
     <LinearLayout
         android:id="@+id/rv_2_container"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="10dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_planet">
+        app:layout_constraintTop_toBottomOf="@id/title_planet"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_planets"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            >
 
         </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>

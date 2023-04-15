@@ -52,18 +52,14 @@ class HomeFragment : Fragment() {
         setNavConfig()
         binding.swipe.isEnabled = false
         binding.rvHome.layoutManager = LinearLayoutManager(requireContext())
-        binding.rvHome.layoutManager = GridLayoutManager(requireContext(),1)
 
         binding.rvHome.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            setHasFixedSize(true)
-            this.setPadding(5,0,5,0)
-
             adapter = adapter
         }
 
         binding.rvPlanets.apply {
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            layoutManager = GridLayoutManager(context, 1,GridLayoutManager.HORIZONTAL, false)
             setHasFixedSize(true)
             this.setPadding(5,0,5,0)
 
