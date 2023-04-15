@@ -1,51 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_margin="15dp"
-    app:cardCornerRadius="25dp"
-    android:background="@color/white"
-    android:layout_gravity="center">
+    app:cardElevation="10dp"
+    android:layout_margin="20dp"
+    app:cardCornerRadius="5dp"
+    >
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:padding="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/item_frid_detail"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="@drawable/pink_gradient"
+
         >
 
+
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imgViewUrl"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
+            android:id="@+id/type_img"
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:src="@drawable/bg_home"
             android:scaleType="centerCrop"
-            app:civ_border_width="2dp"
-            app:civ_border_color="?colorSecondary"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nameAstro"
+            android:layout_marginRight="10dp"/>
 
-            android:src="@drawable/bg_daily"/>
-
-        <TextView
-            android:id="@+id/nameAstro"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="16dp"
-            android:textAlignment="center"
-            android:textStyle="italic"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/imgViewUrl"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed"
-            tools:text="hola"
-            tools:textColor="@color/teal_200"
-             />
+            android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/nameAstro"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="?colorSecondary"
+                tools:text="title"
+                android:textSize="20sp"/>
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/type_resum"
+                android:text="@string/title_f3"
+                android:textColor="?colorSecondary"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textAlignment="textStart"/>
+        </LinearLayout>
+    </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -53,7 +53,7 @@ class AstroTypeFragment : Fragment() {
         activity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
         binding.astroTypesFg.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.from_ast)
         binding.swipe.isEnabled = false
-        binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         adapter = AstroTypeAdapter(astroList) { ch -> onItemSelect(ch) }
         binding.recyclerView.adapter = adapter
         viewModel.setRecyclerView(astroList, adapter, binding)
@@ -81,7 +81,6 @@ class AstroTypeFragment : Fragment() {
 
     private fun onItemSelect(astro: AstroType) {
         Log.i("HiAstro", "$astro")
-        Toast.makeText(requireContext(), "Hello ${astro.typeAstro}", Toast.LENGTH_SHORT).show()
         val nav = AstroTypeFragmentDirections.actionAstroTypeFragmentToDetailFragment(
             AstroTypeModel(astro.typeAstro,astro.imgUrl,astro.id_type_astro)
         )
