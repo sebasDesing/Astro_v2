@@ -1,34 +1,32 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    app:cardElevation="10dp"
     android:layout_margin="20dp"
-    app:cardCornerRadius="5dp"
-
-    >
+    app:cardCornerRadius="8dp"
+    android:background="@color/trasparent"
+    app:cardElevation="10dp">
 
 
     <LinearLayout
-        android:id="@+id/astro_type_item"
+        android:id="@+id/card_container_item"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="120dp"
+        android:background="@drawable/purple_gradient"
+        android:gravity="center"
         android:orientation="horizontal"
-        android:padding="8dp"
-        android:background="@drawable/pink_gradient"
-
-        >
+        android:padding="8dp">
 
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/type_img"
             android:layout_width="100dp"
-            android:layout_height="70dp"
-            android:src="@drawable/bg_home"
+            android:layout_height="80dp"
+            android:layout_marginEnd="10dp"
             android:scaleType="centerCrop"
-            android:layout_marginEnd="10dp"/>
+            android:src="@drawable/bg_home" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,20 +37,20 @@
                 android:id="@+id/nameAstro"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
                 android:textColor="?colorSecondary"
-                tools:text="title"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:text="title" />
 
             <TextView
                 android:id="@+id/type_resum"
-                android:text="@string/title_f3"
-                android:textColor="?colorSecondary"
-                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:textAlignment="textStart"/>
+                android:layout_marginTop="10dp"
+                android:text="@string/title_f3"
+                android:textAlignment="textStart"
+                android:textColor="?colorSecondary"
+                android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
 

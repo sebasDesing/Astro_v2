@@ -30,7 +30,7 @@ class HomeViewModel @Inject constructor(private val result : GetAstrosDetailUseC
                 }
             } catch (e: Exception) {
 
-                "Error al obtener los datos : ${e.message}".also { binding.titleTextView.text = it }
+                "Error al obtener los datos : ${e.message}".also { binding.astroTypes.text = it }
             }
             finally {
                 binding.swipe.visibility = View.GONE

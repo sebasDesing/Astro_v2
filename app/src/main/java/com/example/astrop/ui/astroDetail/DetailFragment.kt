@@ -61,7 +61,6 @@ class DetailFragment : Fragment() {
 
     private fun onItemSelect(astro: AstroDetail) {
 
-        Toast.makeText(requireContext(), "Hello ${astro.id_astro}", Toast.LENGTH_SHORT).show()
         binding.nameAstroB.text = astro.name_astro
         Glide.with(requireContext()).load(astro.image_url).into(binding.imageViewB)
         binding.descriptionB.text = astro.description

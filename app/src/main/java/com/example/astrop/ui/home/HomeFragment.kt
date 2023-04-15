@@ -9,20 +9,15 @@ import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.AnimationUtils
 import android.widget.Toast
-import android.widget.Toolbar
-import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
 import com.example.astrop.R
 import com.example.astrop.databinding.FragmentHomeBinding
 import com.example.astrop.domain.model.AstroDetail
-import com.example.astrop.ui.MainActivity
 import com.example.astrop.ui.home.adapter.HomeAdapter
-import com.example.astrop.utils.FUtils
 import com.example.astrop.utils.FUtils.setBackPressedCallback
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -66,7 +61,7 @@ class HomeFragment : Fragment() {
         greeting()
 
 
-        binding.astroTypes.setOnClickListener {
+        binding.dailyImage.setOnClickListener {
             findNavController().navigate(R.id.dailyImageFragment)
         }
 
@@ -92,15 +87,13 @@ class HomeFragment : Fragment() {
         )
         val name = prefs.getString(getString(R.string.key_nameU), null)
         binding.hello.text = getString(R.string.hello, name)
+        binding.dailyImageItem.nameAstro.text = "Daily Image"
     }
 
     private fun setAnimation() {
         binding.imgBg.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.bg_home)
         binding.homeFg.animation =
             AnimationUtils.loadAnimation(requireContext(), R.anim.from_bottom)
-        binding.imageView.animation =
-            AnimationUtils.loadAnimation(requireContext(), R.anim.from_help)
-
         val alphaAnimator = ObjectAnimator.ofFloat(binding.astroTypes, "alpha", 0.2f, 1f).apply {
             duration = 1000 // duración de la animación en milisegundos
             repeatCount = ObjectAnimator.INFINITE // número de veces que se repetirá la animación
@@ -108,13 +101,11 @@ class HomeFragment : Fragment() {
             interpolator = AccelerateDecelerateInterpolator() // suaviza el cambio
         }
 
-        alphaAnimator.start()
+
     }
 
     private fun onItemSelect(astro: AstroDetail) {
-        Glide.with(requireContext()).load(astro.image_url).into(binding.imageView)
-        binding.titleTextView.text = astro.name_astro
-        binding.descriptionTextView.text = astro.type_astro
+
     }
 
 

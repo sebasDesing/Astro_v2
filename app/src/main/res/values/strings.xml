@@ -24,7 +24,7 @@
     <string name="key_photo_url">imgU</string>
     <string name="picture_of_the_day">Pictute of the day</string>
     <string name="date">Date</string>
-    <string name="hello">Hola tu  %s !!</string>
+    <string name="hello">Hola %s  </string>
     <string name="helptext_astro"> Seelecciona un :  %s !!</string>
     <string name="helptext_galaxi"> Seelecciona una :  %s !!</string>
     <string name="home_help">Selecciona un astro!</string>
