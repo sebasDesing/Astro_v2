@@ -37,8 +37,8 @@
     <string name="astroTypeList">"Astros "</string>
     <string name="title_composition">"Composicion principal :  %s "</string>
     <string name="distance_astro">Distancia : %f  km</string>
-    <string name="home_title_2">Estrellas</string>
-    <string name="home_title_3">Planetas</string>
+    <string name="home_title_2">Accede a información relevante sobre las estrellas</string>
+    <string name="home_title_3">Conoce nuestro a nuestros planetas vecinos </string>
 
 </resources>
 

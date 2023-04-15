@@ -16,6 +16,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/bg_home" />
 
+
     <TextView
         android:id="@+id/hello"
         style="@style/Title_onb"
@@ -66,26 +67,29 @@
     <androidx.cardview.widget.CardView
 
         android:id="@+id/title_galaxi"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="10dp"
         android:background="@color/trasparent"
         app:cardCornerRadius="5dp"
-        app:cardElevation="10dp"
+        app:cardElevation="12dp"
+        android:layout_margin="20dp"
         app:layout_constraintBottom_toTopOf="@id/rv_home"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/daily_image">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="?colorPrimary"
+            android:background="@drawable/purple_gradient"
             android:text="@string/home_title_2"
             android:textColor="?colorSecondary"
-            android:textSize="14sp"
-            android:textStyle="italic" />
+            android:textSize="13sp"
+            android:padding="5dp"
+            android:textStyle="italic|bold" />
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -101,12 +105,9 @@
     <androidx.cardview.widget.CardView
 
         android:id="@+id/title_planet"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="10dp"
-
+        android:layout_margin="20dp"
         android:background="@color/trasparent"
         app:cardCornerRadius="8dp"
         app:cardElevation="10dp"
@@ -117,11 +118,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="?colorPrimary"
+            android:background="@drawable/pink_gradient_2"
             android:text="@string/home_title_3"
             android:textColor="?colorSecondary"
-            android:textSize="14sp"
-            android:textStyle="italic" />
+            android:textSize="13sp"
+            android:padding="5dp"
+            android:textStyle="italic|bold" />
     </androidx.cardview.widget.CardView>
 
     <LinearLayout
