@@ -29,6 +29,8 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController)
         binding.bottomNav.setupWithNavController(navController)
+
+        binding.toolbar.setTitleTextColor(getColor(R.color.red_teal))
     }
 
     override fun onSupportNavigateUp(): Boolean {
