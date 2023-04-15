@@ -19,6 +19,7 @@ import com.example.astrop.R
 import com.example.astrop.databinding.FragmentHomeBinding
 import com.example.astrop.domain.model.AstroDetail
 import com.example.astrop.ui.home.adapter.HomeAdapter
+import com.example.astrop.ui.home.adapter.HomeGridAdapter
 import com.example.astrop.utils.FUtils.setBackPressedCallback
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -32,6 +33,7 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
     private val astroDetailList = mutableListOf<AstroDetail>()
     private lateinit var adapter: HomeAdapter
+    private lateinit var gridAdapter: HomeGridAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -50,7 +52,7 @@ class HomeFragment : Fragment() {
         setNavConfig()
         binding.swipe.isEnabled = false
         binding.rvHome.layoutManager = LinearLayoutManager(requireContext())
-        binding.rvHome.layoutManager = GridLayoutManager(requireContext(),3)
+        binding.rvHome.layoutManager = GridLayoutManager(requireContext(),1)
 
         binding.rvHome.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -69,11 +71,15 @@ class HomeFragment : Fragment() {
         }
 
         adapter = HomeAdapter(astroDetailList) { ch -> onItemSelect(ch) }
+        gridAdapter = HomeGridAdapter(astroDetailList) { ch -> onItemSelectGrid(ch) }
+
         binding.rvHome.adapter = adapter
+        binding.rvPlanets.adapter = gridAdapter
+
         viewModel.setData(astroDetailList, adapter, binding)
 
-        binding.rvPlanets.adapter = adapter
-        viewModel.setData(astroDetailList, adapter, binding)
+
+        viewModel.setGridRv(astroDetailList, gridAdapter, binding)
         setAnimation()
         greeting()
 
@@ -82,6 +88,10 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.dailyImageFragment)
         }
 
+
+    }
+
+    private fun onItemSelectGrid(ch: AstroDetail) {
 
     }
 

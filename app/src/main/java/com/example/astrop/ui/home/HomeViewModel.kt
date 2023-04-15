@@ -10,6 +10,7 @@ import com.example.astrop.databinding.FragmentHomeBinding
 import com.example.astrop.domain.GetAstrosDetailUseCase
 import com.example.astrop.domain.model.AstroDetail
 import com.example.astrop.ui.home.adapter.HomeAdapter
+import com.example.astrop.ui.home.adapter.HomeGridAdapter
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -37,4 +38,26 @@ class HomeViewModel @Inject constructor(private val result : GetAstrosDetailUseC
             }
         }
     }
+
+    fun setGridRv(astroDetailList: MutableList<AstroDetail>, adapter: HomeGridAdapter, binding: FragmentHomeBinding ) {
+        viewModelScope.launch {
+            binding.swipe.visibility = View.VISIBLE
+            try {
+                val response = result.invoke()
+                response.let { res ->
+                    astroDetailList.addAll(res)
+                    adapter.notifyDataSetChanged()
+                    Log.i("astrodetaill", "${res.size} ")
+                }
+            } catch (e: Exception) {
+
+                "Error al obtener los datos : ${e.message}".also { binding.hello.text = it }
+            }
+            finally {
+                binding.swipe.visibility = View.GONE
+            }
+        }
+    }
+
+
 }
