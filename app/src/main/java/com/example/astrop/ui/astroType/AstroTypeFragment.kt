@@ -67,15 +67,6 @@ class AstroTypeFragment : Fragment() {
             repeatMode = ObjectAnimator.REVERSE
             interpolator = AccelerateDecelerateInterpolator()
         }
-        val alphaAnimator2 = ObjectAnimator.ofFloat(binding.imgBg, "alpha", 0.2f, 1f).apply {
-            duration = 4000
-            repeatCount = ObjectAnimator.INFINITE
-            repeatMode = ObjectAnimator.REVERSE
-            interpolator = AccelerateDecelerateInterpolator()
-        }
-
-        alphaAnimator2.start()
-
         alphaAnimator.start()
     }
 

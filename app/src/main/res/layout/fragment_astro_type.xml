@@ -51,11 +51,14 @@
         app:layout_constraintTop_toBottomOf="@id/swipe"
         tools:background="@color/black">
 
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#00FFFFFF" />
+
+
     </LinearLayout>
 
 

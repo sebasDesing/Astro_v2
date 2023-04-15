@@ -52,6 +52,8 @@ class HomeFragment : Fragment() {
         binding.rvHome.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             setHasFixedSize(true)
+            this.setPadding(5,0,5,0)
+
             adapter = adapter
         }
         adapter = HomeAdapter(astroDetailList) { ch -> onItemSelect(ch) }
@@ -87,7 +89,7 @@ class HomeFragment : Fragment() {
         )
         val name = prefs.getString(getString(R.string.key_nameU), null)
         binding.hello.text = getString(R.string.hello, name)
-        binding.dailyImageItem.nameAstro.text = "Daily Image"
+        binding.dailyImageItem.nameAstro.text = getString(R.string.picture_of_the_day)
     }
 
     private fun setAnimation() {
