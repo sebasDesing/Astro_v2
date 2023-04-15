@@ -58,4 +58,5 @@
                 android:textAlignment="textStart"/>
         </LinearLayout>
     </LinearLayout>
+
 </androidx.cardview.widget.CardView>

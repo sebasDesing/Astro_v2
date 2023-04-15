@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="24dp"
-                android:text="@string/pictute_of_the_day"
+                android:text="@string/picture_of_the_day"
                 android:textSize="35sp"
                 android:textColor="@color/white"
                 android:textStyle="italic"
