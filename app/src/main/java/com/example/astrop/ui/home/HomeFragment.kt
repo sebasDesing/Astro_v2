@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.astrop.R
 import com.example.astrop.databinding.FragmentHomeBinding
@@ -49,6 +50,8 @@ class HomeFragment : Fragment() {
         setNavConfig()
         binding.swipe.isEnabled = false
         binding.rvHome.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvHome.layoutManager = GridLayoutManager(requireContext(),3)
+
         binding.rvHome.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             setHasFixedSize(true)
@@ -56,8 +59,20 @@ class HomeFragment : Fragment() {
 
             adapter = adapter
         }
+
+        binding.rvPlanets.apply {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            setHasFixedSize(true)
+            this.setPadding(5,0,5,0)
+
+            adapter = adapter
+        }
+
         adapter = HomeAdapter(astroDetailList) { ch -> onItemSelect(ch) }
         binding.rvHome.adapter = adapter
+        viewModel.setData(astroDetailList, adapter, binding)
+
+        binding.rvPlanets.adapter = adapter
         viewModel.setData(astroDetailList, adapter, binding)
         setAnimation()
         greeting()
@@ -96,13 +111,6 @@ class HomeFragment : Fragment() {
         binding.imgBg.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.bg_home)
         binding.homeFg.animation =
             AnimationUtils.loadAnimation(requireContext(), R.anim.from_bottom)
-        val alphaAnimator = ObjectAnimator.ofFloat(binding.astroTypes, "alpha", 0.2f, 1f).apply {
-            duration = 1000 // duración de la animación en milisegundos
-            repeatCount = ObjectAnimator.INFINITE // número de veces que se repetirá la animación
-            repeatMode = ObjectAnimator.REVERSE // la animación se repite en reversa
-            interpolator = AccelerateDecelerateInterpolator() // suaviza el cambio
-        }
-
 
     }
 

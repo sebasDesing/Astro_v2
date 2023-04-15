@@ -37,6 +37,8 @@
     <string name="astroTypeList">"Astros "</string>
     <string name="title_composition">"Composicion principal :  %s "</string>
     <string name="distance_astro">Distancia : %f  km</string>
+    <string name="home_title_2">Estrellas</string>
+    <string name="home_title_3">Planetas</string>
 
 </resources>
 

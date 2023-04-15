@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="?colorSecondary"
                 android:textSize="20sp"
-                android:textStyle="bold"
+                android:textStyle="bold|italic"
                 tools:text="title" />
 
             <TextView
