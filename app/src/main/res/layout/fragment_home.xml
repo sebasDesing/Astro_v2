@@ -122,7 +122,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/pink_gradient_2"
+            android:background="@drawable/purple_gradient"
             android:text="@string/home_title_3"
             android:textColor="?colorSecondary"
             android:textSize="13sp"
