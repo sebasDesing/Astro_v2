@@ -5,10 +5,10 @@ import android.util.Log
 import android.view.View
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.bumptech.glide.Glide
 import com.example.astrop.databinding.FragmentHomeBinding
 import com.example.astrop.domain.GetAstrosDetailUseCase
 import com.example.astrop.domain.model.AstroDetail
+import com.example.astrop.domain.model.GetDetailByTypeUseCase
 import com.example.astrop.ui.home.adapter.HomeAdapter
 import com.example.astrop.ui.home.adapter.HomeGridAdapter
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,18 +16,26 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(private val result : GetAstrosDetailUseCase) : ViewModel() {
+class HomeViewModel @Inject constructor(
+    private val result: GetAstrosDetailUseCase,
+    private val fromData: GetDetailByTypeUseCase
+) : ViewModel() {
 
     @SuppressLint("NotifyDataSetChanged")
-    fun  setData(astroDetailList: MutableList<AstroDetail>, adapter: HomeAdapter, binding: FragmentHomeBinding ) {
+    fun setData(
+        astroDetailList: MutableList<AstroDetail>,
+        adapter: HomeAdapter,
+        binding: FragmentHomeBinding
+    ) {
         viewModelScope.launch {
             binding.swipe.visibility = View.VISIBLE
             try {
-                val response = result.invoke()
+                result.invoke()
+                val response = fromData.invoke(2)
                 response.let { res ->
                     astroDetailList.addAll(res)
                     adapter.notifyDataSetChanged()
-                    Log.i("astrodetaill", "${res.size} ")
+                    Log.i("astrodetaill", "${res} ")
                 }
             } catch (e: Exception) {
 
@@ -39,15 +47,16 @@ class HomeViewModel @Inject constructor(private val result : GetAstrosDetailUseC
         }
     }
 
-    fun setGridRv(astroDetailList: MutableList<AstroDetail>, adapter: HomeGridAdapter, binding: FragmentHomeBinding ) {
+    fun setGridRv(astroGridDetailList: MutableList<AstroDetail>, adapter: HomeGridAdapter, binding: FragmentHomeBinding ) {
         viewModelScope.launch {
             binding.swipe.visibility = View.VISIBLE
             try {
-                val response = result.invoke()
+                result.invoke()
+                val response = fromData.invoke(1)
                 response.let { res ->
-                    astroDetailList.addAll(res)
+                    astroGridDetailList.addAll(res)
                     adapter.notifyDataSetChanged()
-                    Log.i("astrodetaill", "${res.size} ")
+                    Log.i("astrodetaill", "${res} ")
                 }
             } catch (e: Exception) {
 
@@ -58,6 +67,7 @@ class HomeViewModel @Inject constructor(private val result : GetAstrosDetailUseC
             }
         }
     }
+
 
 
 }

@@ -80,7 +80,7 @@
                     <TextView
                         android:id="@+id/text_name_astro"
                         style="@style/Title_detail"
-                        android:layout_width="190dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
                         android:text="@string/app_name"
@@ -89,7 +89,7 @@
                         android:textStyle="italic"
                         app:layout_constraintBottom_toTopOf="@id/text_type_astro"
                         app:layout_constraintStart_toEndOf="@id/imageView_b"
-                        app:layout_constraintEnd_toEndOf="parent"
+
                         app:layout_constraintTop_toTopOf="@id/imageView_b"
                         tools:layout_editor_absoluteY="278dp" />
 

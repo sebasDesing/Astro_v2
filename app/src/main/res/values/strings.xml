@@ -25,8 +25,8 @@
     <string name="picture_of_the_day">Picture of the day</string>
     <string name="date">Date</string>
     <string name="hello">!! Hola %s ¡¡ </string>
-    <string name="helptext_astro"> Seelecciona un %s !!</string>
-    <string name="helptext_galaxi"> Seelecciona una %s !!</string>
+    <string name="helptext_astro"> !! Seelecciona un %s !!</string>
+    <string name="helptext_galaxi"> !! Seelecciona una %s !!</string>
     <string name="home_help">Selecciona un astro!</string>
     <string name="home_curiosities">Curiosidades</string>
     <string name="curiosities">Curiosidades…</string>

@@ -32,6 +32,7 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: HomeViewModel by viewModels()
     private val astroDetailList = mutableListOf<AstroDetail>()
+    private val astroGridDetailList = mutableListOf<AstroDetail>()
     private lateinit var adapter: HomeAdapter
     private lateinit var gridAdapter: HomeGridAdapter
     override fun onCreateView(
@@ -67,7 +68,7 @@ class HomeFragment : Fragment() {
         }
 
         adapter = HomeAdapter(astroDetailList) { ch -> onItemSelect(ch) }
-        gridAdapter = HomeGridAdapter(astroDetailList) { ch -> onItemSelectGrid(ch) }
+        gridAdapter = HomeGridAdapter(astroGridDetailList) { ch -> onItemSelectGrid(ch) }
 
         binding.rvHome.adapter = adapter
         binding.rvPlanets.adapter = gridAdapter
@@ -75,7 +76,7 @@ class HomeFragment : Fragment() {
         viewModel.setData(astroDetailList, adapter, binding)
 
 
-        viewModel.setGridRv(astroDetailList, gridAdapter, binding)
+        viewModel.setGridRv(astroGridDetailList, gridAdapter, binding)
         setAnimation()
         greeting()
 
