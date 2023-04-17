@@ -11,11 +11,11 @@ class DetailViewHolder (view: View) : RecyclerView.ViewHolder(view){
 
     fun render(astros: AstroDetail, onClickListener: (AstroDetail) -> Unit) {
 
-        binding.nameAstro.text = astros.name_astro
+        //binding.nameAstro.text = astros.name_astro
         Glide.with(itemView.context).load(astros.image_url).into(binding.imgViewUrl)
-
         itemView.setOnClickListener {
             onClickListener(astros)
+
         }
 
     }

@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.astrop.R
@@ -45,6 +46,12 @@ class DetailFragment : Fragment() {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             setHasFixedSize(true)
             adapter = adapter
+            this.addItemDecoration(
+                DividerItemDecoration(
+                    requireContext(),
+                    LinearLayoutManager.VERTICAL
+                )
+            )
         }
         adapter = DetailAdapter(astroList) { ch -> onItemSelect(ch) }
         binding.rvDetail.adapter = adapter
@@ -61,15 +68,17 @@ class DetailFragment : Fragment() {
 
     private fun onItemSelect(astro: AstroDetail) {
 
-        binding.nameAstroB.text = astro.name_astro
+        binding.textNameAstro.text = astro.name_astro
+        binding.textTypeAstro.text = astro.type_astro
+        binding.textCompositionNameAstro.text = astro.name_com
+        binding.textDescription.text= astro.description
         Glide.with(requireContext()).load(astro.image_url).into(binding.imageViewB)
-        binding.descriptionB.text = astro.description
-        binding.compositionTitle.text = getString(R.string.title_composition, astro.name_com)
-        binding.compositionBody.text = astro.composition_description
-        binding.distanceAstro.text = getString(R.string.distance_astro, astro.distance)
+       // binding.descriptionB.text = astro.description
+        //binding.compositionTitle.text = getString(R.string.title_composition, astro.name_com)
+       // binding.compositionBody.text = astro.composition_description
+       // binding.distanceAstro.text = getString(R.string.distance_astro, astro.distance)
+        //binding.imageViewB.visibility = View.VISIBLE
 
-
-        binding.imageViewB.visibility = View.VISIBLE
 
     }
 
