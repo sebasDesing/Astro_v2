@@ -24,8 +24,8 @@
         <com.facebook.shimmer.ShimmerFrameLayout
 
             android:layout_width="100dp"
-            android:layout_height="70dp"
-            app:shimmer_base_alpha=".95"
+            android:layout_height="80dp"
+            app:shimmer_base_alpha=".85"
             app:shimmer_direction="left_to_right"
             app:shimmer_duration="1200">
 
@@ -45,26 +45,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/nameAstro"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
                 android:textColor="?colorSecondary"
-                tools:text="title"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:textStyle="bold|italic"
+                tools:text="title" />
 
-            <TextView
-                android:id="@+id/type_resum"
-                android:text="@string/title_f3"
-                android:textColor="?colorSecondary"
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:textAlignment="textStart"/>
+
         </LinearLayout>
     </LinearLayout>
 

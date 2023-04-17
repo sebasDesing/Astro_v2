@@ -17,7 +17,8 @@
         android:background="@drawable/pink_gradient"
         android:gravity="center"
         android:orientation="horizontal"
-        android:padding="8dp">
+        android:padding="8dp"
+        >
 
 
         <de.hdodenhof.circleimageview.CircleImageView

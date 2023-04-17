@@ -70,7 +70,6 @@ class DetailFragment : Fragment() {
 
         binding.textNameAstro.text = astro.name_astro
         binding.textTypeAstro.text = astro.type_astro
-        binding.textCompositionNameAstro.text = astro.name_com
         binding.textDescription.text= astro.description
         Glide.with(requireContext()).load(astro.image_url).into(binding.imageViewB)
 

@@ -94,7 +94,7 @@
                 android:background="@drawable/purple_gradient"
                 android:padding="5dp"
                 android:text="@string/home_title_2"
-                android:textColor="?colorSecondary"
+                android:textColor="#FBDDDD"
                 android:textSize="13sp"
                 android:textStyle="italic|bold" />
         </androidx.cardview.widget.CardView>
@@ -128,7 +128,7 @@
                 android:background="@drawable/purple_gradient"
                 android:padding="5dp"
                 android:text="@string/home_title_3"
-                android:textColor="?colorSecondary"
+                android:textColor="#FBDDDD"
                 android:textSize="13sp"
                 android:textStyle="italic|bold" />
         </androidx.cardview.widget.CardView>
