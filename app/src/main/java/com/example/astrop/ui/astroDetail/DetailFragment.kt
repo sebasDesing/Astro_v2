@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
@@ -56,13 +55,16 @@ class DetailFragment : Fragment() {
         adapter = DetailAdapter(astroList) { ch -> onItemSelect(ch) }
         binding.rvDetail.adapter = adapter
         viewModel.setRecyclerView(astroList, adapter, binding, args.astroType.idType)
-        val helptext = if (args.astroType.idType == 5|| args.astroType.idType == 2) {
+        val helptext = if (args.astroType.idType == 5 || args.astroType.idType == 2) {
             getString(R.string.helptext_galaxi, args.astroType.typeAstro)
         } else {
             getString(R.string.helptext_astro, args.astroType.typeAstro)
         }
         binding.text.text = helptext
-
+        binding.seemore.setOnClickListener {
+            binding.seemore.visibility = View.GONE
+            binding.textDescription.maxLines = 100
+        }
 
     }
 
@@ -70,7 +72,12 @@ class DetailFragment : Fragment() {
 
         binding.textNameAstro.text = astro.name_astro
         binding.textTypeAstro.text = astro.type_astro
-        binding.textDescription.text= astro.description
+        binding.textDescription.text = astro.description
+        binding.textDescription.maxLines = 4
+        if (binding.textDescription.lineCount >= 4) {
+            binding.seemore.visibility = View.VISIBLE
+        }
+
         Glide.with(requireContext()).load(astro.image_url).into(binding.imageViewB)
 
     }

@@ -82,7 +82,7 @@ class HomeFragment : Fragment() {
 
 
         binding.dailyImage.setOnClickListener {
-            findNavController().navigate(R.id.dailyImageFragment)
+            findNavController().navigate(R.id.action_homeFragment2_to_dailyImageFragment)
         }
 
 
