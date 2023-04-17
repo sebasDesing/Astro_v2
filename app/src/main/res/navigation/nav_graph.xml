@@ -42,6 +42,9 @@
         <action
             android:id="@+id/action_homeFragment2_to_dailyImageFragment"
             app:destination="@id/dailyImageFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_homeDetailFragment"
+            app:destination="@id/homeDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/astroTypeFragment"
@@ -55,6 +58,10 @@
         <action
             android:id="@+id/action_astroTypeFragment_to_detailFragment2"
             app:destination="@id/detailFragment" />
+        <argument
+            android:name="status"
+            app:argType="boolean"
+            android:defaultValue="true" />
     </fragment>
     <fragment
         android:id="@+id/sigInFragment"
@@ -97,10 +104,13 @@
     <fragment
         android:id="@+id/homeDetailFragment"
         android:name="com.example.astrop.ui.homeDetail.HomeDetailFragment"
-        android:label="fragment_home_detail"
+        android:label="Details"
         tools:layout="@layout/fragment_home_detail" >
         <argument
             android:name="data"
-            app:argType="com.example.astrop.data.model.AstroDetailModel" />
+            app:argType="com.example.astrop.data.database.entities.AstroDetailEntity" />
+        <action
+            android:id="@+id/action_homeDetailFragment_to_astroTypeFragment"
+            app:destination="@id/astroTypeFragment" />
     </fragment>
 </navigation>

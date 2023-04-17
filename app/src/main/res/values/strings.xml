@@ -30,9 +30,9 @@
     <string name="home_help">Selecciona un astro!</string>
     <string name="home_curiosities">Cada día, se muestra una imagen o foto diferente del nuestro universo, con una corta explicación escrita por un astrónomo profesional</string>
     <string name="curiosities">Curiosidades…</string>
-    <string name="user_profile">Perfil</string>
+    <string name="user_profile">Profile</string>
     <string name="lorem">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the electronic typesetting, remaining essentially unchanged. It was popularised inthe 1960s with the release of Letraset sheets containing Lorem Ipsum passages,and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</string>
-    <string name="title_astro_type">Tipos de astro</string>
+    <string name="title_astro_type">Types</string>
     <string name="favorites"> … </string>
     <string name="title_astro_type_grid">Selecciona un tipo de astro …</string>
     <string name="astroTypeList">"Astros "</string>
@@ -43,6 +43,7 @@
     <string name="see_more">Ver más</string>
     <string name="name_astro">Nombre : %s </string>
     <string name="type_astro">Tipo : %s</string>
+    <string name="home_detail">! Ver mas informacion sobre los astros¡</string>
 
 </resources>
 

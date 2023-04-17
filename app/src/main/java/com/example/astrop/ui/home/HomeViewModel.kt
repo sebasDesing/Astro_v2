@@ -20,6 +20,8 @@ class HomeViewModel @Inject constructor(
     private val result: GetAstrosDetailUseCase,
     private val fromData: GetDetailByTypeUseCase
 ) : ViewModel() {
+    private val GALAXY_ID = 2
+    private val PLANETS_ID = 1
 
     @SuppressLint("NotifyDataSetChanged")
     fun setData(
@@ -31,11 +33,13 @@ class HomeViewModel @Inject constructor(
             binding.swipe.visibility = View.VISIBLE
             try {
                 result.invoke()
-                val response = fromData.invoke(2)
+                val response = fromData.invoke(GALAXY_ID)
                 response.let { res ->
-                    astroDetailList.addAll(res)
-                    adapter.notifyDataSetChanged()
-                    Log.i("astrodetaill", "${res} ")
+                    if (astroDetailList.size == 0) {
+                        astroDetailList.addAll(res)
+                        adapter.notifyDataSetChanged()
+                        Log.i("astrodetaill", "${res} ")
+                    }
                 }
             } catch (e: Exception) {
 
@@ -52,11 +56,13 @@ class HomeViewModel @Inject constructor(
             binding.swipe.visibility = View.VISIBLE
             try {
                 result.invoke()
-                val response = fromData.invoke(1)
+                val response = fromData.invoke(PLANETS_ID)
                 response.let { res ->
-                    astroGridDetailList.addAll(res)
-                    adapter.notifyDataSetChanged()
-                    Log.i("astrodetaill", "${res} ")
+                    if (astroGridDetailList.size == 0) {
+                        astroGridDetailList.addAll(res)
+                        adapter.notifyDataSetChanged()
+                        Log.i("astrodetaill", "${res} ")
+                    }
                 }
             } catch (e: Exception) {
 

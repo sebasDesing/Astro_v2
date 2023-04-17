@@ -1,14 +1,11 @@
 package com.example.astrop.ui.home
 
-import android.animation.ObjectAnimator
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.AnimationUtils
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -16,6 +13,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.astrop.R
+import com.example.astrop.data.database.entities.AstroDetailEntity
+import com.example.astrop.data.model.AstroDetailModel
 import com.example.astrop.databinding.FragmentHomeBinding
 import com.example.astrop.domain.model.AstroDetail
 import com.example.astrop.ui.home.adapter.HomeAdapter
@@ -68,7 +67,7 @@ class HomeFragment : Fragment() {
         }
 
         adapter = HomeAdapter(astroDetailList) { ch -> onItemSelect(ch) }
-        gridAdapter = HomeGridAdapter(astroGridDetailList) { ch -> onItemSelectGrid(ch) }
+        gridAdapter = HomeGridAdapter(astroGridDetailList) { ch -> onGridItemSelect(ch) }
 
         binding.rvHome.adapter = adapter
         binding.rvPlanets.adapter = gridAdapter
@@ -88,9 +87,7 @@ class HomeFragment : Fragment() {
 
     }
 
-    private fun onItemSelectGrid(ch: AstroDetail) {
 
-    }
 
     private fun setNavConfig() {
 
@@ -122,10 +119,34 @@ class HomeFragment : Fragment() {
     }
 
     private fun onItemSelect(astro: AstroDetail) {
-
+        val nav = HomeFragmentDirections.actionHomeFragment2ToHomeDetailFragment(
+            AstroDetailEntity(
+                astro.id_astro,
+                astro.name_astro,
+                astro.type_astro,
+                astro.description,
+                astro.name_com,
+                astro.composition_description,
+                astro.distance,astro.image_url,astro.id_type_astro
+            )
+        )
+        findNavController().navigate(nav)
     }
 
-
+    private fun onGridItemSelect(astro: AstroDetail) {
+        val nav = HomeFragmentDirections.actionHomeFragment2ToHomeDetailFragment(
+            AstroDetailEntity(
+                astro.id_astro,
+                astro.name_astro,
+                astro.type_astro,
+                astro.description,
+                astro.name_com,
+                astro.composition_description,
+                astro.distance,astro.image_url,astro.id_type_astro
+            )
+        )
+        findNavController().navigate(nav)
+    }
 
 
 }

@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,6 +35,7 @@ class AstroTypeFragment : Fragment() {
     private val viewModel: AstroTypeViewModel by viewModels()
     private val astroList = mutableListOf<AstroType>()
     private lateinit var adapter: AstroTypeAdapter
+    private  val status : AstroTypeFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,7 +52,12 @@ class AstroTypeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val activity = requireActivity() as AppCompatActivity
-        activity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        if (status.status){
+            activity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        }else{
+            activity.findViewById<BottomNavigationView>(R.id.bottomNav).visibility =View.GONE
+        }
+
         binding.astroTypesFg.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.from_ast)
         binding.swipe.isEnabled = false
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
