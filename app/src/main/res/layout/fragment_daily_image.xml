@@ -55,7 +55,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/black_gradient_2">
+                        android:background="@color/black">
 
 
                         <ImageView
@@ -113,11 +113,11 @@
                             android:ellipsize="end"
                             android:lineSpacingExtra="10dp"
                             android:maxLines="5"
-                            android:text="@string/favorites"
+                            android:text="@string/lorem"
                             android:textAlignment="textStart"
                             android:textColor="@color/white"
                             android:textSize="15sp"
-                            android:textStyle="bold|italic"
+                            android:textStyle="italic"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
