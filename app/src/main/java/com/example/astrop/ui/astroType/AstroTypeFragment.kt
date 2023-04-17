@@ -35,7 +35,6 @@ class AstroTypeFragment : Fragment() {
     private val viewModel: AstroTypeViewModel by viewModels()
     private val astroList = mutableListOf<AstroType>()
     private lateinit var adapter: AstroTypeAdapter
-    private  val status : AstroTypeFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,11 +51,8 @@ class AstroTypeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val activity = requireActivity() as AppCompatActivity
-        if (status.status){
+
             activity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
-        }else{
-            activity.findViewById<BottomNavigationView>(R.id.bottomNav).visibility =View.GONE
-        }
 
         binding.astroTypesFg.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.from_ast)
         binding.swipe.isEnabled = false

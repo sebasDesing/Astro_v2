@@ -74,7 +74,7 @@ class DetailFragment : Fragment() {
 
         binding.textNameAstro.text = getString(R.string.name_astro, astro.name_astro)
         binding.textTypeAstro.text = getString(R.string.type_astro,astro.type_astro)
-        binding.titleComposition.text = getString(R.string.title_composition, astro.name_com)
+        binding.titleArticle.text = getString(R.string.title_composition, astro.name_com)
         binding.textDescription.text = astro.description
 
         binding.textDescription.maxLines = MAX_LINES

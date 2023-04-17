@@ -27,10 +27,9 @@ class DailyImageViewModel @Inject constructor(private val result: GetDailyImageU
                 if (!response.isNullOrEmpty()) {
                     response.let { res ->
                         val data = res[0]
-                        //binding.dateImage.text = "Date : ${data.date}"
                         binding.textDescription.text = data.explanation
                         binding.date.text = data.date
-                        binding.textDescription.text = data.title
+                        binding.titleArticle.text = data.title
                         Glide.with(context).load(data.hdurl).into(binding.imageViewB)
                     }
                 }

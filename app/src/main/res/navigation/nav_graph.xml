@@ -58,10 +58,6 @@
         <action
             android:id="@+id/action_astroTypeFragment_to_detailFragment2"
             app:destination="@id/detailFragment" />
-        <argument
-            android:name="status"
-            app:argType="boolean"
-            android:defaultValue="true" />
     </fragment>
     <fragment
         android:id="@+id/sigInFragment"
