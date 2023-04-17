@@ -26,6 +26,8 @@ class DetailFragment : Fragment() {
     private  val viewModel : DetailViewModel by viewModels()
     private val astroList = mutableListOf<AstroDetail>()
     private lateinit var adapter: DetailAdapter
+    private  val MAX_LINES = 4
+    private  val ADD_LINES = 100
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -63,18 +65,20 @@ class DetailFragment : Fragment() {
         binding.text.text = helptext
         binding.seemore.setOnClickListener {
             binding.seemore.visibility = View.GONE
-            binding.textDescription.maxLines = 100
+            binding.textDescription.maxLines = ADD_LINES
         }
 
     }
 
     private fun onItemSelect(astro: AstroDetail) {
 
-        binding.textNameAstro.text = astro.name_astro
-        binding.textTypeAstro.text = astro.type_astro
+        binding.textNameAstro.text = getString(R.string.name_astro, astro.name_astro)
+        binding.textTypeAstro.text = getString(R.string.type_astro,astro.type_astro)
+        binding.titleComposition.text = getString(R.string.title_composition, astro.name_com)
         binding.textDescription.text = astro.description
-        binding.textDescription.maxLines = 4
-        if (binding.textDescription.lineCount >= 4) {
+
+        binding.textDescription.maxLines = MAX_LINES
+        if (binding.textDescription.lineCount >= MAX_LINES) {
             binding.seemore.visibility = View.VISIBLE
         }
 

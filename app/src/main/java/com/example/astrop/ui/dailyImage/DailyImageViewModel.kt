@@ -30,7 +30,7 @@ class DailyImageViewModel @Inject constructor(private val result: GetDailyImageU
                         //binding.dateImage.text = "Date : ${data.date}"
                         binding.textDescription.text = data.explanation
                         binding.date.text = data.date
-                        binding.titlePic.text = data.title
+                        binding.textDescription.text = data.title
                         Glide.with(context).load(data.hdurl).into(binding.imageViewB)
                     }
                 }

@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="8dp"
-    app:cardCornerRadius="17dp"
+    app:cardCornerRadius="13dp"
     android:background="@color/black"
     >
     >
@@ -17,11 +17,9 @@
 
         <ImageView
             android:id="@+id/imgViewUrl"
-            android:layout_width="65dp"
+            android:layout_width="80dp"
             android:layout_height="75dp"
             android:scaleType="centerCrop"
-            app:civ_border_width="2dp"
-            app:civ_border_color="?colorSecondary"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
