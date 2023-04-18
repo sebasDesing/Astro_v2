@@ -1,9 +1,11 @@
 package com.example.astrop.ui.astroDetail
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
@@ -47,12 +49,6 @@ class DetailFragment : Fragment() {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             setHasFixedSize(true)
             adapter = adapter
-            this.addItemDecoration(
-                DividerItemDecoration(
-                    requireContext(),
-                    LinearLayoutManager.VERTICAL
-                )
-            )
         }
         adapter = DetailAdapter(astroList) { ch -> onItemSelect(ch) }
         binding.rvDetail.adapter = adapter
@@ -63,6 +59,13 @@ class DetailFragment : Fragment() {
             getString(R.string.helptext_astro, args.astroType.typeAstro)
         }
         binding.text.text = helptext
+        val alphaAnimator = ObjectAnimator.ofFloat(binding.text, "alpha", 0.2f, 1f).apply {
+            duration = 1000
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+            interpolator = AccelerateDecelerateInterpolator()
+        }
+        alphaAnimator.start()
         binding.seemore.setOnClickListener {
             binding.seemore.visibility = View.GONE
             binding.textDescription.maxLines = ADD_LINES
@@ -71,7 +74,8 @@ class DetailFragment : Fragment() {
     }
 
     private fun onItemSelect(astro: AstroDetail) {
-
+        binding.body.visibility = View.VISIBLE
+        binding.text.visibility = View.GONE
         binding.textNameAstro.text = getString(R.string.name_astro, astro.name_astro)
         binding.textTypeAstro.text = getString(R.string.type_astro,astro.type_astro)
         binding.titleArticle.text = getString(R.string.title_composition, astro.name_com)

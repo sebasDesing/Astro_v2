@@ -105,8 +105,5 @@
         <argument
             android:name="data"
             app:argType="com.example.astrop.data.database.entities.AstroDetailEntity" />
-        <action
-            android:id="@+id/action_homeDetailFragment_to_astroTypeFragment"
-            app:destination="@id/astroTypeFragment" />
     </fragment>
 </navigation>

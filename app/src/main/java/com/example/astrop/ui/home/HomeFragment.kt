@@ -108,7 +108,7 @@ class HomeFragment : Fragment() {
         )
         val name = prefs.getString(getString(R.string.key_nameU), null)
         binding.hello.text = getString(R.string.hello, name)
-        binding.dailyImageItem.nameAstro.text = getString(R.string.picture_of_the_day)
+        binding.dailyImageItem.nameAstro.text = getString(R.string.picture_of_the_day_home)
     }
 
     private fun setAnimation() {

@@ -52,10 +52,6 @@ class HomeDetailFragment : Fragment() {
         }
         alphaAnimator.start()
 
-        binding.textDescription.setOnClickListener {
-            val nav = HomeDetailFragmentDirections.actionHomeDetailFragmentToAstroTypeFragment()
-            findNavController().navigate(nav)
-        }
     }
 
 

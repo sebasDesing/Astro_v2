@@ -40,7 +40,7 @@ class UserProfileFragment : Fragment() {
 
 
     private fun setAnimation() {
-        binding.imgBg.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.bg_home)
+       // binding.imgBg.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.bg_home)
         binding.homeFg.animation =
             AnimationUtils.loadAnimation(requireContext(), R.anim.from_bottom)
 
@@ -58,13 +58,13 @@ class UserProfileFragment : Fragment() {
             requireContext()
         )
         Glide.with(requireContext()).load(iolo.photo_url).into(binding.userImg)
-        binding.userName.text = iolo.name
-        binding.email.text = iolo.email
+        binding.nameuser.text = getString(R.string.nameuser,iolo.name)
+        binding.email.text = getString(R.string.useremail,iolo.email)
 
 
         binding.sigout.setOnClickListener {
             viewModel.singout(getString(R.string.prefs_file),requireContext() )
-            findNavController().navigate(R.id.sigInFragment)
+            requireActivity().finish()
         }
 
 

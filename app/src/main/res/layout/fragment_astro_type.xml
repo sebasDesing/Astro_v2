@@ -16,62 +16,64 @@
         android:scaleType="centerCrop"
         android:src="@drawable/bg_home" />
 
-
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fadeScrollbars="false">
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/swipe"
+        android:layout_height="match_parent"
+        >
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            app:layout_constraintBottom_toTopOf="@id/rvContainer"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-
-            app:layout_constraintVertical_bias="0.0"
-            app:layout_constraintVertical_chainStyle="packed">
-
-            <TextView
-                android:id="@+id/textdata"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/title_astro_type_grid"
-                android:textColor="#F4A7B9"
-                android:textSize="24sp"
-                android:textStyle="italic" />
-
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-        <LinearLayout
-            android:id="@+id/rvContainer"
-            android:layout_width="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swipe"
-            tools:background="@color/black">
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
+            android:layout_height="match_parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#00FFFFFF" />
+                android:fadeScrollbars="false">
+
+                <TextView
+                    android:id="@+id/textdata"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/title_astro_type_grid"
+                    android:textColor="#F4A7B9"
+                    android:textSize="24sp"
+                    android:layout_margin="20dp"
+                    android:textStyle="italic"
+                    app:layout_constraintBottom_toTopOf="@id/rvContainer"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    />
+                <LinearLayout
+                    android:id="@+id/rvContainer"
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textdata"
+                    >
 
 
-        </LinearLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#00FFFFFF" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</ScrollView>
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

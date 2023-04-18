@@ -25,14 +25,14 @@
     <string name="picture_of_the_day">Picture of the day</string>
     <string name="date">Date</string>
     <string name="hello">!! Hola %s ¡¡ </string>
-    <string name="helptext_astro"> !! Selecciona un %s !!</string>
-    <string name="helptext_galaxi"> !! Selecciona una %s !!</string>
+    <string name="helptext_astro">↑↑ Selecciona un %s ↑↑ </string>
+    <string name="helptext_galaxi">↑↑ Selecciona una %s ↑↑ </string>
     <string name="home_help">Selecciona un astro!</string>
     <string name="home_curiosities">Cada día, se muestra una imagen o foto diferente del nuestro universo, con una corta explicación escrita por un astrónomo profesional</string>
     <string name="curiosities">Curiosidades…</string>
     <string name="user_profile">Profile</string>
     <string name="lorem">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the electronic typesetting, remaining essentially unchanged. It was popularised inthe 1960s with the release of Letraset sheets containing Lorem Ipsum passages,and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</string>
-    <string name="title_astro_type">Types</string>
+    <string name="title_astro_type">Tipos</string>
     <string name="favorites"> … </string>
     <string name="title_astro_type_grid">Selecciona un tipo de astro …</string>
     <string name="astroTypeList">"Astros "</string>
@@ -43,7 +43,14 @@
     <string name="see_more">Ver más</string>
     <string name="name_astro">Nombre : %s </string>
     <string name="type_astro">Tipo : %s</string>
-    <string name="home_detail">! Ver mas informacion sobre los astros¡</string>
+    <string name="home_detail">! Mas informacion en la secion de tipos de astro¡</string>
+    <string name="picture_of_the_day_home">"Imagen del día "</string>
+    <string name="mail">Correo</string>
+    <string name="name">Nombre</string>
+    <string name="user">Usuario</string>
+    <string name="sing_out">sing out</string>
+    <string name="nameuser">Usuario : %s</string>
+    <string name="useremail">Correo : %s</string>
 
 </resources>
 
