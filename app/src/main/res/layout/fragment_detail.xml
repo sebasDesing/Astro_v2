@@ -14,6 +14,7 @@
         android:alpha="0.5"
         android:scaleType="centerCrop"
         android:src="@drawable/bg_home" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -21,24 +22,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="40dp"
-                android:textSize="24sp"
-                android:textStyle="italic"
-                android:textColor="@color/white"
-                android:background="@drawable/rounded_background"
-                android:text="@string/hello_blank_fragment"
-                app:layout_constraintBottom_toTopOf="@id/body"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rv_detail"
-                app:layout_constraintVertical_bias="0.060000002"
-                app:layout_constraintVertical_chainStyle="packed" />
-
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_detail"
@@ -59,13 +42,12 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 android:background="@color/black"
+                android:visibility="gone"
                 app:cardCornerRadius="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text"
-                android:visibility="visible"
-                tools:ignore="MissingClass">
+                app:layout_constraintTop_toBottomOf="@id/rv_detail">
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -172,10 +154,41 @@
 
             </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     </ScrollView>
 
 
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+        android:background="@drawable/rounded_background"
+        android:text="@string/hello_blank_fragment"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/arrow_help"
+        app:layout_constraintVertical_bias="0.81"
+        app:layout_constraintVertical_chainStyle="packed" />
 
+
+    <ImageView
+        android:id="@+id/arrow_help"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/arroy_help"
+        app:layout_constraintBottom_toTopOf="@id/text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.26"
+        app:layout_constraintVertical_chainStyle="packed" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

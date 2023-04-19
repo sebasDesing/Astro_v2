@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -48,9 +49,9 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.dailyImageItem.typeResum.text = getString(R.string.home_curiosities)
+        //binding.dailyImageItem. .text = getString(R.string.home_curiosities)
         setNavConfig()
-        binding.swipe.isEnabled = false
+
         binding.rvHome.layoutManager = LinearLayoutManager(requireContext())
 
         binding.rvHome.apply {
@@ -108,7 +109,6 @@ class HomeFragment : Fragment() {
         )
         val name = prefs.getString(getString(R.string.key_nameU), null)
         binding.hello.text = getString(R.string.hello, name)
-        binding.dailyImageItem.nameAstro.text = getString(R.string.picture_of_the_day_home)
     }
 
     private fun setAnimation() {

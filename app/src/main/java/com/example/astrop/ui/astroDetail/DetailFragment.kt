@@ -53,6 +53,16 @@ class DetailFragment : Fragment() {
         adapter = DetailAdapter(astroList) { ch -> onItemSelect(ch) }
         binding.rvDetail.adapter = adapter
         viewModel.setRecyclerView(astroList, adapter, binding, args.astroType.idType)
+        setTextHelp()
+
+        binding.seemore.setOnClickListener {
+            binding.seemore.visibility = View.GONE
+            binding.textDescription.maxLines = ADD_LINES
+        }
+
+    }
+
+    private fun setTextHelp() {
         val helptext = if (args.astroType.idType == 5 || args.astroType.idType == 2) {
             getString(R.string.helptext_galaxi, args.astroType.typeAstro)
         } else {
@@ -65,17 +75,20 @@ class DetailFragment : Fragment() {
             repeatMode = ObjectAnimator.REVERSE
             interpolator = AccelerateDecelerateInterpolator()
         }
-        alphaAnimator.start()
-        binding.seemore.setOnClickListener {
-            binding.seemore.visibility = View.GONE
-            binding.textDescription.maxLines = ADD_LINES
+        val alphaAnimatorImg = ObjectAnimator.ofFloat(binding.arrowHelp, "alpha", 0.2f, 1f).apply {
+            duration = 1000
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+            interpolator = AccelerateDecelerateInterpolator()
         }
-
+        alphaAnimatorImg.start()
+        alphaAnimator.start()
     }
 
     private fun onItemSelect(astro: AstroDetail) {
         binding.body.visibility = View.VISIBLE
         binding.text.visibility = View.GONE
+        binding.arrowHelp.visibility = View.GONE
         binding.textNameAstro.text = getString(R.string.name_astro, astro.name_astro)
         binding.textTypeAstro.text = getString(R.string.type_astro,astro.type_astro)
         binding.titleArticle.text = getString(R.string.title_composition, astro.name_com)

@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController)
         binding.bottomNav.setupWithNavController(navController)
 
-        binding.toolbar.setTitleTextColor(getColor(R.color.red_teal))
+        binding.toolbar.setTitleTextColor(getColor(R.color.green_cool))
     }
 
     override fun onSupportNavigateUp(): Boolean {

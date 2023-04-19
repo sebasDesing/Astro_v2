@@ -3,6 +3,7 @@ package com.example.astrop.ui.home
 import android.annotation.SuppressLint
 import android.util.Log
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.astrop.databinding.FragmentHomeBinding
@@ -30,7 +31,6 @@ class HomeViewModel @Inject constructor(
         binding: FragmentHomeBinding
     ) {
         viewModelScope.launch {
-            binding.swipe.visibility = View.VISIBLE
             try {
                 result.invoke()
                 val response = fromData.invoke(GALAXY_ID)
@@ -46,14 +46,14 @@ class HomeViewModel @Inject constructor(
                 "Error al obtener los datos : ${e.message}".also { binding.hello.text = it }
             }
             finally {
-                binding.swipe.visibility = View.GONE
+                binding.loadingContainer.isVisible = false
+                binding.homeContainer.isVisible = true
             }
         }
     }
 
     fun setGridRv(astroGridDetailList: MutableList<AstroDetail>, adapter: HomeGridAdapter, binding: FragmentHomeBinding ) {
         viewModelScope.launch {
-            binding.swipe.visibility = View.VISIBLE
             try {
                 result.invoke()
                 val response = fromData.invoke(PLANETS_ID)
@@ -69,7 +69,7 @@ class HomeViewModel @Inject constructor(
                 "Error al obtener los datos : ${e.message}".also { binding.hello.text = it }
             }
             finally {
-                binding.swipe.visibility = View.GONE
+
             }
         }
     }
