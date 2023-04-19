@@ -23,10 +23,12 @@ class DailyImageViewModel @Inject constructor(private val result: GetDailyImageU
     fun getDailyImage(binding: FragmentDailyImageBinding, context: Context)  {
         viewModelScope.launch {
             try {
+                binding.swipeDaily.isRefreshing = true
                 val response = result.invoke()
                 if (!response.isNullOrEmpty()) {
                     response.let { res ->
                         val data = res[0]
+
                         binding.textDescription.text = data.explanation
                         binding.date.text = data.date
                         binding.titleArticle.text = data.title
@@ -37,6 +39,7 @@ class DailyImageViewModel @Inject constructor(private val result: GetDailyImageU
                 "Error al obtener la imagen diaria: ${e.message}".also { binding.textDescription.text = it }
             }
             finally {
+                binding.swipeDaily.isRefreshing = false
                 binding.dailyImageLoading.isVisible =false
                binding.dailyImageContainer.isVisible = true
             }

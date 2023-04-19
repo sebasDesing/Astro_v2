@@ -1,5 +1,6 @@
 package com.example.astrop.ui.sigIn
 
+import android.animation.ObjectAnimator
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
@@ -7,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.AnimationUtils
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
@@ -90,6 +92,17 @@ class SignInFragment : Fragment() {
         }
 
         session()
+        setAnimation()
+    }
+
+    private fun setAnimation() {
+        val alphaAnimatorImg = ObjectAnimator.ofFloat(binding.imgBg, "alpha", 0.5f, 1f).apply {
+            duration = 2000
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+            interpolator = AccelerateDecelerateInterpolator()
+        }
+        alphaAnimatorImg.start()
     }
 
     private fun session() {
