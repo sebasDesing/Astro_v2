@@ -34,6 +34,7 @@ class HomeDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         requireActivity().findViewById<BottomNavigationView>(R.id.bottomNav).visibility = View.GONE
         val data = args.data
+        /*  LLENA EL CARDvIEW CON LA INFORMACION DEL ASTRO OBTENIDA POR ARGUMENTOS */
         setDetail(data)
     }
 

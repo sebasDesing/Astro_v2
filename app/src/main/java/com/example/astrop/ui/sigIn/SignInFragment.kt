@@ -79,6 +79,15 @@ class SignInFragment : Fragment() {
         binding.sigInFg.animation =
             AnimationUtils.loadAnimation(requireContext(), R.anim.from_bottom)
         firebaseAuth = Firebase.auth
+
+        /*Realiza la autentificación de la cuenta de google en al presionar al boton*/
+        autentication()
+        /* Almacena en sharedpreferences */
+        session()
+        setAnimation()
+    }
+
+    private fun autentication() {
         binding.googleBtn.setOnClickListener {
             val googleConf = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -90,9 +99,6 @@ class SignInFragment : Fragment() {
             googleSignInLauncher.launch(googleClient.signInIntent)
 
         }
-
-        session()
-        setAnimation()
     }
 
     private fun setAnimation() {
@@ -121,6 +127,7 @@ class SignInFragment : Fragment() {
 
     }
 
+    /*REDIRIGE AL HOME SI ES QUE HAY UNA SESION ACTIVA  */
     private fun goHome(nameUser: String, email: String, photoUrl: String) {
         Log.i("sesionn", "$nameUser , $email ,$photoUrl")
         val prefs = requireActivity().getSharedPreferences(

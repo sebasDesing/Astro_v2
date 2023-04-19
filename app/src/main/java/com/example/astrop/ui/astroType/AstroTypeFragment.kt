@@ -52,13 +52,13 @@ class AstroTypeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val activity = requireActivity() as AppCompatActivity
-
-            activity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        activity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
 
         binding.astroTypesFg.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.from_ast)
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         adapter = AstroTypeAdapter(astroList) { ch -> onItemSelect(ch) }
         binding.recyclerView.adapter = adapter
+        /* LLENA LA LISTA DE TIPOS DE ASTRO*/
         viewModel.setRecyclerView(astroList, adapter, binding)
         setAnimation()
     }

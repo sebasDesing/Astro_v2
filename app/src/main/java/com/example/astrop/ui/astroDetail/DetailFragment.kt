@@ -53,12 +53,14 @@ class DetailFragment : Fragment() {
         adapter = DetailAdapter(astroList) { ch -> onItemSelect(ch) }
         binding.rvDetail.adapter = adapter
         viewModel.setRecyclerView(astroList, adapter, binding, args.astroType.idType)
-        setTextHelp()
+
 
         binding.seemore.setOnClickListener {
             binding.seemore.visibility = View.GONE
             binding.textDescription.maxLines = ADD_LINES
         }
+
+        setTextHelp()
 
     }
 

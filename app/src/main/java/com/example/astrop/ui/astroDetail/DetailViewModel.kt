@@ -13,6 +13,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailViewModel @Inject constructor(private val result: GetDetailByTypeUseCase) : ViewModel() {
+    /* IMPLEMENTA EL CASO DE USO QUE TRAE LOS DETALLES DE CADA ASTRO, MEDIATE SU ID */
+
     @SuppressLint("NotifyDataSetChanged")
     fun setRecyclerView(
         astroList: MutableList<AstroDetail>,

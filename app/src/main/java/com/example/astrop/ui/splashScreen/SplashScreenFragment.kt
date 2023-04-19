@@ -14,14 +14,12 @@ import androidx.navigation.fragment.findNavController
 import com.example.astrop.R
 import com.example.astrop.databinding.FragmentSplashScreenBinding
 
-
+/* MANEJA LA LOGICA PARA MOSTRAR EL ONBOARDIN SOLO CUANDO SE ENTRE POR PRIMERA VEZ */
 @SuppressLint("CustomSplashScreen")
 class SplashScreenFragment : Fragment() {
 
     private var _binding: FragmentSplashScreenBinding? = null
     private val binding get() = _binding!!
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

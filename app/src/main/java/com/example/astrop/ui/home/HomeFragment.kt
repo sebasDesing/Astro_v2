@@ -49,7 +49,6 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //binding.dailyImageItem. .text = getString(R.string.home_curiosities)
         setNavConfig()
 
         binding.rvHome.layoutManager = LinearLayoutManager(requireContext())

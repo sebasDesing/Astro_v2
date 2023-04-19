@@ -16,7 +16,7 @@ import com.example.astrop.domain.model.DailyImage
 import com.example.astrop.domain.model.toDomain
 import retrofit2.Response
 import javax.inject.Inject
-
+/* SE ENCARGA DE DECIDIR DE DONDE TRAER LA INFORMACION*/
 class AstroRepository @Inject constructor(
     private val api: AstroService,
     private val AstroTypeDao: AstroTypeDao,
@@ -24,6 +24,7 @@ class AstroRepository @Inject constructor(
     private val AstroDetailDao : AstroDetailDao
 ) {
 
+    /* TIPOS DE ASTRO*/
     suspend fun getTypeAstroFromApi(): List<AstroType> {
         val response: List<AstroTypeModel> = api.getTypeAstro()
         return response.map {
@@ -46,6 +47,7 @@ class AstroRepository @Inject constructor(
         AstroTypeDao.deleteAllAstroTypes()
     }
 
+    /* IMAGEN DEL DIA */
     suspend fun getDailyImageFromApi(): DailyImage {
         val response: Response<DailyImageModel> = api.getDailyImage()
         return response.body()?.toDomain() ?: throw Exception("Error fetching daily image")
@@ -64,6 +66,8 @@ class AstroRepository @Inject constructor(
         DailyImageDao.deleteDailyImage()
     }
 
+
+    /* DETALLES DE LOS ATROS*/
     suspend fun getAllAstrosDetailFromApi(): List<AstroDetail> {
         val response : List<AstroDetailModel> = api.getAllAstros()
         return  response.map {

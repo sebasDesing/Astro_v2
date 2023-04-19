@@ -2,7 +2,6 @@ package com.example.astrop.ui.home
 
 import android.annotation.SuppressLint
 import android.util.Log
-import android.view.View
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -24,7 +23,8 @@ class HomeViewModel @Inject constructor(
     private val GALAXY_ID = 2
     private val PLANETS_ID = 1
 
-    @SuppressLint("NotifyDataSetChanged")
+
+    /*HACE LA PETICION A LA API Y LLRNA EL RV HORIZONTAL*/
     fun setData(
         astroDetailList: MutableList<AstroDetail>,
         adapter: HomeAdapter,
@@ -52,6 +52,7 @@ class HomeViewModel @Inject constructor(
         }
     }
 
+    /*HACE LA PETICION A LA API Y LLRNA EL RV A MANERA DE UN GRID  */
     fun setGridRv(astroGridDetailList: MutableList<AstroDetail>, adapter: HomeGridAdapter, binding: FragmentHomeBinding ) {
         viewModelScope.launch {
             try {
@@ -67,8 +68,7 @@ class HomeViewModel @Inject constructor(
             } catch (e: Exception) {
 
                 "Error al obtener los datos : ${e.message}".also { binding.hello.text = it }
-            }
-            finally {
+            } finally {
 
             }
         }

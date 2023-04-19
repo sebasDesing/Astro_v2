@@ -15,7 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class AstroTypeViewModel @Inject constructor(private val result: GetAstroTypeUseCase) :
     ViewModel() {
-
+/* IMPLEMENTA EL CASO DE USO QUE TRAE LOS TIPOS DE ASTROS*/
     @SuppressLint("NotifyDataSetChanged")
     fun setRecyclerView(
         astroList: MutableList<AstroType>,

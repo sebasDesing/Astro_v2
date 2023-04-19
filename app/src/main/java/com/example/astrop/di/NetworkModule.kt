@@ -13,7 +13,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
-    const val BASE_URL = "https://apiappstro-prod.up.railway.app"  // AQUI VA TU IP LOCAL
+    const val BASE_URL = "API"  // AQUI VA TU IP LOCAL
     @Singleton
     @Provides
 

@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.astrop.R
 import com.example.astrop.databinding.FragmentThirdBinding
 
-
+/*  MUESTRA LA ULTIMA PANTALLA DEL ONBOARDING Y VALIDA QUE YA SE ACCEDIO A EL  */
 class ThirdFragment : Fragment() {
 
     private var _binding: FragmentThirdBinding? = null

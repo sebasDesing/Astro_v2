@@ -11,7 +11,7 @@ import com.example.astrop.ui.astroType.AstroTypeFragment
 import com.example.astrop.ui.dailyImage.DailyImageFragment
 import com.google.android.material.tabs.TabLayout
 
-
+/*ESTE MODULO NO SE IMPLEMENTO POR FALTA DE TIEMPO Y RECURSOS, PERO ERA UN EXTRA AL PROYECTO*/
 class TabsFragment : Fragment() {
 
     private var _binding: FragmentMainBinding? = null

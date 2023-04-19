@@ -37,6 +37,7 @@ class UserProfileFragment : Fragment() {
         val activity = requireActivity() as AppCompatActivity
         activity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
         setAnimation()
+        /* SETEA LA INFORMACION DE CUENTA DE USUARIO */
         getCurretUSer()
     }
 
@@ -55,9 +56,6 @@ class UserProfileFragment : Fragment() {
     }
 
     private fun getCurretUSer() {
-
-        //getString(getString(R.string.key_nameU), null)
-        //binding.sigout.setOnClickListener { val p = prefs.edit()p.clear()p.apply() }
         val iolo = viewModel.getUserData(
             getString(R.string.prefs_file),
             getString(R.string.key_nameU),
