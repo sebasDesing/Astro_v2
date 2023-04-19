@@ -41,10 +41,7 @@ class DailyImageFragment : Fragment() {
         binding.seemore.setOnClickListener {
             binding.textDescription.maxLines = MAX_LINES
             binding.seemore.visibility = View.GONE
-            binding.swipeDaily.isEnabled =false
         }
-        binding.swipeDaily.setOnRefreshListener {
-            viewModel.getDailyImage(binding, requireContext())
-        }
+
     }
 }

@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.astrop.R
 import com.example.astrop.data.model.AstroTypeModel
 import com.example.astrop.databinding.FragmentAstroTypeBinding
+import com.example.astrop.databinding.ItemTypeAstroLoadingBinding
 import com.example.astrop.domain.model.AstroDetail
 import com.example.astrop.domain.model.AstroType
 import com.example.astrop.ui.astroType.adapter.AstroTypeAdapter
@@ -55,7 +56,6 @@ class AstroTypeFragment : Fragment() {
             activity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
 
         binding.astroTypesFg.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.from_ast)
-        binding.swipe.isEnabled = false
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         adapter = AstroTypeAdapter(astroList) { ch -> onItemSelect(ch) }
         binding.recyclerView.adapter = adapter
@@ -70,7 +70,18 @@ class AstroTypeFragment : Fragment() {
             repeatMode = ObjectAnimator.REVERSE
             interpolator = AccelerateDecelerateInterpolator()
         }
+        val binding_2 = ItemTypeAstroLoadingBinding.bind(requireView())
+        val alphaAnimator_item = ObjectAnimator.ofFloat(binding_2.textLoading, "alpha", 0.2f, 1f).apply {
+            duration = 1000
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+            interpolator = AccelerateDecelerateInterpolator()
+        }
+
+        alphaAnimator_item.start()
         alphaAnimator.start()
+
+
     }
 
     private fun onItemSelect(astro: AstroType) {

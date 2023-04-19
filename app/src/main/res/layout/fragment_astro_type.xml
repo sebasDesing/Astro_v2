@@ -16,11 +16,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/bg_home" />
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipe"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+
 
         <ScrollView
             android:layout_width="match_parent"
@@ -29,6 +25,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fadeScrollbars="false">
+
+                <FrameLayout
+                    android:id="@+id/astrotype_loading"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <include
+                        android:id="@+id/item"
+                        layout="@layout/item_type_astro_loading"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </FrameLayout>
 
                 <TextView
                     android:id="@+id/textdata"
@@ -46,8 +54,10 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
                     app:layout_constraintVertical_chainStyle="packed"
+                    android:visibility="gone"
                     />
                 <LinearLayout
+                    android:visibility="gone"
                     android:id="@+id/rvContainer"
                     android:layout_width="match_parent"
                     android:layout_marginStart="10dp"
@@ -73,7 +83,6 @@
 
         </ScrollView>
 
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

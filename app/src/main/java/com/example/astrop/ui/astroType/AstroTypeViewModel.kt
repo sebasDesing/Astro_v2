@@ -1,6 +1,7 @@
 package com.example.astrop.ui.astroType
 
 import android.annotation.SuppressLint
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.astrop.databinding.FragmentAstroTypeBinding
@@ -22,7 +23,6 @@ class AstroTypeViewModel @Inject constructor(private val result: GetAstroTypeUse
         binding: FragmentAstroTypeBinding
     ) {
         viewModelScope.launch {
-            binding.swipe.isRefreshing = true
             try {
                 val response = result.invoke()
                 response.let { res ->
@@ -34,9 +34,13 @@ class AstroTypeViewModel @Inject constructor(private val result: GetAstroTypeUse
                 }
             }catch (e :Exception){
                 "Error al obtener los datos : ${e.message}".also { binding.textdata.text = it }
+            }finally {
+                binding.astrotypeLoading.isVisible = false
+                binding.textdata.isVisible = true
+                binding.rvContainer.isVisible = true
+
             }
 
-            binding.swipe.isRefreshing = false
 
         }
     }

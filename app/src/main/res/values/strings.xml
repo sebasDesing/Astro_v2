@@ -51,6 +51,7 @@
     <string name="sing_out">sing out</string>
     <string name="nameuser">Usuario : %s</string>
     <string name="useremail">Correo : %s</string>
+    <string name="loading">Cargando ..</string>
 
 </resources>
 
