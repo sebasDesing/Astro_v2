@@ -1,9 +1,11 @@
 package com.example.astrop.ui.userProfile
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -40,7 +42,13 @@ class UserProfileFragment : Fragment() {
 
 
     private fun setAnimation() {
-       // binding.imgBg.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.bg_home)
+        val alphaAnimatorImg = ObjectAnimator.ofFloat(binding.imgBg, "alpha", 0.5f, 1f).apply {
+            duration = 2000
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+            interpolator = AccelerateDecelerateInterpolator()
+        }
+        alphaAnimatorImg.start()
         binding.homeFg.animation =
             AnimationUtils.loadAnimation(requireContext(), R.anim.from_bottom)
 

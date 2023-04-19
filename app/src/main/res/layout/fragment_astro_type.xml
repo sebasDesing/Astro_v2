@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/title_astro_type_grid"
-                    android:textColor="#F4A7B9"
+                    android:textColor="@color/white"
                     android:textSize="24sp"
                     android:layout_margin="20dp"
                     android:textStyle="italic"

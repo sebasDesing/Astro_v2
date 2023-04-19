@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textAppearance="?attr/textAppearanceListItem"
-        android:textColor="#FBDDDD"
+        android:textColor="@color/white"
         android:textSize="10sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
