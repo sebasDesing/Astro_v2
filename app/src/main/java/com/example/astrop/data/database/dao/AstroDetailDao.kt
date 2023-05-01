@@ -13,6 +13,10 @@ interface AstroDetailDao {
     @Query("SELECT * FROM astro_table")
     suspend fun getAstrosDetail(): List<AstroDetailEntity>
 
+
+    @Query("SELECT * FROM astro_table WHERE id_type_astro=:astroTypeId")
+    suspend fun getAstrosDetailByType(astroTypeId: Int): List<AstroDetailEntity>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllDetailAstros(astros: List<AstroDetailEntity>)
 

@@ -14,7 +14,8 @@ data class AstroDetail(
     val name_com: String,
     val composition_description: String,
     val distance: Float,
-    val image_url: String
+    val image_url: String,
+    val id_type_astro:Int
 ) : Parcelable
 
 fun AstroDetailModel.toDomain() = AstroDetail(
@@ -25,7 +26,8 @@ fun AstroDetailModel.toDomain() = AstroDetail(
     name_com,
     composition_description,
     distance,
-    image_url
+    image_url,
+     id_type_astro
 )
 
 fun AstroDetailEntity.toDomain() = AstroDetail(
@@ -36,5 +38,6 @@ fun AstroDetailEntity.toDomain() = AstroDetail(
     name_com,
     composition_description,
     distance,
-    image_url
+    image_url,
+    idType
 )

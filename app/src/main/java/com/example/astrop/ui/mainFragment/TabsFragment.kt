@@ -11,7 +11,7 @@ import com.example.astrop.ui.astroType.AstroTypeFragment
 import com.example.astrop.ui.dailyImage.DailyImageFragment
 import com.google.android.material.tabs.TabLayout
 
-
+/*ESTE MODULO NO SE IMPLEMENTO POR FALTA DE TIEMPO Y RECURSOS, PERO ERA UN EXTRA AL PROYECTO*/
 class TabsFragment : Fragment() {
 
     private var _binding: FragmentMainBinding? = null
@@ -19,7 +19,7 @@ class TabsFragment : Fragment() {
     private lateinit var tabLayout: TabLayout
     private lateinit var viewPager2: ViewPager2
     private lateinit var adapter: TabsFragmentAdapter
-    private val lista = arrayListOf<Fragment>(AstroTypeFragment(),DailyImageFragment())
+    private val lista = arrayListOf<Fragment>(DailyImageFragment())
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,7 +34,6 @@ class TabsFragment : Fragment() {
         tabLayout = binding.tabLayout
         viewPager2 = binding.viwPager
         adapter = TabsFragmentAdapter(requireActivity().supportFragmentManager, lifecycle, lista)
-        tabLayout.addTab(tabLayout.newTab().setText("Home"))
         tabLayout.addTab(tabLayout.newTab().setText("DailyImage"))
 
         viewPager2.adapter = adapter

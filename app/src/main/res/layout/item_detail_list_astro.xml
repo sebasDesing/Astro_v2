@@ -6,12 +6,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_gravity="center"
-    android:padding="16dp">
+    android:padding="10dp"
+    >
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imgViewUrl"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:civ_border_color="#27ae60"
+        app:civ_border_width="0.9dp"
         android:src="@drawable/bg_home"
         android:foregroundGravity="center"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +30,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textAppearance="?attr/textAppearanceListItem"
-        android:textColor="?android:textColorPrimary"
+        android:textColor="@color/white"
         android:textSize="10sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"

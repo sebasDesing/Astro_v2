@@ -15,7 +15,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object RoomModule {
     private const val ASTRO_TYPE_DB_NAME = "astro_types"
-    private const val DAILY_IMAGE_DB_NAME = "daily_image"
 
     @Singleton
     @Provides

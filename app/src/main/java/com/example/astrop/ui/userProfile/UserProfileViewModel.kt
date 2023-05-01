@@ -6,7 +6,7 @@ import com.example.astrop.data.model.UserData
 
 class UserProfileViewModel : ViewModel() {
 
-
+/*OBTIENE LA INFORMACION DEL USUARIO POR SHAREDPREFERENCES */
     fun getUserData(
         keyPrefs: String,
         keyName: String,

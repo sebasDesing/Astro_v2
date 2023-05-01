@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
+    <color android:name="bottom_nav_item_color" tools:ignore="ExtraText">
+        @color/purple_700
+
+    </color>
+</selector>

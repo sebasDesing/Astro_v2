@@ -12,5 +12,6 @@ data class AstroDetailModel(
     val name_com: String,
     val composition_description: String,
     val distance: Float,
-    val image_url: String
+    val image_url: String,
+    val id_type_astro:Int
 ) : Parcelable

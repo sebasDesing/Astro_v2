@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Build
 import androidx.annotation.RequiresApi
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bumptech.glide.Glide
@@ -21,22 +22,26 @@ class DailyImageViewModel @Inject constructor(private val result: GetDailyImageU
     @SuppressLint("SetTextI18n")
     fun getDailyImage(binding: FragmentDailyImageBinding, context: Context)  {
         viewModelScope.launch {
-            binding.swipeDaily.isRefreshing =true
             try {
+                binding.swipeDaily.isRefreshing = true
                 val response = result.invoke()
                 if (!response.isNullOrEmpty()) {
                     response.let { res ->
                         val data = res[0]
-                        binding.dateImage.text = "Date : ${data.date}"
-                        binding.body.text = data.explanation
-                        Glide.with(context).load(data.hdurl).into(binding.dailyImage)
+
+                        binding.textDescription.text = data.explanation
+                        binding.date.text = data.date
+                        binding.titleArticle.text = data.title
+                        Glide.with(context).load(data.hdurl).into(binding.imageViewB)
                     }
                 }
             } catch (e: Exception) {
-                "Error al obtener la imagen diaria: ${e.message}".also { binding.body.text = it }
+                "Error al obtener la imagen diaria: ${e.message}".also { binding.textDescription.text = it }
             }
             finally {
-               binding.swipeDaily.isRefreshing = false
+                binding.swipeDaily.isRefreshing = false
+                binding.dailyImageLoading.isVisible =false
+               binding.dailyImageContainer.isVisible = true
             }
         }
 

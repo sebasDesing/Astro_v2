@@ -38,9 +38,9 @@ class DailyImageFragment : Fragment() {
         binding.dailyImageFg.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.from_ast)
         viewModel.getDailyImage(binding, requireContext())
 
-        binding.seeMore.setOnClickListener {
-            binding.body.maxLines = MAX_LINES
-            binding.seeMore.visibility = View.GONE
+        binding.seemore.setOnClickListener {
+            binding.textDescription.maxLines = MAX_LINES
+            binding.seemore.visibility = View.GONE
             binding.swipeDaily.isEnabled =false
         }
         binding.swipeDaily.setOnRefreshListener {

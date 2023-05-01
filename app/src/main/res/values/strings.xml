@@ -9,7 +9,7 @@
     <string name="title_f2">Descubre los secretos del universo desde la comodidad de tu móvil</string>
     <string name="title_f3">Nuestra app te llevará en un viaje fascinante a través del cosmos</string>
     <string name="prefs_file">idk1</string>
-    <string name="sig_in_title">Bienvenido a Astrop!</string>
+    <string name="sig_in_title">!! Bienvenido a Astrop !!</string>
     <string name="second_op_home">Daily image BY NASA</string>
     <string name="sign_out_home">Sign out</string>
     <string name="icon_help_home">📖 ❔</string>
@@ -22,13 +22,36 @@
     <string name="key_email">email</string>
     <string name="key_nameU">nameU</string>
     <string name="key_photo_url">imgU</string>
-    <string name="picture_of_the_day">Pictute of the day</string>
+    <string name="picture_of_the_day">Picture of the day</string>
     <string name="date">Date</string>
-    <string name="hello">Hola tu  %s !!</string>
+    <string name="hello">!! Hola %s ¡¡ </string>
+    <string name="helptext_astro">↑↑ Selecciona un %s ↑↑ </string>
+    <string name="helptext_galaxi">↑↑ Selecciona una %s ↑↑ </string>
     <string name="home_help">Selecciona un astro!</string>
-    <string name="home_curiosities">Curiosidades</string>
-    <string name="title_type">ASTRO</string>
-    <string name="type_estrella">Estrellas</string>
-    <string name="bt_type">Ver todos</string>
+    <string name="home_curiosities">Cada día, se muestra una imagen o foto diferente del nuestro universo, con una corta explicación escrita por un astrónomo profesional</string>
+    <string name="curiosities">Curiosidades…</string>
+    <string name="user_profile">Profile</string>
+    <string name="lorem">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the electronic typesetting, remaining essentially unchanged. It was popularised inthe 1960s with the release of Letraset sheets containing Lorem Ipsum passages,and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</string>
+    <string name="title_astro_type">Tipos</string>
+    <string name="favorites"> … </string>
+    <string name="title_astro_type_grid">Selecciona un tipo de astro …</string>
+    <string name="astroTypeList">"Astros "</string>
+    <string name="title_composition">"Composicion principal : %s "</string>
+    <string name="distance_astro">Distancia : %f  km</string>
+    <string name="home_title_2">Accede a información relevante sobre las estrellas</string>
+    <string name="home_title_3">Conoce a nuestros planetas vecinos </string>
+    <string name="see_more">Ver más</string>
+    <string name="name_astro">Nombre : %s </string>
+    <string name="type_astro">Tipo : %s</string>
+    <string name="home_detail">! Mas informacion en la secion de tipos de astro¡</string>
+    <string name="picture_of_the_day_home">"Imagen del día "</string>
+    <string name="mail">Correo</string>
+    <string name="name">Nombre</string>
+    <string name="user">Usuario</string>
+    <string name="sing_out">sing out</string>
+    <string name="nameuser">Usuario : %s</string>
+    <string name="useremail">Correo : %s</string>
+    <string name="loading">Cargando ..</string>
+
 </resources>
 
