@@ -1,10 +1,14 @@
 package com.example.astrop.data.database.entities
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.astrop.domain.model.AstroDetail
+import kotlinx.parcelize.Parcelize
 
+
+@Parcelize
 @Entity(tableName = "astro_table")
 data class AstroDetailEntity(
 
@@ -15,8 +19,9 @@ data class AstroDetailEntity(
     @ColumnInfo(name = "name_com") val name_com: String,
     @ColumnInfo(name = "composition_description") val composition_description: String,
     @ColumnInfo(name = "distance") val distance: Float,
-    @ColumnInfo(name = "image_url") val image_url: String
-)
+    @ColumnInfo(name = "image_url") val image_url: String,
+    @ColumnInfo(name="id_type_astro") val idType:Int
+) : Parcelable
 
 fun AstroDetail.toDB() = AstroDetailEntity(
     id_astro=id_astro,
@@ -26,5 +31,6 @@ fun AstroDetail.toDB() = AstroDetailEntity(
     name_com=name_com,
     composition_description=composition_description,
     distance=distance,
-    image_url=image_url
+    image_url=image_url,
+    idType = id_type_astro
 )

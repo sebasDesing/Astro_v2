@@ -6,120 +6,156 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.dailyImage.DailyImageFragment">
-
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipe_daily"
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.5"
+        android:background="@drawable/bg_daily" />
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    android:id="@+id/swipe_daily"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:alpha="0.5"
-                android:background="@drawable/bg_daily" />
-
+            android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="24dp"
-                android:text="@string/pictute_of_the_day"
-                android:textSize="35sp"
+                android:layout_margin="30dp"
+                android:text="@string/picture_of_the_day"
                 android:textColor="@color/white"
+                android:textSize="35sp"
                 android:textStyle="italic"
-                app:layout_constraintBottom_toTopOf="@id/daily_image"
+                app:layout_constraintBottom_toTopOf="@id/body"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
-                app:layout_constraintVertical_chainStyle="packed"
-                tools:textColor="@color/black" />
-
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/daily_image"
-                android:layout_width="250dp"
-                android:layout_height="250dp"
-                android:layout_marginBottom="8dp"
-                tools:src="@drawable/ic_launcher"
-                app:layout_constraintBottom_toTopOf="@id/body_container"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/title"
                 app:layout_constraintVertical_chainStyle="packed" />
 
-            <ScrollView
-                android:id="@+id/body_container"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/body"
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
-                android:background="#77000000"
-                android:padding="16dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/black"
+                app:cardCornerRadius="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/daily_image">
+                app:layout_constraintTop_toBottomOf="@id/title"
+                app:layout_constraintVertical_bias="0.0">
 
-                <TextView
-                    android:id="@+id/body"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/daily_image_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:lineSpacingExtra="12dp"
-                    android:maxLines="7"
-                    android:textColor="@color/white"
-                    android:textSize="15sp"
-                    android:textStyle="italic"
-                    tools:text="@string/body_f2" />
+                    android:background="@color/black"
+                    android:visibility="gone"
+                    >
 
-            </ScrollView>
 
-            <TextView
-                android:id="@+id/see_more"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/ver_mas"
-                android:textColor="#9FF4BDBD"
-                android:textSize="18sp"
-                android:textStyle="italic"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.523"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/body_container"
-                app:layout_constraintVertical_bias="0.0" />
+                    <ImageView
+                        android:id="@+id/imageView_b"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:layout_marginBottom="10dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/bg_home"
+                        app:layout_constraintBottom_toTopOf="@id/text_description"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.07"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
 
-            <TextView
-                android:id="@+id/date_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginBottom="16dp"
-                android:textSize="15sp"
-                android:textColor="@color/white"
-                tools:text="@string/date"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintVertical_bias="1.0"
-                app:layout_goneMarginBottom="30dp"
-                tools:textColor="@color/black" />
 
-            <ProgressBar
-                android:id="@+id/progress_bar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginBottom="40dp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                    <TextView
+                        android:id="@+id/title_article"
+                        style="@style/Title_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/app_name"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="italic"
+                        app:layout_constraintBottom_toTopOf="@id/date"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/imageView_b" />
+
+                    <TextView
+                        android:id="@+id/date"
+                        style="@style/Title_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/app_name"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="italic"
+                        app:layout_constraintBottom_toTopOf="@id/text_description"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/imageView_b"
+                        app:layout_constraintVertical_chainStyle="packed" />
+
+                    <TextView
+                        android:id="@+id/text_description"
+                        style="@style/Title_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="30dp"
+                        android:ellipsize="end"
+                        android:lineSpacingExtra="10dp"
+                        android:maxLines="6"
+                        android:text="@string/lorem"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="italic"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/date"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/seemore"
+                        style="@style/Title_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:alpha="0.7"
+                        android:gravity="center"
+                        android:text="@string/see_more"
+                        app:layout_constraintTop_toBottomOf="@id/text_description" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    <FrameLayout
+        android:id="@+id/daily_image_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include
+            android:id="@+id/daily_image_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/item_daily_image_loading"
+            />
+    </FrameLayout>
+
 
 </FrameLayout>

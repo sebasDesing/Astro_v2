@@ -9,6 +9,7 @@
     >
 
     <ImageView
+        android:id="@+id/img_bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha=".4"
@@ -19,35 +20,61 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/huge_spacing"
-        android:textColor="@color/white"
-        android:text="@string/sig_in_title"
-        android:textStyle="italic"
-        android:textAlignment="center"
-        android:textAppearance="?attr/textAppearanceHeadline3"
-        app:layout_constraintBottom_toTopOf="@id/googleBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="spread" />
+   <androidx.cardview.widget.CardView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:cardCornerRadius="40dp"
+       android:layout_margin="40dp"
+       >
+       <com.facebook.shimmer.ShimmerFrameLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           app:shimmer_base_alpha=".88"
+           app:shimmer_duration="1700">
+           <androidx.constraintlayout.widget.ConstraintLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@drawable/black_gradient_2">
 
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/googleBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="@dimen/huge_spacing"
-        android:textColor="#D50606"
-        app:buttonSize="wide"
-        app:colorScheme="light"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+               <TextView
+                   android:id="@+id/title"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_margin="25dp"
+                   android:text="@string/sig_in_title"
+                   android:textAlignment="center"
+                   android:textAppearance="?attr/textAppearanceHeadline5"
+                   android:textColor="@color/white"
+                   android:textStyle="bold|italic"
+                   app:layout_constraintBottom_toTopOf="@id/googleBtn"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   app:layout_constraintVertical_chainStyle="packed" />
 
+               <com.google.android.gms.common.SignInButton
+                   android:id="@+id/googleBtn"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center"
+                   android:layout_margin="25dp"
+                   android:textColor="#D50606"
+                   app:buttonSize="wide"
+                   app:colorScheme="light"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@id/title" />
+
+           </androidx.constraintlayout.widget.ConstraintLayout>
+       </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+   </androidx.cardview.widget.CardView>
 
     <ProgressBar
         android:id="@+id/prg"

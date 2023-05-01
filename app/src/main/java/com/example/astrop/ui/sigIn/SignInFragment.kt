@@ -1,5 +1,6 @@
 package com.example.astrop.ui.sigIn
 
+import android.animation.ObjectAnimator
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
@@ -7,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.AnimationUtils
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
@@ -27,8 +29,6 @@ class SignInFragment : Fragment() {
 
     private var _binding: FragmentSigInBinding? = null
     private val binding get() = _binding!!
-
-
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var authState: FirebaseAuth.AuthStateListener
 
@@ -79,6 +79,15 @@ class SignInFragment : Fragment() {
         binding.sigInFg.animation =
             AnimationUtils.loadAnimation(requireContext(), R.anim.from_bottom)
         firebaseAuth = Firebase.auth
+
+        /*Realiza la autentificación de la cuenta de google en al presionar al boton*/
+        autentication()
+        /* Almacena en sharedpreferences */
+        session()
+        setAnimation()
+    }
+
+    private fun autentication() {
         binding.googleBtn.setOnClickListener {
             val googleConf = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -90,8 +99,16 @@ class SignInFragment : Fragment() {
             googleSignInLauncher.launch(googleClient.signInIntent)
 
         }
+    }
 
-        session()
+    private fun setAnimation() {
+        val alphaAnimatorImg = ObjectAnimator.ofFloat(binding.imgBg, "alpha", 0.5f, 1f).apply {
+            duration = 2000
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+            interpolator = AccelerateDecelerateInterpolator()
+        }
+        alphaAnimatorImg.start()
     }
 
     private fun session() {
@@ -110,6 +127,7 @@ class SignInFragment : Fragment() {
 
     }
 
+    /*REDIRIGE AL HOME SI ES QUE HAY UNA SESION ACTIVA  */
     private fun goHome(nameUser: String, email: String, photoUrl: String) {
         Log.i("sesionn", "$nameUser , $email ,$photoUrl")
         val prefs = requireActivity().getSharedPreferences(
@@ -122,6 +140,7 @@ class SignInFragment : Fragment() {
             .apply()
         binding.prg.visibility = View.GONE
         findNavController().navigate(R.id.homeFragment2)
+
     }
 
     override fun onDestroyView() {

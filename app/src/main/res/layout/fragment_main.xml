@@ -4,8 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.mainFragment.TabsFragment">
+    tools:context=".ui.mainFragment.TabsFragment"
+    android:background="@color/black"
     >
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.5"
+        android:background="@drawable/bg_daily" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
@@ -13,8 +19,8 @@
         android:layout_height="50dp"
         app:tabIndicatorGravity="center"
         app:tabIndicatorAnimationMode="elastic"
-        app:tabSelectedTextColor="@color/white"
-        app:tabIndicatorColor="@null"
+        app:tabSelectedTextColor="?colorPrimary"
+        app:tabIndicatorColor="@color/red_teal"
         app:tabIndicator="@drawable/tab_indicator"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
