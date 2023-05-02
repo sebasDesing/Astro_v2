@@ -13,7 +13,7 @@ class GetDailyImageUseCase @Inject constructor(
     private val repository
     : AstroRepository
 ) {
-    @RequiresApi(Build.VERSION_CODES.O)
+
     suspend operator fun invoke(): List<DailyImage> {
 
         val dailyImage = repository.getDailyImageFromDB()

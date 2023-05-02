@@ -18,7 +18,7 @@ import javax.inject.Inject
 class DailyImageViewModel @Inject constructor(private val result: GetDailyImageUseCase) :
     ViewModel() {
 
-    @RequiresApi(Build.VERSION_CODES.O)
+
     @SuppressLint("SetTextI18n")
     fun getDailyImage(binding: FragmentDailyImageBinding, context: Context)  {
         viewModelScope.launch {
