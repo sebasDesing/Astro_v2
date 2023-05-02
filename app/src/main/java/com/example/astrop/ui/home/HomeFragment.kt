@@ -2,12 +2,12 @@ package com.example.astrop.ui.home
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.astrop.R
 import com.example.astrop.data.database.entities.AstroDetailEntity
-import com.example.astrop.data.model.AstroDetailModel
 import com.example.astrop.databinding.FragmentHomeBinding
 import com.example.astrop.domain.model.AstroDetail
 import com.example.astrop.ui.home.adapter.HomeAdapter
@@ -41,7 +40,7 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        setBackPressedCallback{
+        setBackPressedCallback {
 
         }
         return binding.root
@@ -59,34 +58,38 @@ class HomeFragment : Fragment() {
         }
 
         binding.rvPlanets.apply {
-            layoutManager = GridLayoutManager(context, 1,GridLayoutManager.HORIZONTAL, false)
+            layoutManager = GridLayoutManager(context, 1, GridLayoutManager.HORIZONTAL, false)
             setHasFixedSize(true)
-            this.setPadding(5,0,5,0)
+            this.setPadding(5, 0, 5, 0)
 
             adapter = adapter
         }
 
-        adapter = HomeAdapter(astroDetailList) { ch -> onItemSelect(ch) }
+        adapter = HomeAdapter { ch -> onItemSelect(ch) }
         gridAdapter = HomeGridAdapter(astroGridDetailList) { ch -> onGridItemSelect(ch) }
 
         binding.rvHome.adapter = adapter
         binding.rvPlanets.adapter = gridAdapter
 
-        viewModel.setData(astroDetailList, adapter, binding)
 
+        viewModel.planetsList.observe(requireActivity()) { planets ->
+            adapter.setList(planets)
+            //astroDetailList.addAll(listOf(planet))
+
+        }
 
         viewModel.setGridRv(astroGridDetailList, gridAdapter, binding)
         setAnimation()
         greeting()
-
-
-        binding.dailyImage.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment2_to_dailyImageFragment)
-        }
-
+        goToDailyImage()
 
     }
 
+    private fun goToDailyImage() {
+        binding.dailyImage.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment2_to_dailyImageFragment)
+        }
+    }
 
 
     private fun setNavConfig() {
@@ -126,7 +129,7 @@ class HomeFragment : Fragment() {
                 astro.description,
                 astro.name_com,
                 astro.composition_description,
-                astro.distance,astro.image_url,astro.id_type_astro
+                astro.distance, astro.image_url, astro.id_type_astro
             )
         )
         findNavController().navigate(nav)
@@ -141,7 +144,7 @@ class HomeFragment : Fragment() {
                 astro.description,
                 astro.name_com,
                 astro.composition_description,
-                astro.distance,astro.image_url,astro.id_type_astro
+                astro.distance, astro.image_url, astro.id_type_astro
             )
         )
         findNavController().navigate(nav)

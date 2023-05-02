@@ -1,8 +1,9 @@
 package com.example.astrop.ui.home
 
-import android.annotation.SuppressLint
 import android.util.Log
 import androidx.core.view.isVisible
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.astrop.databinding.FragmentHomeBinding
@@ -22,6 +23,21 @@ class HomeViewModel @Inject constructor(
 ) : ViewModel() {
     private val GALAXY_ID = 2
     private val PLANETS_ID = 1
+
+    private val _astrosDetailList: MutableLiveData<List<AstroDetail>> = MutableLiveData()
+    val planetsList: LiveData<List<AstroDetail>> get() = _astrosDetailList
+    init {
+        getPlanets()
+    }
+
+    private fun getPlanets() {
+        viewModelScope.launch {
+            result.invoke()
+            val response = fromData.invoke(GALAXY_ID)
+            _astrosDetailList.value = response
+            Log.i("planetass", "$response")
+        }
+    }
 
 
     /*HACE LA PETICION A LA API Y LLRNA EL RV HORIZONTAL*/
@@ -44,8 +60,7 @@ class HomeViewModel @Inject constructor(
             } catch (e: Exception) {
 
                 "Error al obtener los datos : ${e.message}".also { binding.hello.text = it }
-            }
-            finally {
+            } finally {
                 binding.loadingContainer.isVisible = false
                 binding.homeContainer.isVisible = true
             }
@@ -53,7 +68,11 @@ class HomeViewModel @Inject constructor(
     }
 
     /*HACE LA PETICION A LA API Y LLRNA EL RV A MANERA DE UN GRID  */
-    fun setGridRv(astroGridDetailList: MutableList<AstroDetail>, adapter: HomeGridAdapter, binding: FragmentHomeBinding ) {
+    fun setGridRv(
+        astroGridDetailList: MutableList<AstroDetail>,
+        adapter: HomeGridAdapter,
+        binding: FragmentHomeBinding
+    ) {
         viewModelScope.launch {
             try {
                 result.invoke()
@@ -69,11 +88,11 @@ class HomeViewModel @Inject constructor(
 
                 "Error al obtener los datos : ${e.message}".also { binding.hello.text = it }
             } finally {
-
+                binding.homeContainer.isVisible = true
+                binding.loadingContainer.isVisible = false
             }
         }
     }
-
 
 
 }
