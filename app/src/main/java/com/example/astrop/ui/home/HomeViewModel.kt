@@ -26,8 +26,10 @@ class HomeViewModel @Inject constructor(
 
     private val _galaxiesDetailList: MutableLiveData<List<AstroDetail>> = MutableLiveData()
     private val _planetsDetailList: MutableLiveData<List<AstroDetail>> = MutableLiveData()
+    private var _loading: MutableLiveData<Boolean> = MutableLiveData()
     val galaxiesList: LiveData<List<AstroDetail>> get() = _galaxiesDetailList
     val planetsList: LiveData<List<AstroDetail>> get() = _planetsDetailList
+    val loading: LiveData<Boolean> get() = _loading
 
     init {
         getGalaxies()
@@ -36,10 +38,12 @@ class HomeViewModel @Inject constructor(
 
     private fun getPlanets() {
         viewModelScope.launch {
+
             result.invoke()
             val response = fromData.invoke(PLANETS_ID)
             _planetsDetailList.value = response
             Log.i("planetass", "$response")
+            _loading.value = false
         }
     }
 
@@ -49,6 +53,7 @@ class HomeViewModel @Inject constructor(
             val response = fromData.invoke(GALAXY_ID)
             _galaxiesDetailList.value = response
             Log.i("galaxias", "$response")
+            _loading.value = false
         }
     }
 

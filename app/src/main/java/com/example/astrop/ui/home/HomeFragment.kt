@@ -77,11 +77,12 @@ class HomeFragment : Fragment() {
 
     private fun setRvs() {
 
+        viewModel.loading.observe(requireActivity()) { load ->
+            binding.loadingContainer.isVisible = load
+            binding.homeContainer.isVisible = !load
+        }
         viewModel.galaxiesList.observe(requireActivity()) { galaxies ->
             adapter.setList(galaxies)
-            binding.homeContainer.isVisible = true
-            binding.loadingContainer.isVisible = false
-
         }
 
         viewModel.planetsList.observe(requireActivity()) { planets ->

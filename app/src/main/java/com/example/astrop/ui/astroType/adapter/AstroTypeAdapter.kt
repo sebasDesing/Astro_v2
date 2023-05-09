@@ -7,9 +7,15 @@ import com.example.astrop.R
 import com.example.astrop.domain.model.AstroType
 
 class AstroTypeAdapter(
-    private val astroList: List<AstroType>,
     private val onClickListener: (AstroType) -> Unit
 ) : RecyclerView.Adapter<AstroTypeViewHolder>() {
+
+    private lateinit var astroList: List<AstroType>
+
+    fun setList(list: List<AstroType>) {
+        astroList = list
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AstroTypeViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return AstroTypeViewHolder(layoutInflater.inflate(R.layout.item_type_astro, parent, false))
