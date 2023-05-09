@@ -8,16 +8,26 @@ import com.example.astrop.domain.model.AstroDetail
 
 
 class HomeAdapter(
-    private val astroDetailList: List<AstroDetail>,
     private val onClickListener: (AstroDetail) -> Unit
 ) : RecyclerView.Adapter<AstroDetailViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AstroDetailViewHolder {
-        val layoutInflater =LayoutInflater.from((parent.context))
-
-        return AstroDetailViewHolder(layoutInflater.inflate(R.layout.item_detail_list_astro, parent, false))
+    private lateinit var astroDetailList: List<AstroDetail>
+    fun setList(list: List<AstroDetail>) {
+        astroDetailList = list
     }
 
-    override fun getItemCount(): Int =astroDetailList.size
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AstroDetailViewHolder {
+        val layoutInflater = LayoutInflater.from((parent.context))
+
+        return AstroDetailViewHolder(
+            layoutInflater.inflate(
+                R.layout.item_detail_list_astro,
+                parent,
+                false
+            )
+        )
+    }
+
+    override fun getItemCount(): Int = astroDetailList.size
 
     override fun onBindViewHolder(holder: AstroDetailViewHolder, position: Int) {
         val item = astroDetailList[position]
