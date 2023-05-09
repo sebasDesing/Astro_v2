@@ -1,8 +1,6 @@
 package com.example.astrop.domain
 
-import android.os.Build
-import androidx.annotation.RequiresApi
-import com.example.astrop.data.AstroRepository
+import com.example.astrop.data.AstroRepositoryImpl
 import com.example.astrop.data.database.entities.toDB
 import com.example.astrop.domain.model.DailyImage
 import java.text.SimpleDateFormat
@@ -11,7 +9,7 @@ import javax.inject.Inject
 
 class GetDailyImageUseCase @Inject constructor(
     private val repository
-    : AstroRepository
+    : AstroRepositoryImpl
 ) {
 
     suspend operator fun invoke(): List<DailyImage> {

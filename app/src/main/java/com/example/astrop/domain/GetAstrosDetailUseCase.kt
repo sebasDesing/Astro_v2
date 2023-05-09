@@ -1,13 +1,13 @@
 package com.example.astrop.domain
 
-import com.example.astrop.data.AstroRepository
+import com.example.astrop.data.AstroRepositoryImpl
 import com.example.astrop.data.database.entities.toDB
 import com.example.astrop.domain.model.AstroDetail
 import javax.inject.Inject
 
 class GetAstrosDetailUseCase @Inject constructor(
     private val repository
-    : AstroRepository
+    : AstroRepositoryImpl
 ) {
 
     suspend operator fun  invoke(): List<AstroDetail> {
