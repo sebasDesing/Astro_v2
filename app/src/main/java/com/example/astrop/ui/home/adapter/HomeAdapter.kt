@@ -8,7 +8,6 @@ import com.example.astrop.domain.model.AstroDetail
 
 
 class HomeAdapter(
-
     private val onClickListener: (AstroDetail) -> Unit
 ) : RecyclerView.Adapter<AstroDetailViewHolder>() {
     private lateinit var astroDetailList: List<AstroDetail>

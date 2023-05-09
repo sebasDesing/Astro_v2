@@ -24,73 +24,31 @@ class HomeViewModel @Inject constructor(
     private val GALAXY_ID = 2
     private val PLANETS_ID = 1
 
-    private val _astrosDetailList: MutableLiveData<List<AstroDetail>> = MutableLiveData()
-    val planetsList: LiveData<List<AstroDetail>> get() = _astrosDetailList
+    private val _galaxiesDetailList: MutableLiveData<List<AstroDetail>> = MutableLiveData()
+    private val _planetsDetailList: MutableLiveData<List<AstroDetail>> = MutableLiveData()
+    val galaxiesList: LiveData<List<AstroDetail>> get() = _galaxiesDetailList
+    val planetsList: LiveData<List<AstroDetail>> get() = _planetsDetailList
+
     init {
+        getGalaxies()
         getPlanets()
     }
 
     private fun getPlanets() {
         viewModelScope.launch {
             result.invoke()
-            val response = fromData.invoke(GALAXY_ID)
-            _astrosDetailList.value = response
+            val response = fromData.invoke(PLANETS_ID)
+            _planetsDetailList.value = response
             Log.i("planetass", "$response")
         }
     }
 
-
-    /*HACE LA PETICION A LA API Y LLRNA EL RV HORIZONTAL*/
-    fun setData(
-        astroDetailList: MutableList<AstroDetail>,
-        adapter: HomeAdapter,
-        binding: FragmentHomeBinding
-    ) {
+    private fun getGalaxies() {
         viewModelScope.launch {
-            try {
-                result.invoke()
-                val response = fromData.invoke(GALAXY_ID)
-                response.let { res ->
-                    if (astroDetailList.size == 0) {
-                        astroDetailList.addAll(res)
-                        adapter.notifyDataSetChanged()
-                        Log.i("astrodetaill", "${res} ")
-                    }
-                }
-            } catch (e: Exception) {
-
-                "Error al obtener los datos : ${e.message}".also { binding.hello.text = it }
-            } finally {
-                binding.loadingContainer.isVisible = false
-                binding.homeContainer.isVisible = true
-            }
-        }
-    }
-
-    /*HACE LA PETICION A LA API Y LLRNA EL RV A MANERA DE UN GRID  */
-    fun setGridRv(
-        astroGridDetailList: MutableList<AstroDetail>,
-        adapter: HomeGridAdapter,
-        binding: FragmentHomeBinding
-    ) {
-        viewModelScope.launch {
-            try {
-                result.invoke()
-                val response = fromData.invoke(PLANETS_ID)
-                response.let { res ->
-                    if (astroGridDetailList.size == 0) {
-                        astroGridDetailList.addAll(res)
-                        adapter.notifyDataSetChanged()
-                        Log.i("astrodetaill", "${res} ")
-                    }
-                }
-            } catch (e: Exception) {
-
-                "Error al obtener los datos : ${e.message}".also { binding.hello.text = it }
-            } finally {
-                binding.homeContainer.isVisible = true
-                binding.loadingContainer.isVisible = false
-            }
+            result.invoke()
+            val response = fromData.invoke(GALAXY_ID)
+            _galaxiesDetailList.value = response
+            Log.i("galaxias", "$response")
         }
     }
 

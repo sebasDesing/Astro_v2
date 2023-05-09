@@ -2,12 +2,12 @@ package com.example.astrop.ui.home
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -30,8 +30,6 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private val viewModel: HomeViewModel by viewModels()
-    private val astroDetailList = mutableListOf<AstroDetail>()
-    private val astroGridDetailList = mutableListOf<AstroDetail>()
     private lateinit var adapter: HomeAdapter
     private lateinit var gridAdapter: HomeGridAdapter
     override fun onCreateView(
@@ -41,7 +39,6 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         setBackPressedCallback {
-
         }
         return binding.root
     }
@@ -64,25 +61,32 @@ class HomeFragment : Fragment() {
 
             adapter = adapter
         }
-
         adapter = HomeAdapter { ch -> onItemSelect(ch) }
-        gridAdapter = HomeGridAdapter(astroGridDetailList) { ch -> onGridItemSelect(ch) }
-
+        gridAdapter = HomeGridAdapter { ch -> onGridItemSelect(ch) }
         binding.rvHome.adapter = adapter
         binding.rvPlanets.adapter = gridAdapter
 
 
-        viewModel.planetsList.observe(requireActivity()) { planets ->
-            adapter.setList(planets)
-            //astroDetailList.addAll(listOf(planet))
 
-        }
-
-        viewModel.setGridRv(astroGridDetailList, gridAdapter, binding)
+        setRvs()
         setAnimation()
         greeting()
         goToDailyImage()
 
+    }
+
+    private fun setRvs() {
+
+        viewModel.galaxiesList.observe(requireActivity()) { galaxies ->
+            adapter.setList(galaxies)
+            binding.homeContainer.isVisible = true
+            binding.loadingContainer.isVisible = false
+
+        }
+
+        viewModel.planetsList.observe(requireActivity()) { planets ->
+            gridAdapter.setList(planets)
+        }
     }
 
     private fun goToDailyImage() {
