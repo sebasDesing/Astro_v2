@@ -10,6 +10,7 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -34,7 +35,6 @@ class AstroTypeFragment : Fragment() {
     private var _binding: FragmentAstroTypeBinding? = null
     private val binding get() = _binding!!
     private val viewModel: AstroTypeViewModel by viewModels()
-    private val astroList = mutableListOf<AstroType>()
     private lateinit var adapter: AstroTypeAdapter
 
     override fun onCreateView(
@@ -54,13 +54,24 @@ class AstroTypeFragment : Fragment() {
         val activity = requireActivity() as AppCompatActivity
         activity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
 
-        binding.astroTypesFg.animation = AnimationUtils.loadAnimation(requireContext(), R.anim.from_ast)
+        binding.astroTypesFg.animation =
+            AnimationUtils.loadAnimation(requireContext(), R.anim.from_ast)
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        adapter = AstroTypeAdapter(astroList) { ch -> onItemSelect(ch) }
+        adapter = AstroTypeAdapter { ch -> onItemSelect(ch) }
         binding.recyclerView.adapter = adapter
-        /* LLENA LA LISTA DE TIPOS DE ASTRO*/
-        viewModel.setRecyclerView(astroList, adapter, binding)
+        setListAstroTypes()
         setAnimation()
+    }
+
+    private fun setListAstroTypes() {
+
+        viewModel.loading.observe(requireActivity()) { load ->
+            binding.astrotypeLoading.isVisible = load
+            binding.rvContainer.isVisible = !load
+        }
+        viewModel.listAstroType.observe(requireActivity()) { astroTypesList ->
+            adapter.setList(astroTypesList)
+        }
     }
 
     private fun setAnimation() {
@@ -71,12 +82,13 @@ class AstroTypeFragment : Fragment() {
             interpolator = AccelerateDecelerateInterpolator()
         }
         val binding_2 = ItemTypeAstroLoadingBinding.bind(requireView())
-        val alphaAnimator_item = ObjectAnimator.ofFloat(binding_2.textLoading, "alpha", 0.2f, 1f).apply {
-            duration = 1000
-            repeatCount = ObjectAnimator.INFINITE
-            repeatMode = ObjectAnimator.REVERSE
-            interpolator = AccelerateDecelerateInterpolator()
-        }
+        val alphaAnimator_item =
+            ObjectAnimator.ofFloat(binding_2.textLoading, "alpha", 0.2f, 1f).apply {
+                duration = 1000
+                repeatCount = ObjectAnimator.INFINITE
+                repeatMode = ObjectAnimator.REVERSE
+                interpolator = AccelerateDecelerateInterpolator()
+            }
 
         alphaAnimator_item.start()
         alphaAnimator.start()
@@ -87,7 +99,7 @@ class AstroTypeFragment : Fragment() {
     private fun onItemSelect(astro: AstroType) {
         Log.i("HiAstro", "$astro")
         val nav = AstroTypeFragmentDirections.actionAstroTypeFragmentToDetailFragment(
-            AstroTypeModel(astro.typeAstro,astro.imgUrl,astro.id_type_astro)
+            AstroTypeModel(astro.typeAstro, astro.imgUrl, astro.id_type_astro)
         )
         findNavController().navigate(nav)
     }
