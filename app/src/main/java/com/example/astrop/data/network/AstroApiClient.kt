@@ -11,7 +11,7 @@ interface AstroApiClient
 
     @GET("/api/astros/types")
     suspend fun getAstroTypes(): Response <List<AstroTypeModel>>
-    @GET("/planetary/apod?api_key=wivo5ZcPxL23teiy0LlcS7Pxtt6tK4HOfASK6RAZ")
+    @GET("/planetary/apod?api_key=JwWK7qVmqKw0FIyJn5ipFw9SZtp9J4qEfFsRMiif")
     suspend fun  getDailyImage(): Response<DailyImageModel>
 
     @GET("/api/astros/all")
