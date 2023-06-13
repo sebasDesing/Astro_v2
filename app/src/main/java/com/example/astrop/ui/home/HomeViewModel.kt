@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.astrop.domain.use_case.get_astro_detail.GetAstroDetailUseCase
 import com.example.astrop.domain.model.AstroDetail
-import com.example.astrop.domain.model.GetDetailByTypeUseCase
+import com.example.astrop.domain.use_case.GetDetailByTypeUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

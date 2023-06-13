@@ -4,6 +4,8 @@ import com.example.astrop.domain.use_case.get_astro_detail.GetAstroDetailUseCase
 import com.example.astrop.domain.use_case.get_astro_detail.GetAstrosDetailUseCaseImpl
 import com.example.astrop.domain.use_case.get_astro_type.GetAstroTypeUseCase
 import com.example.astrop.domain.use_case.get_astro_type.GetAstroTypeUseCaseImpl
+import com.example.astrop.domain.use_case.get_daily_image.GetDailyImageUseCase
+import com.example.astrop.domain.use_case.get_daily_image.GetDailyImageUseCaseImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -21,4 +23,8 @@ abstract class UseCaseModule {
     @Binds
     @ViewModelScoped
     abstract fun bindsGetAstroTypeUseCase(getAstroTypeUseCaseImpl: GetAstroTypeUseCaseImpl): GetAstroTypeUseCase
+
+    @Binds
+    @ViewModelScoped
+    abstract fun bindsDailyImageUseCase(getDailyImageUseCaseImpl: GetDailyImageUseCaseImpl): GetDailyImageUseCase
 }

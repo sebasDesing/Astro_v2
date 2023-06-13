@@ -1,6 +1,7 @@
-package com.example.astrop.domain.model
+package com.example.astrop.domain.use_case
 
 import com.example.astrop.data.AstroRepositoryImpl
+import com.example.astrop.domain.model.AstroDetail
 import javax.inject.Inject
 
 
