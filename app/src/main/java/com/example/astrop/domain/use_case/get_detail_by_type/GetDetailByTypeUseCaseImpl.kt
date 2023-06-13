@@ -1,16 +1,17 @@
-package com.example.astrop.domain.use_case
+package com.example.astrop.domain.use_case.get_detail_by_type
 
 import com.example.astrop.data.AstroRepositoryImpl
 import com.example.astrop.domain.model.AstroDetail
+import com.example.astrop.domain.use_case.get_astro_detail.GetAstroDetailUseCase
 import javax.inject.Inject
 
 
-class GetDetailByTypeUseCase @Inject constructor(
+class GetDetailByTypeUseCaseImpl @Inject constructor(
     private val repository
     : AstroRepositoryImpl
-) {
+):GetDetailByTypeUseCase {
 
-    suspend operator fun invoke(id: Int): List<AstroDetail> {
+    override suspend operator fun invoke(id: Int): List<AstroDetail> {
 
         val astroDetail = repository.getAllAstrosDetailBytypeFromBD(id)
         return if (astroDetail.isNotEmpty()) {

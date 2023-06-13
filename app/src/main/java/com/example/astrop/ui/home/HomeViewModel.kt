@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.astrop.domain.use_case.get_astro_detail.GetAstroDetailUseCase
 import com.example.astrop.domain.model.AstroDetail
-import com.example.astrop.domain.use_case.GetDetailByTypeUseCase
+import com.example.astrop.domain.use_case.get_detail_by_type.GetDetailByTypeUseCaseImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -15,7 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val result: GetAstroDetailUseCase,
-    private val fromData: GetDetailByTypeUseCase
+    private val fromData: GetDetailByTypeUseCaseImpl
 ) : ViewModel() {
     private val GALAXY_ID = 2
     private val PLANETS_ID = 1
