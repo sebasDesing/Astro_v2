@@ -50,7 +50,17 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
     implementation 'com.google.firebase:firebase-auth-ktx:21.3.0'
-    testImplementation 'junit:junit:4.13.2'
+    //TEST
+    // Optional -- Mockito framework
+    testImplementation "org.mockito:mockito-core:5.3.1"
+    // Optional -- mockito-kotlin
+    testImplementation "org.mockito.kotlin:mockito-kotlin:5.0.0"
+    // Optional -- Mockk framework
+    testImplementation "io.mockk:mockk:1.13.5"
+    //Truth
+    testImplementation "com.google.truth:truth:1.1.4"
+
+    testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
@@ -110,4 +120,6 @@ dependencies {
 
     //Shimmer
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
+
 }
