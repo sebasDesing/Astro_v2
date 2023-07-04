@@ -5,7 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.astrop.databinding.FragmentDetailBinding
 import com.example.astrop.domain.model.AstroDetail
-import com.example.astrop.domain.model.GetDetailByTypeUseCase
+import com.example.astrop.domain.use_case.get_detail_by_type.GetDetailByTypeUseCase
+import com.example.astrop.domain.use_case.get_detail_by_type.GetDetailByTypeUseCaseImpl
 import com.example.astrop.ui.astroDetail.adapter.DetailAdapter
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

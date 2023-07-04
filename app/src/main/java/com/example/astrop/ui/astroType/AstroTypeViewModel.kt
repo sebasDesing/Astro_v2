@@ -1,15 +1,11 @@
 package com.example.astrop.ui.astroType
 
-import android.annotation.SuppressLint
-import androidx.core.view.isVisible
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.astrop.databinding.FragmentAstroTypeBinding
-import com.example.astrop.domain.GetAstroTypeUseCase
 import com.example.astrop.domain.model.AstroType
-import com.example.astrop.ui.astroType.adapter.AstroTypeAdapter
+import com.example.astrop.domain.use_case.get_astro_type.GetAstroTypeUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

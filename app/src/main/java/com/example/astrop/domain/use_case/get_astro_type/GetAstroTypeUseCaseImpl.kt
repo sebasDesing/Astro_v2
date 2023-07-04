@@ -1,13 +1,14 @@
-package com.example.astrop.domain
+package com.example.astrop.domain.use_case.get_astro_type
 
-import com.example.astrop.data.AstroRepository
+import com.example.astrop.data.AstroRepositoryImpl
 import com.example.astrop.data.database.entities.toDB
 import com.example.astrop.domain.model.AstroType
 import javax.inject.Inject
 
-class GetAstroTypeUseCase @Inject constructor(private val repository: AstroRepository) {
+class GetAstroTypeUseCaseImpl @Inject constructor(private val repository: AstroRepositoryImpl) :
+    GetAstroTypeUseCase {
 
-    suspend operator fun invoke(): List<AstroType> {
+    override suspend operator fun invoke(): List<AstroType> {
         val astroTypes = repository.getTypeAstroFromDB()
         return if (astroTypes.isNotEmpty()) {
             astroTypes

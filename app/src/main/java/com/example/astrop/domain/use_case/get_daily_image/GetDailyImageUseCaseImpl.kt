@@ -1,20 +1,18 @@
-package com.example.astrop.domain
+package com.example.astrop.domain.use_case.get_daily_image
 
-import android.os.Build
-import androidx.annotation.RequiresApi
-import com.example.astrop.data.AstroRepository
+import com.example.astrop.data.AstroRepositoryImpl
 import com.example.astrop.data.database.entities.toDB
 import com.example.astrop.domain.model.DailyImage
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
 
-class GetDailyImageUseCase @Inject constructor(
+class GetDailyImageUseCaseImpl @Inject constructor(
     private val repository
-    : AstroRepository
-) {
+    : AstroRepositoryImpl
+):GetDailyImageUseCase {
 
-    suspend operator fun invoke(): List<DailyImage> {
+    override suspend operator fun invoke(): List<DailyImage> {
 
         val dailyImage = repository.getDailyImageFromDB()
         return if (dailyImage.isNotEmpty() && dailyImage[0].date ==getCurrentDate()) {

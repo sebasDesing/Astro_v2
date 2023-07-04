@@ -2,24 +2,23 @@ package com.example.astrop.ui.dailyImage
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bumptech.glide.Glide
 import com.example.astrop.databinding.FragmentDailyImageBinding
-import com.example.astrop.domain.GetDailyImageUseCase
+import com.example.astrop.domain.use_case.get_daily_image.GetDailyImageUseCase
+import com.example.astrop.domain.use_case.get_daily_image.GetDailyImageUseCaseImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class DailyImageViewModel @Inject constructor(private val result: GetDailyImageUseCase) :
+class DailyImageViewModel @Inject constructor(private val result: GetDailyImageUseCaseImpl) :
     ViewModel() {
 
 
-    @SuppressLint("SetTextI18n")
+
     fun getDailyImage(binding: FragmentDailyImageBinding, context: Context)  {
         viewModelScope.launch {
             try {

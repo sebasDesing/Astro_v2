@@ -1,25 +1,21 @@
 package com.example.astrop.ui.home
 
 import android.util.Log
-import androidx.core.view.isVisible
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.astrop.databinding.FragmentHomeBinding
-import com.example.astrop.domain.GetAstrosDetailUseCase
+import com.example.astrop.domain.use_case.get_astro_detail.GetAstroDetailUseCase
 import com.example.astrop.domain.model.AstroDetail
-import com.example.astrop.domain.model.GetDetailByTypeUseCase
-import com.example.astrop.ui.home.adapter.HomeAdapter
-import com.example.astrop.ui.home.adapter.HomeGridAdapter
+import com.example.astrop.domain.use_case.get_detail_by_type.GetDetailByTypeUseCaseImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val result: GetAstrosDetailUseCase,
-    private val fromData: GetDetailByTypeUseCase
+    private val result: GetAstroDetailUseCase,
+    private val fromData: GetDetailByTypeUseCaseImpl
 ) : ViewModel() {
     private val GALAXY_ID = 2
     private val PLANETS_ID = 1
